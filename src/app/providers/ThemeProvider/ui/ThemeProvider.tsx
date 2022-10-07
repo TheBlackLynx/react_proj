@@ -14,7 +14,7 @@ export const ThemeProvider: FC = ({children}) => {
    
     return (
         <ThemeContext.Provider value={defaultProps}>
-        {children}
+            {children}
         </ThemeContext.Provider>
 
     )

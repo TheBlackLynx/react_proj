@@ -17,13 +17,14 @@ export const AppButton: FC<AppButtonType> = ( props ) => {
         children,
         buttonTheme,
         ...otherProps
-     } = props;
+    } = props;
     return (
         <button 
-        {...otherProps}
-        className={
-            classNames(cls.AppButton, {}, [className, cls[buttonTheme]])} 
-            >
+            type='button'
+            {...otherProps}
+            className={
+                classNames(cls.AppButton, {}, [className, cls[buttonTheme]])} 
+        >
             {children}
         </button>
     )
