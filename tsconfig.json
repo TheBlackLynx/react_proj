@@ -1,24 +1,24 @@
 {
-    compilerOptions: {
+    "compilerOptions": {
         // папка сборки
-        "outDir": './dist/',
+        "outDir": "./dist/",
         // явно подсвечивает все места, где не указан тип
         // any использовать можно, но нужно теперь явно писать any
         "noImplicitAny": true,
         // различные способы модульной сборки
-        "module": 'ESNext',
-        "typeRoots": ['./src/@types', './node_modules/@types'],
+        "module": "ESNext",
+        "typeRoots": ["./src/@types", "./node_modules/@types"],
         // target - указываем стандарт ECMAscript, в который код будет компилироваться
-        "target": 'es5',
-        "jsx": 'react-jsx',
+        "target": "es5",
+        "jsx": "react-jsx",
         // allowJs - компилятор будет обрабатывать не только ts файлы но и js
         "allowJs": true,
         // для абсолютного импорта
-        baseUrl: '.',
-        paths: {
-            "*": ['./src/*']
+        "baseUrl": ".",
+        "paths": {
+            "*": ["./src/*"]
         },
-        "moduleResolution": 'node',
+        "moduleResolution": "node",
         // esModuleInterop позволяет работать с пакетами, которые используют
         // common js как с обычными пакетами с помощью import(export)
         // require и module.export = common js
@@ -34,9 +34,9 @@
         // import React from 'react'
         "allowSyntheticDefaultImports": true,
     },
-    'ts-node': {
+    "ts-node": {
         "compilerOptions": {
-            "module": 'CommonJS'
+            "module": "CommonJS"
         }
     },
   }

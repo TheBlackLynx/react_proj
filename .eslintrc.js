@@ -18,7 +18,8 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "i18next"
     ],
     "rules": {
         'react-in-jsx-scope': 'off',
@@ -34,7 +35,8 @@ module.exports = {
         'react/function-component-definition': 'off',
         'import/extensions': 'off',
         'react/react-in-jsx-scope': 'off',
-        'no-useless-escape': 'off'
+        'no-useless-escape': 'off',
+        "i18next/no-literal-string": ['error', {'mode': 'jsx-only'}]
       
     }
 }

@@ -1,5 +1,4 @@
 import { useTheme } from "app/providers/ThemeProvider";
-import cls from "./ThemeSwitcher.module.scss";
 import { classNames } from 'shared';
 import { FC } from 'react';
 import LightTheme from 'shared/assets/icons/theme-light.svg';
@@ -21,7 +20,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ( props ) => {
         <>
             <AppButton 
                 buttonTheme={AppButtonTheme.CLEAR}
-                className={classNames(cls.themeSwitcher, {}, [className])}
+                className={classNames('', {}, [className])}
                 onClick={toggleTheme}
             >
 
