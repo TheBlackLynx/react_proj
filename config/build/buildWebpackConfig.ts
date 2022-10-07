@@ -13,7 +13,7 @@ export function buildWebpackConfig(options: BuildOptions) : webpack.Configuratio
         module: {
             rules: buildLoaders(options)
           },
-        resolve: buildResolvers(),
+        resolve: buildResolvers(options),
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
         entry: entry,
@@ -22,6 +22,6 @@ export function buildWebpackConfig(options: BuildOptions) : webpack.Configuratio
             path: build,
             clean: true
         },
-        plugins: buildPlugins(html),
+        plugins: buildPlugins(html, isDev),
       }
 }

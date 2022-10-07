@@ -7,13 +7,17 @@
       "noImplicitAny": true,
       //различные способы модульной сборки
       "module": "ESNext",
+      "typeRoots": ["./src/@types", "./node_modules/@types"],
       // target - указываем стандарт ECMAscript, в который код будет компилироваться
       "target": "es5",
       "jsx": "react-jsx",
       // allowJs - компилятор будет обрабатывать не только ts файлы но и js
       "allowJs": true,
       //для абсолютного импорта
-      "baseUrl": ".",
+        "baseUrl": ".",
+        "paths": {
+        "*": ["./src/*"]
+        },
       "moduleResolution": "node",
       //esModuleInterop позволяет работать с пакетами, которые используют 
       //common js как с обычными пакетами с помощью import(export)
