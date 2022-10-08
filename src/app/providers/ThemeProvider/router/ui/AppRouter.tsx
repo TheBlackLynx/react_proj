@@ -3,26 +3,29 @@ import { AboutPage } from 'pages/About'
 import { MainPage } from "pages/Main";
 import { Suspense, useState } from "react";
 import { routeConfig } from "shared/config/routeConfig/routeConfig";
+import { PageLoader } from "widgets/PageLoader";
 
 const AppRouter = () => {
     return (
         <>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                    {
-                        Object.values(routeConfig).map(({path, element}) => (
-                            <Route 
-                                key={path}
-                                element={(
+            
+            <Routes>
+                {
+                    Object.values(routeConfig).map(({path, element}) => (
+                        <Route 
+                            key={path}
+                            element={(
+                                <Suspense fallback={<PageLoader />}>
                                     <div className="page-wrapper"> 
                                         {element}
                                     </div>
-                                )}
-                                path={path}
-                            />
-                        ))}
-                </Routes>
-            </Suspense>
+                                </Suspense>
+                            )}
+                            path={path}
+                        />
+                    ))}
+            </Routes>
+           
         </>
     )
 }
