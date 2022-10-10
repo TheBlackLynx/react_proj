@@ -1,11 +1,11 @@
 import { Routes, Route, Link } from "react-router-dom";
 import "./styles/index.scss";
 import { Suspense, useState } from "react";
-import { useTheme } from "./providers/ThemeProvider";
+import { useTheme } from "./providers";
 import { AboutPage } from "../pages/About";
 import { MainPage } from "../pages/Main";
 import { classNames } from "shared";
-import { AppRouter } from "./providers/ThemeProvider/router";
+import { AppRouter } from "./providers/router";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
 
