@@ -1,5 +1,5 @@
 import cls from "./Sidebar.module.scss";
-import { classNames } from "shared";
+import { AppButton, classNames } from "shared";
 import { useState } from "react";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher";
@@ -12,9 +12,15 @@ export const Sidebar = () => {
     };
     return (
         <div
+            data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [])}
         >
-            <button onClick={onToggle}>Toggle</button>
+            <AppButton
+                data-testid="sidebar-toggle"
+                onClick={onToggle}
+            >
+                Toggle
+            </AppButton>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
 

@@ -33,10 +33,14 @@
         // можно писать
         // import React from 'react'
         "allowSyntheticDefaultImports": true,
+        
     },
     "ts-node": {
         "compilerOptions": {
             "module": "CommonJS"
         }
     },
+    "include": [
+        "./config/jest/jest-setup.ts"
+      ],
   }

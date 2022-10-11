@@ -3,9 +3,12 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from "path";
+
 export default {
     clearMocks: true,
     testEnvironment: "jsdom",
+    setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 
@@ -81,6 +84,10 @@ export default {
         "json",
         "node"
     ],
+    moduleNameMapper: {
+        "\\.scss$": "identity-obj-proxy",
+        "\\.svg": path.resolve(__dirname, 'jestEmptyComponent.tsx')
+    },
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
     // moduleNameMapper: {},
@@ -149,9 +156,12 @@ export default {
 
     // The glob patterns Jest uses to detect test files
     testMatch: [
-        '<rootDir>src/**/*.test.ts'
+        '<rootDir>src/**/*.test.ts(x)'
     ],
-
+    "modulePaths": [
+        "<rootDir>src",
+    ],
+    
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
     // testPathIgnorePatterns: [
     //   "/node_modules/"
