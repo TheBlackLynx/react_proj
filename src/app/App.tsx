@@ -20,9 +20,13 @@ const App = () => {
     return (
         <>
             <div
-                className={classNames("app", { hovered: true, selected: false }, [
-                    theme,
-                ])}
+                className={
+                    classNames(
+                        "app", 
+                        { hovered: true, selected: false }, 
+                        [
+                            theme,
+                        ])}
             >
                 <Suspense fallback=''>
                     <Navbar />

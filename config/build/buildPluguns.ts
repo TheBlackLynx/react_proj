@@ -6,7 +6,8 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
 
-export function buildPlugins(htmlPath: string, isDev: boolean): webpack.WebpackPluginInstance[] {
+export function buildPlugins(htmlPath: string, isDev: boolean)
+: webpack.WebpackPluginInstance[] {
     return [
         new HtmlWebpackPlugin({
             template: htmlPath,

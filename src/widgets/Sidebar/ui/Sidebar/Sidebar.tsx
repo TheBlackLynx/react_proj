@@ -13,7 +13,11 @@ export const Sidebar = () => {
     return (
         <div
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [])}
+            className={classNames(
+                cls.Sidebar, 
+                { [cls.collapsed]: collapsed }, 
+                []
+            )}
         >
             <AppButton
                 data-testid="sidebar-toggle"

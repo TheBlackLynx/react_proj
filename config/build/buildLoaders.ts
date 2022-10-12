@@ -1,33 +1,13 @@
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
+import { buildCssLoaders } from './loaders/buildCssLoaders';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const { isDev } = options;
-    const cssLoaders = 
-        {
-            test: /\.s[ac]ss$/i,
-            use: [
-                // Creates `style` nodes from JS strings
-                isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-              
-                // Translates CSS into CommonJS
-                {
-                    loader: "css-loader",
-                    options: {
-                        modules: {
-                            auto: (path: string) => Boolean(path.includes('.module.')),
-                            localIdentName: isDev 
-                                ? '[path][name]__[local]' 
-                                : '[hash: base64: 8]'
-                        },
-                    }
-                },
-                // Compiles Sass to CSS
-                "sass-loader",
-              
-            ],
-        }
+    const cssLoaders = buildCssLoaders(isDev);
+       
     const typescriptLoaders = 
         //если не используем TS, то нужно добавлять еще 
         //babel-loader - транспилятор для преобразования нового 
@@ -37,10 +17,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
             use: 'ts-loader',
             exclude: /node_modules/,
         }
-    const svgLoader = {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-    }
+    const svgLoader = buildSvgLoader();
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif)$/i,
