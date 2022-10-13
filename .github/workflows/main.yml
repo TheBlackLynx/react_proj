@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: '12.x'
       - run: npm install
-      - run: npm run build:dev
+      - run: npm run build:prod
       - run: npm run lint:ts
       - run: npm run stylelint
       - run: npm run test:unit
