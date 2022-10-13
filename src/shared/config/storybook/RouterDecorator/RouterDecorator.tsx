@@ -1,5 +1,5 @@
 import 'app/styles/index.scss';
-import Story from "@storybook/react"
+import {Story} from "@storybook/react"
 import { Router } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 
