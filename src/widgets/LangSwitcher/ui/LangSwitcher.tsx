@@ -4,7 +4,12 @@ import cls from "./LangSwitcher.module.scss";
 import { classNames } from "shared";
 import { AppButtonTheme } from "shared/ui/AppButton/AppButton";
 
-export const LangSwitcher = () => {
+export interface LangSwitcherProps {
+    className?: string,
+    short?: boolean
+}
+export const LangSwitcher = (props: LangSwitcherProps) => {
+    const { className, short } = props;
     const { t, i18n } = useTranslation();
     const toggle = () => {
         i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
@@ -15,7 +20,7 @@ export const LangSwitcher = () => {
             onClick={toggle}
             buttonTheme={AppButtonTheme.CLEAR}
         >
-            {t("Язык")}
+            {t(short? "Короткий язык" : "Язык")}
         </AppButton>
     );
 };
