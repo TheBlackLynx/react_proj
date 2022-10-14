@@ -39,6 +39,5 @@ jobs:
         if: always()
       - run: npm run test:unit
         if: always()
-      - run: npm run test:ui:ok
       - run: npm run test:ui:ci
     

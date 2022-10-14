@@ -16,7 +16,9 @@
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "build-storybook -c ./config/storybook && npx loki --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "build-storybook": "build-storybook -c ./config/storybook"
+    "build-storybook": "build-storybook -c ./config/storybook",
+    "visual:report:json": "node scripts/generate-visual-json-report.js",
+    "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html"
   },
   "repository": {
     "type": "git",
