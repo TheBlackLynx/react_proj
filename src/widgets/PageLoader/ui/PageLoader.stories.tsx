@@ -17,7 +17,8 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof PageLoader>;
-const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />;
+const Template: 
+ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {};

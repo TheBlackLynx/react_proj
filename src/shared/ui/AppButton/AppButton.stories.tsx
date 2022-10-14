@@ -17,7 +17,8 @@ export default {
 } as ComponentMeta<typeof AppButton>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof AppButton> = (args) => <AppButton {...args} />;
+const Template: 
+ComponentStory<typeof AppButton> = (args) => <AppButton {...args} />;
 
 export const Primary = Template.bind({});
 Primary.decorators = [ThemeDecorator(Theme.DARK)]

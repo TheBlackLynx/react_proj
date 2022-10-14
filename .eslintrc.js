@@ -31,6 +31,7 @@ module.exports = {
     'import/extensions': 'off',
     'react/react-in-jsx-scope': 'off',
     'no-useless-escape': 'off',
+    "react/display-name": "off",
     "i18next/no-literal-string": [1, {
       'mode': 'jsx-only',
       'ignoreAttribute': ['data-testid', 'to']
