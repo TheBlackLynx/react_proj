@@ -38,6 +38,4 @@ jobs:
       - run: npm run stylelint
         if: always()
       - run: npm run test:unit
-        if: always()
-      - run: npm run test:ui:ci
     
