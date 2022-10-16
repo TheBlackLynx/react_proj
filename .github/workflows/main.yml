@@ -40,5 +40,5 @@ jobs:
       - run: npm run test:unit
         if: always()
       - run: npm run build-storybook
-      - run: npx run test:ui:ci
+      - run: npm run test:ui:ci
     
