@@ -7,14 +7,13 @@ import { Input } from "shared/ui/Input/Input";
 
 export interface LoginFormProps {
     className?: string,
-    short?: boolean
 }
-export const LoginForm = (props: LoginFormProps) => {
+export const LoginForm = ({ className }: LoginFormProps) => {
     const {t} = useTranslation()
     return (
         <div className={cls.loginForm}>
-            <Input placeholder={'Username'} type='text' autoFocus={true}/>
-            <Input placeholder={'Password'} type='text' />
+            <Input placeholder={t('Username')} type='text' />
+            <Input placeholder={t('Password')} type='text' />
             <AppButton className={cls.loginBtn}>
                 {t('Войти')}
             </AppButton>

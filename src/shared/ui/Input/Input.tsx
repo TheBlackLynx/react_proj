@@ -1,8 +1,10 @@
-import { Modal } from "shared/ui/Modal/Modal";
 import cls from './Input.module.scss'
-import { classNames } from "shared";
-import React, { InputHTMLAttributes, memo, ReactEventHandler, useEffect, useRef, useState } from "react";
-import { clearScreenDown } from "readline";
+import React, { 
+    InputHTMLAttributes, 
+    memo, 
+    useEffect, 
+    useRef, 
+    useState } from "react";
 
 type HTMLInputProps = 
 Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
