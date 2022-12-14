@@ -11,6 +11,7 @@ interface ModalProps {
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy: boolean
 }
 
 const ANIMATION_DELAY = 300;
@@ -20,8 +21,16 @@ export const Modal = (props: ModalProps) => {
         className,
         children,
         isOpen,
-        onClose } = props;
-    const {theme } = useTheme()
+        onClose, 
+        lazy,
+    } = props;
+    const {theme } = useTheme();
+    const [isMounted, setIsMounted] = useState(false);
+    useEffect(() => {
+        if(isOpen){
+            setIsMounted(true)
+        }
+    }, [isOpen])
     const closeHandler = useCallback(() => {
         onClose ? onClose() : null
         timeRef.current = setTimeout(() => {
@@ -33,16 +42,21 @@ export const Modal = (props: ModalProps) => {
             closeHandler();
         }
     }, [closeHandler])
+
+
     useEffect(() => {
         if (isOpen) {
             window.addEventListener('keydown', onKeyDown);
         }
         return () => {
-            clearTimeout(timeRef.current);
+            clearTimeout(timeRef?.current);
             window.removeEventListener('keydown', onKeyDown);
         }
     }, [isOpen, onKeyDown])
     
+    // if (lazy && !isMounted ) {
+    //     return null;
+    // }
   
     const [isClosing, setIsClosing] = useState(false);
     const timeRef = useRef<ReturnType<typeof setTimeout>>();

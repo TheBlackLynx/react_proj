@@ -7,6 +7,7 @@ import cls from "./Navbar.module.scss";
 import { Modal } from "shared/ui/Modal/Modal";
 import { useState, useCallback } from "react";
 import { AppButtonTheme } from "shared/ui/AppButton/AppButton";
+import { LoginModal } from "features/AuthByUsername";
 
 interface NavbarProps {
   className?: string;
@@ -14,8 +15,11 @@ interface NavbarProps {
 export const Navbar = ({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
 
-    const toggleModal = useCallback(() => {
-        setIsAuthModal(prev => !prev)
+    const onCloseModal = useCallback(() => {
+        setIsAuthModal(false)
+    }, [setIsAuthModal])
+    const onShowModal = useCallback(() => {
+        setIsAuthModal(true)
     }, [setIsAuthModal])
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
@@ -23,10 +27,10 @@ export const Navbar = ({ className }: NavbarProps) => {
             <AppButton 
                 buttonTheme={AppButtonTheme.CLEAR_INVERTED} 
                 className={classNames(cls.links)}
-                onClick={toggleModal}>
+                onClick={onShowModal}>
                 {t('Войти')}
             </AppButton>
-            <Modal isOpen={isAuthModal} onClose={toggleModal}>fwerwerwerwerwer</Modal>
+            <LoginModal isOpen={isAuthModal} onClose={onCloseModal}/>
         </div>
     );
 };
