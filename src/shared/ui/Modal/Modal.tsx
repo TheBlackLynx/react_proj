@@ -4,6 +4,7 @@ import { classNames } from 'shared';
 import { ReactEventHandler, ReactNode } from "react";
 import { CLIENT_RENEG_WINDOW } from 'tls';
 import { Portal } from '../Portal/Portal';
+import { useTheme } from 'app/providers';
 
 interface ModalProps {
     className?: string;
@@ -20,6 +21,7 @@ export const Modal = (props: ModalProps) => {
         children,
         isOpen,
         onClose } = props;
+    const {theme } = useTheme()
     const closeHandler = useCallback(() => {
         onClose ? onClose() : null
         timeRef.current = setTimeout(() => {
@@ -53,7 +55,7 @@ export const Modal = (props: ModalProps) => {
     }
     return (
         <Portal >
-            <div className={classNames(cls.Modal, mods, [className])}>
+            <div className={classNames(cls.Modal, mods, [className, theme])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div className={cls.content}
                         onClick={(e) => contentClickHandler(e)}>
