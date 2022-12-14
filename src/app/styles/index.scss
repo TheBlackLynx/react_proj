@@ -3,7 +3,7 @@
 @import "./variables/global";
 @import "reset";
 
-.app {
+body {
     font: var(--font-m);
     background-color: var(--bg-color);
     color: var(--primary-color);
