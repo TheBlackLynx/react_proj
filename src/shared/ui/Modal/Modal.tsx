@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import cls from "./Modal.module.scss";
 import { classNames } from 'shared';
-import { ReactEventHandler, ReactNode } from "react";
-import { CLIENT_RENEG_WINDOW } from 'tls';
+import {  ReactNode } from "react";
 import { Portal } from '../Portal/Portal';
 import { useTheme } from 'app/providers';
 
@@ -69,7 +68,10 @@ export const Modal = (props: ModalProps) => {
     }
     return (
         <Portal >
-            <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
+            <div className={
+                classNames(cls.Modal, 
+                    mods, 
+                    [theme, 'app_modal'])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div className={cls.content}
                         onClick={(e) => contentClickHandler(e)}>

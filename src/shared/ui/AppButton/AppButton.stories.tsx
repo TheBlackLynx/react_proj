@@ -107,3 +107,10 @@ ButtonXL.args = {
     children: 'Text',
     size: AppButtonSize.XL
 }
+
+
+export const ButtonDisabled = Template.bind({});
+ButtonDisabled.args = {
+    children: 'Text',
+    disabled:true
+}

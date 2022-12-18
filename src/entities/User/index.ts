@@ -1,8 +1,15 @@
+import { getUserAuthData } from 
+    './model/selectors/getUserAuthData/getUserAuthData'
 export {
     userActions,
-    userReducer
+    userReducer,
+    
 } from "./model/slice/userSlice"
 export { 
     User, 
-    UserSchema 
+    UserSchema,
 } from './model/types/user'
+
+export {
+    getUserAuthData
+}

@@ -2,10 +2,14 @@
     display: flex;
     flex-direction: column;
 }
-input {
-    margin-top: 10px;
+
+.loginInputs {
+    margin-top: 20px !important;
+
 }
+
 .loginBtn {
     margin-top: 10px;
     margin-left: auto;
+    color: black;
 }

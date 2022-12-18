@@ -17,9 +17,13 @@
     --sidebar-width-collapsed: 80px;
     --primary-color: #049604;
 
-    //z-индексы
+    // z-индексы
+
     --modal-z-index: 10;
 
-    //цвета 
-    --overlay-bg-color: rgba(0, 0, 0, 0.6)
+    // цвета
+    --overlay-bg-color: rgb(0 0 0 / 60%);
+
+    // errors
+    --error-font-color: red;
 }

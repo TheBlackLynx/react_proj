@@ -1,5 +1,6 @@
 import cls from './Input.module.scss'
 import React, { 
+    FC,
     InputHTMLAttributes, 
     memo, 
     useEffect, 
@@ -11,15 +12,15 @@ Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
 export interface InputProps extends HTMLInputProps {
     className?: string,
-    type: string,
+    type?: string,
     value?: string,
     onChange?: (value: string) => void,
-    placeholder: string,
+    placeholder?: string,
     autoFocus?: boolean
 }
 
 
-export const Input = memo((props: InputProps) => {
+export const Input:FC<InputProps> = memo((props: InputProps) => {
     const { 
         className, 
         value, 
@@ -70,7 +71,9 @@ export const Input = memo((props: InputProps) => {
                     onSelect={onSelect}
                 />
                 { isfocused &&
-                <span style={{left: `${carriagePosition * 7.5}px`}}className={cls.carriage}/>}
+                <span 
+                    style={{left: `${carriagePosition * 7.5}px`}}
+                    className={cls.carriage}/>}
             </div>
         </div>
         

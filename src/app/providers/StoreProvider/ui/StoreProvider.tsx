@@ -9,13 +9,20 @@ interface StoreProviderProps {
    initialState?: DeepPartial<StateSchema>
 }
 
+let RootState;
+let AppDispatch
 
 export const StoreProvider = ( props: StoreProviderProps ) => {
     const { children, initialState } = props;
     const store = createReduxStore(initialState as StateSchema)
+    AppDispatch = typeof store.dispatch;
+
     return (
         <Provider store={store}>
             {children}
         </Provider>
     )
 }
+export type ddd = typeof RootState
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type dddd = typeof AppDispatch;

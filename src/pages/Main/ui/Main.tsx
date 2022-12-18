@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { BugButton } from 'app/providers/ErrorBoundary';
 import { Counter } from 'entities/Counter';
 import { useState } from 'react';
-import { Input } from 'shared/ui/Input/Input';
+import { Input } from 'shared';
 
 const Main = () => {
     const {t} = useTranslation('main');
@@ -17,8 +17,7 @@ const Main = () => {
         <div className={classes.main}>
             <BugButton />
             {t('Главная страница')}
-            <Counter />
-            <Input type='text' value={inputValue} onChange={onChangeHandler} placeholder='sfsdfsdf'/>
+            <Input />
         </div>
     )
 }
