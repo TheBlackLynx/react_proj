@@ -1,29 +1,37 @@
-import { Modal } from "shared/ui/Modal/Modal";
 import cls from './LoginForm.module.scss'
 import { AppButton, classNames, Text } from "shared";
 import { useTranslation } from "react-i18next";
 import { Input } from "shared/ui/Input/Input";
 import { AppButtonTheme } from "shared/ui/AppButton/AppButton";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { memo, useCallback } from "react";
-import { loginActions } from "features/AuthByUsername/model/slice/loginSlice";
-import { getLoginState } from
-    "features/AuthByUsername/model/selectors/getLoginState";
+import { loginActions, loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
+
 import { loginByUserName } from
     "features/AuthByUsername/model/services/loginByUserName/loginByUserName";
-import { AnyAction, AsyncThunkAction } from "@reduxjs/toolkit";
-import { dddd } from "app/providers/StoreProvider/ui/StoreProvider";
 import { AppDispatch } from "app/providers/StoreProvider/config/store";
 import { TextTheme } from "shared/ui/Text/Text";
+import { getLoginLogin } from "features/AuthByUsername/model/selectors/getLoginLogin";
+import { getLoginPassword } from "features/AuthByUsername/model/selectors/getLoginPassword";
+import { getLoginError } from "features/AuthByUsername/model/selectors/getLoginError";
+import { getLoginIsLoading } from "features/AuthByUsername/model/selectors/getLoginIsLoading";
+import { DynamicModuleLoaders, ReducerList } from "shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders";
 
 
 export interface LoginFormProps {
     className?: string,
 }
-export const LoginForm = memo(({ className }: LoginFormProps) => {
+
+const initialReducers: ReducerList = {
+   loginForm: loginReducer
+}
+const LoginForm = memo(({ className }: LoginFormProps) => {
     const {t} = useTranslation();
     const dispatch = useDispatch<AppDispatch>();
-    const { login, password, error, isLoading } = useSelector(getLoginState);
+    const login = useSelector(getLoginLogin)
+    const password = useSelector(getLoginPassword)
+    const error = useSelector(getLoginError)
+    const isLoading = useSelector(getLoginIsLoading);
 
     const onChangeLogin = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value))
@@ -38,6 +46,11 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     }, [dispatch, login, password]);
 
     return (
+        <DynamicModuleLoaders 
+        reducers={initialReducers} 
+        // reducers={loginForm: loginReducer}  если передавать в таком виде, то при каждом рендере ссылка будет меняться
+        removeAfterUnmount={true}
+        >
         <div className={cls.loginForm}>
             <Text title="Форма авторизации"/>
             {error && 
@@ -62,5 +75,8 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
                 {t('Войти')}
             </AppButton>
         </div>
+        </DynamicModuleLoaders>
     );
 });
+
+export default LoginForm;

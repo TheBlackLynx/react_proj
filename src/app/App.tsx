@@ -11,6 +11,7 @@ import { Sidebar } from "widgets/Sidebar";
 import "shared/config/i18n/i18n";
 import { useDispatch } from "react-redux";
 import { userActions } from "entities/User";
+import { Spinner } from "shared/ui/Spinner/Spinner";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
 
     return (
         <>
+        {/* <Spinner /> */}
             <div
                 className={
                     classNames(
@@ -39,6 +41,7 @@ const App = () => {
                         <AppRouter />
                     </div>
                 </Suspense>
+                
             </div>
         </>
     );

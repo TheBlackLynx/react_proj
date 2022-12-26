@@ -1,5 +1,4 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { LOCAL_STORAGE_THEME_KEY } from "app/providers/ThemeProvider/ui/ThemeContext";
 import axios from "axios";
 import { User, userActions } from "entities/User";
 import { USER_LOCALSTORAGE_KEY } from "shared/const/localstogare";

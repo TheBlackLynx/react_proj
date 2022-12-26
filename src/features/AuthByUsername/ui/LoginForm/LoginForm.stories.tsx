@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 
     'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers';
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

@@ -15,6 +15,7 @@ module.exports = {
     },
     "plugins": ["react", "@typescript-eslint", "i18next", "react-hooks"],
     "rules": {
+       "max-len": [1, 100, 2],
         'react-in-jsx-scope': 'off',
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -41,7 +42,8 @@ module.exports = {
         "max-len": ["error", {
             ignoreComments: true
         }],
-        "react/prop-types": 0
+        "react/prop-types": 0,
+        'typescript-eslint/ban-ts-comment': 'off'
     },
     overrides: [{
         files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
