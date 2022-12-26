@@ -9,13 +9,14 @@ import { loginActions, loginReducer } from "features/AuthByUsername/model/slice/
 
 import { loginByUserName } from
     "features/AuthByUsername/model/services/loginByUserName/loginByUserName";
-import { AppDispatch } from "app/providers/StoreProvider/config/store";
+// import { AppDispatch } from "app/providers/StoreProvider/config/store";
 import { TextTheme } from "shared/ui/Text/Text";
 import { getLoginLogin } from "features/AuthByUsername/model/selectors/getLoginLogin";
 import { getLoginPassword } from "features/AuthByUsername/model/selectors/getLoginPassword";
 import { getLoginError } from "features/AuthByUsername/model/selectors/getLoginError";
 import { getLoginIsLoading } from "features/AuthByUsername/model/selectors/getLoginIsLoading";
-import { DynamicModuleLoaders, ReducerList } from "shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders";
+import { DynamicModuleLoaders, ReducerList } from 
+    "shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders";
 
 
 export interface LoginFormProps {
@@ -23,11 +24,11 @@ export interface LoginFormProps {
 }
 
 const initialReducers: ReducerList = {
-   loginForm: loginReducer
+    loginForm: loginReducer
 }
 const LoginForm = memo(({ className }: LoginFormProps) => {
     const {t} = useTranslation();
-    const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useDispatch();
     const login = useSelector(getLoginLogin)
     const password = useSelector(getLoginPassword)
     const error = useSelector(getLoginError)
@@ -42,39 +43,41 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     }, [dispatch]);
 
     const onLoginClick = useCallback(() => {
+        // @ts-ignore
         dispatch(loginByUserName({login, password}))
     }, [dispatch, login, password]);
 
     return (
         <DynamicModuleLoaders 
-        reducers={initialReducers} 
-        // reducers={loginForm: loginReducer}  если передавать в таком виде, то при каждом рендере ссылка будет меняться
-        removeAfterUnmount={true}
+            reducers={initialReducers} 
+            // reducers={loginForm: loginReducer} 
+            // если передавать в таком виде, то при каждом рендере ссылка будет меняться
+            removeAfterUnmount={true}
         >
-        <div className={cls.loginForm}>
-            <Text title="Форма авторизации"/>
-            {error && 
+            <div className={cls.loginForm}>
+                <Text title="Форма авторизации"/>
+                {error && 
                 <Text text={error} theme={TextTheme.ERROR}/>
-            }
-            <Input 
-                className={cls.loginInputs} 
-                placeholder={t('Username')} type='text'
-                onChange={onChangeLogin} 
-                value={login} />
-            <Input 
-                className={cls.loginInputs} 
-                placeholder={t('Password')} 
-                type='text'
-                onChange={onChangePassword} 
-                value={password} />
-            <AppButton 
-                buttonTheme={AppButtonTheme.OUTLINE}
-                className={cls.loginBtn}
-                disabled={isLoading}
-                onClick={onLoginClick}>
-                {t('Войти')}
-            </AppButton>
-        </div>
+                }
+                <Input 
+                    className={cls.loginInputs} 
+                    placeholder={t('Username')} type='text'
+                    onChange={onChangeLogin} 
+                    value={login} />
+                <Input 
+                    className={cls.loginInputs} 
+                    placeholder={t('Password')} 
+                    type='text'
+                    onChange={onChangePassword} 
+                    value={password} />
+                <AppButton 
+                    buttonTheme={AppButtonTheme.OUTLINE}
+                    className={cls.loginBtn}
+                    disabled={isLoading}
+                    onClick={onLoginClick}>
+                    {t('Войти')}
+                </AppButton>
+            </div>
         </DynamicModuleLoaders>
     );
 });

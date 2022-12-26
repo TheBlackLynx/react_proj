@@ -43,7 +43,9 @@ module.exports = {
             ignoreComments: true
         }],
         "react/prop-types": 0,
-        'typescript-eslint/ban-ts-comment': 'off'
+        'typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        'max-len': [2, 100]
     },
     overrides: [{
         files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
