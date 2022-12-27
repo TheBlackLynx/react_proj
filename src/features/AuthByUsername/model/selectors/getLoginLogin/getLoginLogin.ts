@@ -1,5 +1,5 @@
 import { StateSchema } from "app/providers/StoreProvider";
-import { LoginSchema } from "../types/LoginSchema";
+import { LoginSchema } from "../../types/LoginSchema";
 
 
 export const getLoginLogin = (state: StateSchema): string => {

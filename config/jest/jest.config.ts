@@ -171,7 +171,7 @@ export default {
 
     // The glob patterns Jest uses to detect test files
     testMatch: [
-        '<rootDir>src/**/*.test.ts(x)'
+        '<rootDir>src/**/*.test.[jt]s?(x)'
     ],
     "modulePaths": [
         "<rootDir>src",
@@ -184,7 +184,7 @@ export default {
     // ],
 
     // The regexp pattern or array of patterns that Jest uses to detect test files
-    // testRegex: [],
+    //testRegex: [],
 
     // This option allows the use of a custom results processor
     // testResultsProcessor: undefined,
@@ -201,15 +201,15 @@ export default {
     // timers: "real",
 
     // A map from regular expressions to paths to transformers
-    // transform: undefined,
-
+   //transform: { '^.+\\.ts?$'},
     // An array of regexp pattern strings that are matched against 
     //all source file paths, matched files will skip transformation
-    // transformIgnorePatterns: [
-    //   "/node_modules/",
-    //   "\\.pnp\\.[^\\/]+$"
-    // ],
-
+    transformIgnorePatterns: [
+        "/node_modules/(?!axios)"
+    ],
+    collectCoverage: true, //оценка покрытия кода тестами
+    collectCoverageFrom: ['src/**/*.ts', '!**/*.d.ts'],
+    testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/']
     // An array of regexp pattern strings that are matched against 
     //all modules before the module loader will automatically return a mock for them
     // unmockedModulePathPatterns: undefined,

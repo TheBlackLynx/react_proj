@@ -16,7 +16,10 @@ let AppDispatch
 
 export const StoreProvider = ( props: StoreProviderProps ) => {
     const { children, initialState, asyncReducers } = props;
-    const store = createReduxStore(initialState as StateSchema,  asyncReducers as ReducersMapObject<StateSchema>)
+    const store = createReduxStore(
+        initialState as StateSchema,  
+        asyncReducers as ReducersMapObject<StateSchema>
+    )
     // AppDispatch = typeof store.dispatch;
 
     return (

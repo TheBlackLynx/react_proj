@@ -11,10 +11,10 @@ import { loginByUserName } from
     "features/AuthByUsername/model/services/loginByUserName/loginByUserName";
 // import { AppDispatch } from "app/providers/StoreProvider/config/store";
 import { TextTheme } from "shared/ui/Text/Text";
-import { getLoginLogin } from "features/AuthByUsername/model/selectors/getLoginLogin";
-import { getLoginPassword } from "features/AuthByUsername/model/selectors/getLoginPassword";
-import { getLoginError } from "features/AuthByUsername/model/selectors/getLoginError";
-import { getLoginIsLoading } from "features/AuthByUsername/model/selectors/getLoginIsLoading";
+import { getLoginLogin } from "features/AuthByUsername/model/selectors/getLoginLogin/getLoginLogin";
+import { getLoginPassword } from "features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword";
+import { getLoginError } from "features/AuthByUsername/model/selectors/getLoginError/getLoginError";
+import { getLoginIsLoading } from "features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { DynamicModuleLoaders, ReducerList } from 
     "shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders";
 
