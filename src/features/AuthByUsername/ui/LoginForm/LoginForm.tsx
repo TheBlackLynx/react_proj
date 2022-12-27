@@ -12,23 +12,28 @@ import { loginByUserName } from
 // import { AppDispatch } from "app/providers/StoreProvider/config/store";
 import { TextTheme } from "shared/ui/Text/Text";
 import { getLoginLogin } from "features/AuthByUsername/model/selectors/getLoginLogin/getLoginLogin";
-import { getLoginPassword } from "features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword";
-import { getLoginError } from "features/AuthByUsername/model/selectors/getLoginError/getLoginError";
-import { getLoginIsLoading } from "features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading";
+import { getLoginPassword } from 
+    "features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword";
+import { getLoginError } from
+    "features/AuthByUsername/model/selectors/getLoginError/getLoginError";
+import { getLoginIsLoading } from 
+    "features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { DynamicModuleLoaders, ReducerList } from 
     "shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders";
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 
 export interface LoginFormProps {
     className?: string,
+    onSuccess: () => void
 }
 
 const initialReducers: ReducerList = {
     loginForm: loginReducer
 }
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const {t} = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const login = useSelector(getLoginLogin)
     const password = useSelector(getLoginPassword)
     const error = useSelector(getLoginError)
@@ -42,10 +47,15 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         dispatch(loginActions.setPassword(value))
     }, [dispatch]);
 
-    const onLoginClick = useCallback(() => {
+    const onLoginClick = useCallback(async () => {
         // @ts-ignore
-        dispatch(loginByUserName({login, password}))
-    }, [dispatch, login, password]);
+       const result = await dispatch(loginByUserName({login, password}))
+       if (result.meta.requestStatus === 'fulfilled'){
+        onSuccess()
+       }
+       console.log(result);
+       
+    }, [onSuccess, dispatch, login, password]);
 
     return (
         <DynamicModuleLoaders 

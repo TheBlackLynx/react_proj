@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1672170274429" clover="3.2.0">
-  <project timestamp="1672170274429" name="All files">
+<coverage generated="1672170404632" clover="3.2.0">
+  <project timestamp="1672170404632" name="All files">
     <metrics statements="101" coveredstatements="68" conditionals="18" coveredconditionals="4" methods="34" coveredmethods="21" elements="153" coveredelements="93" complexity="0" loc="101" ncloc="101" packages="40" files="43" classes="43"/>
     <package name="app.providers">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -292,12 +292,12 @@
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="TestAsyncThunk.ts" path="/Users/marica/Documents/frontend/react_proj/src/shared/config/tests/TestAsyncThunk/TestAsyncThunk.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="12" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
       </file>
     </package>
     <package name="shared.const">
