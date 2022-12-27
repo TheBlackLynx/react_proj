@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1672170404632" clover="3.2.0">
-  <project timestamp="1672170404632" name="All files">
-    <metrics statements="101" coveredstatements="68" conditionals="18" coveredconditionals="4" methods="34" coveredmethods="21" elements="153" coveredelements="93" complexity="0" loc="101" ncloc="101" packages="40" files="43" classes="43"/>
+<coverage generated="1672172346901" clover="3.2.0">
+  <project timestamp="1672172346901" name="All files">
+    <metrics statements="102" coveredstatements="68" conditionals="18" coveredconditionals="4" methods="34" coveredmethods="21" elements="154" coveredelements="93" complexity="0" loc="102" ncloc="102" packages="41" files="44" classes="44"/>
     <package name="app.providers">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="/Users/marica/Documents/frontend/react_proj/src/app/providers/index.ts">
@@ -314,6 +314,13 @@
         <line num="8" count="47" type="stmt"/>
         <line num="12" count="49" type="stmt"/>
         <line num="13" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="shared.lib.hooks">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="useAppDispatch.ts" path="/Users/marica/Documents/frontend/react_proj/src/shared/lib/hooks/useAppDispatch.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
       </file>
     </package>
     <package name="widgets.LangSwitcher">
