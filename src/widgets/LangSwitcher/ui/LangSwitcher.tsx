@@ -3,12 +3,13 @@ import { AppButton } from "shared";
 import cls from "./LangSwitcher.module.scss";
 import { classNames } from "shared";
 import { AppButtonTheme } from "shared/ui/AppButton/AppButton";
+import { memo } from "react";
 
 export interface LangSwitcherProps {
     className?: string,
     short?: boolean
 }
-export const LangSwitcher = (props: LangSwitcherProps) => {
+export const LangSwitcher = memo((props: LangSwitcherProps) => {
     const { className, short } = props;
     const { t, i18n } = useTranslation();
     const toggle = () => {
@@ -23,4 +24,4 @@ export const LangSwitcher = (props: LangSwitcherProps) => {
             {t(short? "Короткий язык" : "Язык")}
         </AppButton>
     );
-};
+});

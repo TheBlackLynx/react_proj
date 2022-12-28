@@ -2,10 +2,10 @@ import classes from './Main.module.scss';
 import { useTranslation } from 'react-i18next';
 import { BugButton } from 'app/providers/ErrorBoundary';
 import { Counter } from 'entities/Counter';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { Input } from 'shared';
 
-const Main = () => {
+const Main = memo(() => {
     const {t} = useTranslation('main');
 
     const [inputValue, setInputValue] = useState('');
@@ -20,6 +20,6 @@ const Main = () => {
             <Input />
         </div>
     )
-}
+});
 
 export default Main;

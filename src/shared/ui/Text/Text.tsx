@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { memo, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import cls from './Text.module.scss';
 import { classNames } from "shared/lib/classNames/classNames";
@@ -15,7 +15,7 @@ interface TextProps {
     theme?: TextTheme;
 }
 
-export const Text = (props: TextProps) => {
+export const Text = memo((props: TextProps) => {
     const {
         className, 
         title, 
@@ -38,4 +38,4 @@ export const Text = (props: TextProps) => {
             
         </div>
     )
-}
+});

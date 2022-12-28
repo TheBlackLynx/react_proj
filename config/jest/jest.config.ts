@@ -207,9 +207,12 @@ export default {
     transformIgnorePatterns: [
         "/node_modules/(?!axios)"
     ],
-    collectCoverage: true, //оценка покрытия кода тестами
-    collectCoverageFrom: ['src/**/*.ts', '!**/*.d.ts'],
-    testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/']
+
+    // collectCoverage: true, //оценка покрытия кода тестами
+    // collectCoverageFrom: ['src/**/*.ts', '!**/*.d.ts'],
+    // testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/']
+
+    
     // An array of regexp pattern strings that are matched against 
     //all modules before the module loader will automatically return a mock for them
     // unmockedModulePathPatterns: undefined,

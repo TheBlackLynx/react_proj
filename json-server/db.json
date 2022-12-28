@@ -25,5 +25,15 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Marina",
+    "last": "Sav",
+    "age": 35,
+    "currency": "rub",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://i.pinimg.com/originals/76/bf/09/76bf09dc27c81b2c5c68d817bce438f5.jpg"
+
+  }
 }

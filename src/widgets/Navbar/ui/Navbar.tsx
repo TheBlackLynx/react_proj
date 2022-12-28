@@ -5,7 +5,7 @@ import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import cls from "./Navbar.module.scss";
 import { Modal } from "shared/ui/Modal/Modal";
-import { useState, useCallback } from "react";
+import { useState, useCallback, memo } from "react";
 import { AppButtonTheme } from "shared/ui/AppButton/AppButton";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +14,7 @@ import { getUserAuthData, userActions } from "entities/User";
 interface NavbarProps {
   className?: string;
 }
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
@@ -54,4 +54,4 @@ export const Navbar = ({ className }: NavbarProps) => {
             {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal}/>}
         </div>
     );
-};
+});

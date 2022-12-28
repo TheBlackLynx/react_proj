@@ -1,6 +1,6 @@
 import cls from './AppButton.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC, memo } from 'react';
 
 export enum AppButtonTheme {
     CLEAR = 'clear',
@@ -25,7 +25,7 @@ interface AppButtonType extends ButtonHTMLAttributes<HTMLButtonElement>{
     disabled?: boolean;
 }
 
-export const AppButton: FC<AppButtonType> = ( props ) => {
+export const AppButton: FC<AppButtonType> = memo(( props ) => {
     const { 
         className,
         children,
@@ -52,4 +52,4 @@ export const AppButton: FC<AppButtonType> = ( props ) => {
             {children}
         </button>
     )
-}
+});

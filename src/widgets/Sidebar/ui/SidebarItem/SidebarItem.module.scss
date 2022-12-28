@@ -1,0 +1,30 @@
+.item {
+    align-self: center;
+    padding-bottom: 10px;
+}
+
+.icon {
+    fill: var(--bg-color);
+}
+
+
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .switchers button {
+        padding: 5px;
+    }
+}
+
+.linkItem {
+    margin-top: 10px;
+    margin-left: 20px;
+    color: var(--bg-color);
+    font-size: var(--font-size-m);
+}

@@ -1,6 +1,6 @@
 import { Modal } from "shared/ui/Modal/Modal";
 import { classNames, Loader } from "shared";
-import { Suspense } from "react";
+import { memo, Suspense } from "react";
 import { LoginFormAsync } from "../LoginForm/LoginForm.async";
 
 
@@ -9,7 +9,7 @@ export interface LoginModalProps {
     isOpen?: boolean,
     onClose: () => void
 }
-export const LoginModal = (props: LoginModalProps) => {
+export const LoginModal = memo((props: LoginModalProps) => {
     const { className, isOpen, onClose } = props;
     return (
         <Modal className={classNames('cls.LangSwitcher', {}, [])}
@@ -23,4 +23,4 @@ export const LoginModal = (props: LoginModalProps) => {
            
         </Modal>
     );
-};
+});
