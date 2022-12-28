@@ -3,7 +3,8 @@ import { BugButton } from 'app/providers/ErrorBoundary';
 import { Counter } from 'entities/Counter';
 import { memo, useState } from 'react';
 import { Input } from 'shared';
-import { DynamicModuleLoaders, ReducerList } from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
+import { DynamicModuleLoaders, ReducerList } from 
+    'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { profileReducer } from 'entities/Profile';
 
 
@@ -21,7 +22,7 @@ const ProfilePage = memo(() => {
     return (
         <div >
             <DynamicModuleLoaders reducers={reducers} removeAfterUnmount={true}>
-            {t('Профиль пользователя')}
+                {t('Профиль пользователя')}
             </DynamicModuleLoaders>
         </div>
     )

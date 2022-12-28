@@ -7,6 +7,7 @@ import { ThemeDecorator } from
 import { Theme } from 'app/providers';
 import { RouterDecorator } from
     'shared/config/storybook/RouterDecorator/RouterDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -20,9 +21,9 @@ export default {
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
 export const Light = Template.bind({});
-Light.decorators=[RouterDecorator()]
+Light.decorators=[RouterDecorator(), StoreDecorator({})]
 Light.args = {};
 
 export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator()]
+Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator(), StoreDecorator({})]
 Dark.args = {};

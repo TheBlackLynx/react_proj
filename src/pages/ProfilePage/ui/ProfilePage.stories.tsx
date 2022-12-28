@@ -7,6 +7,7 @@ import { Theme } from 'app/providers';
 import { RouterDecorator } from
     'shared/config/storybook/RouterDecorator/RouterDecorator';
 import ProfilePage from './ProfilePage';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -19,9 +20,9 @@ export default {
 } as ComponentMeta<typeof ProfilePage>;
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
 
-export const Light = Template.bind({});
-Light.args = {};
 
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
-Dark.args = {};
+export const Primary = Template.bind({});
+Primary.decorators = [StoreDecorator({
+    profile: { isLoading: false, readonly: true },
+})]
+Primary.args = {};

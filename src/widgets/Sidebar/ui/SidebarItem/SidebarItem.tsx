@@ -13,22 +13,22 @@ export const SidebarItem = (props: SidebarItemProps) => {
    
     return (
         <div className={cls.item}>
-        {
-            collapsed ?
-            <AppLink 
-            to={item.path}  
-        >
-           <item.icon className={cls.icon} />
-        </AppLink>
-        :
-            <AppLink 
-            to={item.path} 
-            theme={AppLinkTheme.PRIMARY} 
-            className={cls.linkItem}
-        >
-           {item.text}
-        </AppLink>
-        }
+            {
+                collapsed ?
+                    <AppLink 
+                        to={item.path}  
+                    >
+                        <item.icon className={cls.icon} />
+                    </AppLink>
+                    :
+                    <AppLink 
+                        to={item.path} 
+                        theme={AppLinkTheme.PRIMARY} 
+                        className={cls.linkItem}
+                    >
+                        {item.text}
+                    </AppLink>
+            }
         </div>
     );
 }
