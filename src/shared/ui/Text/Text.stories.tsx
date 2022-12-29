@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Text, TextTheme } from './Text';
@@ -26,12 +25,12 @@ TextPrimary.args = {
     text: 'Text'  
 };
 
-export const onlyTitle = Template.bind({});
-onlyTitle.args = {
+export const OnlyTitle = Template.bind({});
+OnlyTitle.args = {
     title: 'Title'
 };
-export const onlyText = Template.bind({});
-onlyText.args = {
+export const OnlyText = Template.bind({});
+OnlyText.args = {
     text: 'Text'  
 };
 export const TextPrimaryDark = Template.bind({});
@@ -41,14 +40,14 @@ TextPrimaryDark.args = {
     text: 'Text'  
 };
 
-export const onlyTitleDark = Template.bind({});
-onlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)]
-onlyTitleDark.args = {
+export const OnlyTitleDark = Template.bind({});
+OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)]
+OnlyTitleDark.args = {
     title: 'Title'
 };
-export const onlyTextDark = Template.bind({});
-onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]
-onlyTextDark.args = {
+export const OnlyTextDark = Template.bind({});
+OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]
+OnlyTextDark.args = {
     text: 'Text'  
 };
 

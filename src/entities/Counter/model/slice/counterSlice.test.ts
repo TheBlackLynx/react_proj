@@ -1,5 +1,4 @@
-import { DeepPartial } from "@reduxjs/toolkit"
-import { StateSchema } from "app/providers/StoreProvider"
+import { DeepPartial } from "@reduxjs/toolkit";
 import { CounterSchema } from "../types/CounterSchema"
 import { counterActions, counterReducer } from "./counterSlice"
 
@@ -24,9 +23,6 @@ describe('getCounterValue', () => {
     })
 
     test('with empty state', () => {
-        const state: DeepPartial<CounterSchema>  = {
-            value: 10
-        }
         expect(counterReducer(undefined,
             counterActions.incremented()
         )).toEqual({ value: 1} )

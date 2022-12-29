@@ -1,10 +1,6 @@
 import { t } from "i18next";
-import { Link } from "react-router-dom";
 import { AppButton, classNames } from "shared";
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import cls from "./Navbar.module.scss";
-import { Modal } from "shared/ui/Modal/Modal";
 import { useState, useCallback, memo } from "react";
 import { AppButtonTheme } from "shared/ui/AppButton/AppButton";
 import { LoginModal } from "features/AuthByUsername";

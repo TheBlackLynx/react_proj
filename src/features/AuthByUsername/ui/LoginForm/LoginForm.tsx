@@ -1,9 +1,9 @@
 import cls from './LoginForm.module.scss'
-import { AppButton, classNames, Text } from "shared";
+import { AppButton, Text } from "shared";
 import { useTranslation } from "react-i18next";
 import { Input } from "shared/ui/Input/Input";
 import { AppButtonTheme } from "shared/ui/AppButton/AppButton";
-import { useDispatch, useSelector} from "react-redux";
+import { useSelector} from "react-redux";
 import { memo, useCallback } from "react";
 import { loginActions, loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
 
@@ -31,7 +31,7 @@ export interface LoginFormProps {
 const initialReducers: ReducerList = {
     loginForm: loginReducer
 }
-const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
+const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
     const {t} = useTranslation();
     const dispatch = useAppDispatch();
     const login = useSelector(getLoginLogin)
@@ -64,7 +64,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
             removeAfterUnmount={true}
         >
             <div className={cls.loginForm}>
-                <Text title="Форма авторизации"/>
+                <Text title={'Форма авторизации'}/>
                 {error && 
                 <Text text={error} theme={TextTheme.ERROR}/>
                 }

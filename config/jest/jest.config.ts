@@ -69,7 +69,8 @@ export default {
 
     // A set of global variables that need to be available in all test environments
     globals: {
-        '__IS_DEV__': true
+        '__IS_DEV__': true,
+        '__API__': '',
     },
 
     // The maximum amount of workers used to run your tests.
@@ -212,7 +213,7 @@ export default {
     // collectCoverageFrom: ['src/**/*.ts', '!**/*.d.ts'],
     // testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/']
 
-    
+
     // An array of regexp pattern strings that are matched against 
     //all modules before the module loader will automatically return a mock for them
     // unmockedModulePathPatterns: undefined,

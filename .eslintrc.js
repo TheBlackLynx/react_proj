@@ -45,7 +45,12 @@ module.exports = {
         "react/prop-types": 0,
         'typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/ban-ts-comment': 'off',
-        'max-len': [2, 100]
+        'max-len': [2, 100],
+        "react/jsx-props-no-spreading": "off",
+    },
+    globals: {
+        __API__: true,
+        __IS_DEV__: true,
     },
     overrides: [{
         files: ['**/src/**/*.{test,stories}.{ts,tsx}'],

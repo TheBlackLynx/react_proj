@@ -1,7 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { AboutPage } from 'pages/About'
-import { MainPage } from "pages/Main";
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import { routeConfig } from "shared/config/routeConfig/routeConfig";
 import { PageLoader } from "widgets/PageLoader";
 

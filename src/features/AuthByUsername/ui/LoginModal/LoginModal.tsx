@@ -10,7 +10,7 @@ export interface LoginModalProps {
     onClose: () => void
 }
 export const LoginModal = memo((props: LoginModalProps) => {
-    const { className, isOpen, onClose } = props;
+    const { isOpen, onClose } = props;
     return (
         <Modal className={classNames('cls.LangSwitcher', {}, [])}
             isOpen={isOpen}

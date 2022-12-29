@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { AppButton, AppLink, classNames } from "shared";
+import { AppLink } from "shared";
 import { AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { SidebarItemType } from "widgets/Sidebar/model/items";
 import cls from './SidebarItem.module.scss'

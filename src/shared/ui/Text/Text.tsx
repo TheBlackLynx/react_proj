@@ -1,5 +1,4 @@
-import { memo, ReactNode } from "react";
-import { createPortal } from "react-dom";
+import { memo } from "react";
 import cls from './Text.module.scss';
 import { classNames } from "shared/lib/classNames/classNames";
 
@@ -17,7 +16,6 @@ interface TextProps {
 
 export const Text = memo((props: TextProps) => {
     const {
-        className, 
         title, 
         text, 
         theme = TextTheme.NORMAL

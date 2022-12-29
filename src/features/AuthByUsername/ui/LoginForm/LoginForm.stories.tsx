@@ -1,15 +1,10 @@
-
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import LoginForm from './LoginForm';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
     title: 'features/LoginForm',
-    component: LoginForm,
-    // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-    // argTypes: {
-    //     backgroundColor: { control: 'color' },
-    // },
+    component: LoginForm
 } as ComponentMeta<typeof LoginForm>;
 
 const Template: 
@@ -20,9 +15,9 @@ export const Primary = Template.bind({});
 Primary.args = {};
 Primary.decorators = [StoreDecorator()];
 
-export const withError = Template.bind({});
-withError.args = {};
-withError.decorators = [StoreDecorator({
+export const WithError = Template.bind({});
+WithError.args = {};
+WithError.decorators = [StoreDecorator({
     loginForm: {  error: 'ERROR' },
 })];
 

@@ -1,13 +1,16 @@
-import { configureStore, DeepPartial, ReducersMapObject } from '@reduxjs/toolkit'
-import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types'
+import { configureStore, getDefaultMiddleware, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
+import { NavigateOptions, To } from 'react-router-dom';
+import { $api } from 'shared/api/api';
 import { createReducerManager } from './ReducerManager'
 import { StateSchema } from './StateSchema'
 
 export function createReduxStore(
     initialState?: StateSchema, 
-    asyncRedicers?: ReducersMapObject<StateSchema>) {
+    asyncRedicers?: ReducersMapObject<StateSchema>,
+    navigate?:(to: To, options?: NavigateOptions) => void)
+{
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncRedicers,
         counter: counterReducer,
@@ -15,10 +18,19 @@ export function createReduxStore(
     }
 
     const reducerManager = createReducerManager(rootReducers)
-    const store = configureStore<StateSchema>({
+    const store = configureStore({
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
-        preloadedState: initialState
+        preloadedState: initialState,
+        middleware: (getDefaultMiddleware => getDefaultMiddleware({
+            thunk: {
+                extraArgument: {
+                    api: $api,
+                    navigate
+                }
+            }
+        }
+        ))
     })
 
     // @ts-ignore

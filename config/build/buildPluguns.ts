@@ -1,12 +1,11 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
-import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
 
-export function buildPlugins(htmlPath: string, isDev: boolean)
+export function buildPlugins(htmlPath: string, isDev: boolean, apiUrl: string)
 : webpack.WebpackPluginInstance[] {
 
     const plugins = [
@@ -21,6 +20,7 @@ export function buildPlugins(htmlPath: string, isDev: boolean)
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl)
         }),
         new ReactRefreshWebpackPlugin({
             overlay: false

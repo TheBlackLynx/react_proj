@@ -1,11 +1,9 @@
 import cls from "./Sidebar.module.scss";
-import { AppButton, AppLink, classNames } from "shared";
+import { AppButton, classNames } from "shared";
 import { memo, useMemo, useState } from "react";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher";
 import { AppButtonSize, AppButtonTheme } from "shared/ui/AppButton/AppButton";
-import { AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { SidebarItemsList } from "widgets/Sidebar/model/items";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 

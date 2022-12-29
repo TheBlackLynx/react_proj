@@ -1,9 +1,5 @@
-import { Routes, Route, Link } from "react-router-dom";
-
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect } from "react";
 import { useTheme } from "./providers";
-import { AboutPage } from "../pages/About";
-import { MainPage } from "../pages/Main";
 import { classNames } from "shared";
 import { AppRouter } from "./providers/router";
 import { Navbar } from "widgets/Navbar";
@@ -11,7 +7,6 @@ import { Sidebar } from "widgets/Sidebar";
 import "shared/config/i18n/i18n";
 import { useDispatch } from "react-redux";
 import { userActions } from "entities/User";
-import { Spinner } from "shared/ui/Spinner/Spinner";
 
 
 const App = () => {
