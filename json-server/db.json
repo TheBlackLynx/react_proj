@@ -21,7 +21,7 @@
   "users": [
     {
       "id": "1",
-      "username": "admin",
+      "login": "admin",
       "password": "123"
     }
   ],
@@ -34,6 +34,5 @@
     "city": "Moscow",
     "username": "admin",
     "avatar": "https://i.pinimg.com/originals/76/bf/09/76bf09dc27c81b2c5c68d817bce438f5.jpg"
-
   }
 }

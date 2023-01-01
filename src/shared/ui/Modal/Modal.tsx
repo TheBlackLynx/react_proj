@@ -1,15 +1,16 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback, MutableRefObject } from 'react';
 import cls from "./Modal.module.scss";
 import { classNames } from 'shared';
 import {  ReactNode } from "react";
 import { Portal } from '../Portal/Portal';
 import { useTheme } from 'app/providers';
+import { Mods } from 'shared/lib/classNames/classNames';
 
 interface ModalProps {
     className?: string;
     children?: ReactNode;
     isOpen?: boolean;
-    onClose?: () => void;
+    onClose?: () => void | undefined;
     lazy: boolean
 }
 
@@ -29,10 +30,11 @@ export const Modal = (props: ModalProps) => {
         }
     }, [isOpen])
     const closeHandler = useCallback(() => {
-        onClose ? onClose() : null
-        timeRef.current = setTimeout(() => {
-            onClose()
-        }, ANIMATION_DELAY)
+        if(onClose){
+            timeRef.current = setTimeout(() => {
+                onClose()
+            }, ANIMATION_DELAY)
+        }
     }, [onClose])
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
@@ -46,7 +48,7 @@ export const Modal = (props: ModalProps) => {
             window.addEventListener('keydown', onKeyDown);
         }
         return () => {
-            clearTimeout(timeRef?.current);
+            clearTimeout(timeRef.current);
             window.removeEventListener('keydown', onKeyDown);
         }
     }, [isOpen, onKeyDown])
@@ -56,8 +58,8 @@ export const Modal = (props: ModalProps) => {
     // }
   
     const [isClosing, setIsClosing] = useState(false);
-    const timeRef = useRef<ReturnType<typeof setTimeout>>();
-    const mods: Record<string, boolean> = {
+    const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const mods: Mods = {
         [cls.opened]: isOpen
     }
 
