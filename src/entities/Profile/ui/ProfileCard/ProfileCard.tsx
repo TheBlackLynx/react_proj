@@ -4,8 +4,8 @@ import { ProfileType } from "entities/Profile/model/types/profile";
 import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData';
 import { useSelector } from 'react-redux';
 import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
-import { getProfileIsLoading } from 
-'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileIsLoading } from
+    'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { AppButton, classNames, Input } from 'shared';
 import { Text } from 'shared';
 import { useTranslation } from 'react-i18next';
@@ -17,7 +17,7 @@ export interface ProfileCardProps {
     className?: string,
 }
 export const ProfileCard = memo((props: ProfileCardProps) => {
-    const { t } =  useTranslation('profile'); 
+    const { t } = useTranslation('profile');
     const { className } = props;
     const data = useSelector(getProfileData);
     const error = useSelector(getProfileError);
@@ -26,20 +26,20 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         <div className={classNames(cls.ProfileCard, {}, [className])}>
             <div className={cls.ProfileCardHeader}>
                 <Text title={t('Профиль')} />
-                <AppButton theme={AppButtonTheme.OUTLINE}  className={cls.ProfileCardEditBtn}>
+                <AppButton theme={AppButtonTheme.OUTLINE} className={cls.ProfileCardEditBtn}>
                     {t('Редактировать')}
                 </AppButton>
             </div>
             <div className={cls.ProfileData}>
                 <Input
-                    value={data?.first} 
-                    placeholder = {t('Ваше имя')}
+                    value={data?.first}
+                    placeholder={t('Ваше имя')}
                     className={cls.ProfileCardInput}
 
                 />
                 <Input
-                    value={data?.last} 
-                    placeholder = {t('Ваша фамилия')}
+                    value={data?.last}
+                    placeholder={t('Ваша фамилия')}
                     className={cls.ProfileCardInput}
                 />
             </div>
