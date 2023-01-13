@@ -23,7 +23,7 @@ const Template:
 export const Primary = Template.bind({});
 Primary.args = {
     isOpen: true,
-    children: 'texkkkkkkkkkkltftftfyfuyfuyfuyfyufjhjkhkhjuyfufutfghvbnvnbvnbvhgjfyftuyfutt',
+    children: 'text',
     
 };
 
@@ -31,5 +31,5 @@ export const Secondary = Template.bind({});
 Secondary.decorators=[ThemeDecorator(Theme.DARK)]
 Secondary.args = {
     isOpen: true,
-    children: 'texkkkkkkkkkkltftftfyfyfyufjhjkhkhjuyfufutfghvbnvnbvnbvhgjfyftuyfutt',
+    children: 'text',
 };

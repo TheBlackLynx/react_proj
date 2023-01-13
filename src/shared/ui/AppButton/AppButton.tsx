@@ -5,6 +5,7 @@ import { ButtonHTMLAttributes, FC, memo } from 'react';
 export enum AppButtonTheme {
     CLEAR = 'clear',
     OUTLINE = 'outline',
+    OUTLINE_RED = 'outlineRed',
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'backgroundInverted',
     CLEAR_INVERTED = 'clearInverted'
@@ -23,7 +24,6 @@ interface AppButtonType extends ButtonHTMLAttributes<HTMLButtonElement>{
     square?: boolean;
     size?: AppButtonSize;
     disabled?: boolean;
-    theme?: AppButtonTheme
 }
 
 export const AppButton: FC<AppButtonType> = memo(( props ) => {
@@ -34,7 +34,6 @@ export const AppButton: FC<AppButtonType> = memo(( props ) => {
         square,
         size = AppButtonSize.M,
         disabled,
-        theme,
         ...otherProps
     } = props;
 

@@ -1,4 +1,4 @@
-import  './Loader.scss';
+import  './Loader.module.scss';
 import {classNames} from 'shared';
 import { memo } from 'react';
 

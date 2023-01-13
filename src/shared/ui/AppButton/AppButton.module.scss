@@ -14,7 +14,14 @@
 .outline {
     border: 2px solid var(--primary-color);
     color: var(--inverted-bg-color);
-    padding: 15px;
+    padding: 5px;
+    background: none;
+}
+
+.outlineRed {
+    border: 2px solid red;
+    color: red;
+    padding: 5px;
     background: none;
 }
 

@@ -1,20 +1,39 @@
-.ProjectCard {
+.ProfileCard {
     padding: 20px;
     border: 2px solid var(--inverted-bg-color);
-}
-
-.ProfileCardHeader {
-    display: flex;
-}
-
-.ProfileCardEditBtn {
-    margin-left: auto;
+    color: var(--inverted-bg-color);
 }
 
 .ProfileData {
-    margin-top: 30px;
+    color: var(--inverted-bg-color);
 }
 
 .ProfileCardInput {
     margin-top: 10px;
+}
+
+.loading .error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+}
+
+.ageInputAlarm {
+    size: 20px;
+    color: red;
+}
+
+.ProfileAvatar {
+    height: 200px;
+}
+
+.AvatarWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.editing {
+    border: 3px solid red;
 }

@@ -6,17 +6,20 @@ import React, {
     useEffect, 
     useRef, 
     useState } from "react";
+import { Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 type HTMLInputProps = 
-Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 export interface InputProps extends HTMLInputProps {
     className?: string,
     type?: string,
-    value?: string,
+    value?: string | number,
     onChange?: (value: string) => void,
     placeholder?: string,
-    autoFocus?: boolean
+    autoFocus?: boolean,
+    readonly?: boolean
 }
 
 
@@ -28,6 +31,7 @@ export const Input:FC<InputProps> = memo((props: InputProps) => {
         onChange,
         placeholder,
         autoFocus,
+        readonly,
         ...otherProps } = props;
 
     const [isfocused, setIsFocused] = useState(false);
@@ -54,8 +58,14 @@ export const Input:FC<InputProps> = memo((props: InputProps) => {
     const onSelect = (e: any) => {
         setCarriagePosition(e?.target?.selectionStart || 0)
     }
+
+    const mods: Mods = {
+        [cls.readonly]: readonly
+    }
+
+    const isCarret = isfocused && !readonly;
     return (
-        <div className={cls.InputWrapper}>
+        <div className={classNames(cls.InputWrapper, mods, [])}>
             { placeholder && <div className={cls.placeholder}>
                 {`${placeholder} >`}
             </div>}
@@ -69,8 +79,9 @@ export const Input:FC<InputProps> = memo((props: InputProps) => {
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onSelect={onSelect}
+                    readOnly={readonly}
                 />
-                { isfocused &&
+                { isCarret &&
                 <span 
                     style={{left: `${carriagePosition * 7.5}px`}}
                     className={cls.carriage}/>}

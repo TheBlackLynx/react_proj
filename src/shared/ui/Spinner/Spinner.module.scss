@@ -6,27 +6,26 @@
 
 .container {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000;
 }
 
 .box {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    -webkit-box-reflect: below 0 linear-gradient(transparent, transparent, rgb(38 34 41 / 33.3%));
+    -webkit-box-reflect: below 0 linear-gradient(transparent, transparent, rgb(22 156 67 / 33.3%));
 }
 
 .box .loader {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     animation: animate-loading 2s linear infinite;
 }
@@ -55,7 +54,7 @@
     left: 0;
     width: 50%;
     height: 100%;
-    background: linear-gradient(to top, transparent, rgb(150 9 101 / 50%));
+    background: linear-gradient(to top, transparent, rgb(6 165 30 / 50%));
     background-size: 100px 180px;
     background-repeat: no-repeat;
     border-top-left-radius: 100px;
@@ -69,26 +68,33 @@
     transform: translateX(-50%);
     width: 20px;
     height: 20px;
-    background: #ea00ff;
+    background: #23b95f;
     border-radius: 50%;
     box-shadow:
-        0 0 10px #ff0084,
-        0 0 20px #ff0084,
-        0 0 30px #ff0084,
-        0 0 40px #ff0084,
-        0 0 50px #ff0084,
-        0 0 60px #ff0084,
-        0 0 70px #ff0084,
-        0 0 80px #ff0084,
-        0 0 90px #ff0084,
-        0 0 100px #ff0084;
+        0 0 10px hsl(94deg 82% 48%),
+        0 0 20px hsl(94deg 82% 48%),
+        0 0 30px hsl(94deg 82% 48%),
+        0 0 40px hsl(94deg 82% 48%),
+        0 0 50px hsl(94deg 82% 48%),
+        0 0 60px hsl(94deg 82% 48%),
+        0 0 70px hsl(94deg 82% 48%),
+        0 0 80px hsl(94deg 82% 48%),
+        0 0 90px hsl(94deg 82% 48%),
+        0 0 100px hsl(94deg 82% 48%);
     z-index: 10;
 }
 
 .box .loader span {
     position: absolute;
     inset: 20px;
-    background: #000;
+    background: #fff;
     border-radius: 50%;
     z-index: 1;
+}
+
+.medium {
+    .loader {
+        width: 80px;
+        height: 80px;
+    }
 }

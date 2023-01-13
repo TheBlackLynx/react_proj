@@ -1,10 +1,8 @@
 .title {
-    font: var(--font-size-l);
-    color: var(--primary-color);
+    color: var(--inverted-bg-color);
 }
 
 .text {
-    font: var(--font-size-m);
     color: var(--secondary-color);
 }
 
@@ -16,4 +14,28 @@
     .text {
         color: var(--error-font-color);
     }
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.small {
+    font-size: 20px;
+}
+
+.medium {
+    font-size: 24px;
+}
+
+.large {
+    font-size: 36px;
 }
