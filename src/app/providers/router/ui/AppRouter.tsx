@@ -7,15 +7,15 @@ import { getUserAuthData } from "entities/User";
 
 const AppRouter = () => {
     const isAuth = useSelector(getUserAuthData);
+    console.log(isAuth);
+    
 
-    const routes = useMemo(() => {
-        return Object.values(routeConfig).filter(route => {
-            if(route.authOnly && isAuth) {
-                return false;
-            }
-            return true;
-        })
-    }, [isAuth])
+    const routes = useMemo(() => Object.values(routeConfig).filter((route) => {
+        if(route.authOnly && !isAuth ) {
+            return false;
+        }
+        return true;
+    }), [isAuth])
     return (
         <>
             

@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import App from 'app/App';
 import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
 import { Spinner, SpinnerSize } from 'shared/ui/Spinner/Spinner';
-import { Align, TextTheme } from 'shared/ui/Text/Text';
+import { Align, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { profileActions } from 'entities/Profile/model/slice/profileSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { getProfileReadOnly } 
@@ -38,7 +38,6 @@ export interface ProfileCardProps {
     onChangeAvatar?: (value?: string) => void,
     onChangeCurrency?: (value?: Currency) => void
     onChangeCountry?: (value?: Country) => void
-    ageError?: string
 }
 export const ProfileCard = memo((props: ProfileCardProps) => {
     const { t } = useTranslation('profile');
@@ -55,8 +54,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         onChangeUsername,
         onChangeAvatar,
         onChangeCurrency,
-        onChangeCountry,
-        ageError
+        onChangeCountry
     } = props;
 
     const mods: Mods = {
@@ -75,6 +73,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         return (
             <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
                 <Text
+                    size={TextSize.S}
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке профиля')}
                     text={t('Попробуйте обновить страницу')}
@@ -150,8 +149,6 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                     onChange={onChangeCountry}
                     readonly={readonly}
                 />
-
-                {ageError?.length != 0 && <div className={cls.ageInputAlarm}>{ageError}</div>}
             </div>
         </div>
     );

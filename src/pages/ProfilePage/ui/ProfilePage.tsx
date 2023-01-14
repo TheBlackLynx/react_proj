@@ -2,47 +2,36 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { DynamicModuleLoaders, ReducerList } from
     'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
-import { fetchProfileData, getProfileAgeError, getProfileData, getProfileError, getProfileForm, 
+import { fetchProfileData, getProfileData, getProfileError, getProfileForm, 
     getProfileIsLoading, getProfileReadOnly,
-    profileActions, ProfileCard, profileReducer } from 'entities/Profile';
+    getProfileValidateErrors,
+    profileActions, ProfileCard, profileReducer, ValidateProfileError } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
+import { TextTheme } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text/Text';
 
 
 const reducers: ReducerList = {
     profile: profileReducer
 }
 const ProfilePage = memo(() => {
-    const { t } = useTranslation('main');
+    const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const data = useSelector(getProfileForm)
     const error = useSelector(getProfileError);
-    const ageError = useSelector(getProfileAgeError);
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadOnly);
+    const validationErrors = useSelector(getProfileValidateErrors);
 
     const onChangeFirstname = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({first: value || ''}))
     }, [dispatch])
     const onChangeLastname = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({last: value || ''}))
-    }, [dispatch])
-
-    const onChangeAge = useCallback((value?: string) => {
-        const re = new RegExp(/^\d+$/);
-        // @ts-ignore
-        if (re.test(value) && value?.length <= 3){
-            dispatch(profileActions.updateProfile({age: Number(value) || 0}))
-            dispatch(profileActions.setAgeError(''))
-        }
-        else {
-            dispatch(profileActions.updateProfile({age: 0}))
-            dispatch(profileActions.setAgeError('Неверное значение поля Age'))
-        }
-        
     }, [dispatch])
 
     const onChangeCity = useCallback((value?: string) => {
@@ -66,6 +55,23 @@ const ProfilePage = memo(() => {
     }, [dispatch])
 
 
+    const validateErrorTranslates  = {
+        [ValidateProfileError.SERVER_ERROR]: 
+        t('Серверная ошибка при сохранении'),
+        [ValidateProfileError.INCORRECT_AGE]:
+         t('Неверный формат возраста'),
+        [ValidateProfileError.INCORRECT_AGE_LENGTH]:
+         t('Значение возраста не может превыщать 3 символов'),
+        [ValidateProfileError.NO_DATA]:
+         t('Данные не указаны'),
+        [ValidateProfileError.INCORRECT_USER_DATA]:
+         t('Логин и имя пользователя обязательны при сохранении'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: 
+        t('Не указана страна'),
+        [ValidateProfileError.INCORRECT_USERNAME]: 
+        t('Не указано имя пользователя'),
+
+    }
     useEffect(() => {
         
         dispatch(fetchProfileData())
@@ -76,18 +82,24 @@ const ProfilePage = memo(() => {
         <div >
             <DynamicModuleLoaders reducers={reducers} removeAfterUnmount={true}>
                 <ProfilePageHeader />
+                {
+                    validationErrors?.length && validationErrors.map(err => (
+                        <Text 
+                            key={err}
+                            theme={TextTheme.ERROR} 
+                            text={validateErrorTranslates[err]}/>
+                    ))
+                }
                 <ProfileCard
                     data={data}
                     isLoading={isLoading || false}
                     error={error} 
                     onChangeFirstname={onChangeFirstname}
                     onChangeLastname={onChangeLastname}
-                    onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity}
                     onChangeUsername={onChangeUsername}
                     onChangeAvatar={onChangeAvatar}
                     readonly={readonly}
-                    ageError={ageError}
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
