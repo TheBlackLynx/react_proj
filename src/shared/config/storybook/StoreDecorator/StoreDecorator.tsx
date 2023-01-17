@@ -4,10 +4,12 @@ import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { BrowserRouter } from 'react-router-dom';
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
+import { profileReducer } from 'entities/Profile';
 
 
 const defaultAsyncReducers: ReducerList = {
-    loginForm: loginReducer
+    loginForm: loginReducer,
+    profile: profileReducer
 }
 export const StoreDecorator = (
     state?: DeepPartial<StateSchema>,

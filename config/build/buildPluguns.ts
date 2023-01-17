@@ -3,14 +3,16 @@ import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
+import { BindOptions } from 'dgram';
+import { BuildOptions } from './types/config';
 
 
-export function buildPlugins(htmlPath: string, isDev: boolean, apiUrl: string)
+export function buildPlugins({paths, isDev, apiUrl, project} : BuildOptions)
 : webpack.WebpackPluginInstance[] {
 
     const plugins = [
         new HtmlWebpackPlugin({
-            template: htmlPath,
+            template: paths.html,
             filename: './index.html'
         }),
         new webpack.ProgressPlugin(),
@@ -20,7 +22,8 @@ export function buildPlugins(htmlPath: string, isDev: boolean, apiUrl: string)
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
-            __API__: JSON.stringify(apiUrl)
+            __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project)
         }),
         new ReactRefreshWebpackPlugin({
             overlay: false

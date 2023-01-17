@@ -7,11 +7,12 @@ export interface BuildPaths {
     src: string;
 }
 export interface BuildOptions {
-    mode: BuildMode,
+    mode?: BuildMode,
     paths: BuildPaths,
     isDev: boolean,
-    port: number,
-    apiUrl: string
+    port?: number,
+    apiUrl: string,
+    project: 'strorybook' | 'frontend' | 'jest'
 }
 
 export interface BuildEnv {
