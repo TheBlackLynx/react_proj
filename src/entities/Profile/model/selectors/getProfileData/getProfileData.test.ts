@@ -6,14 +6,14 @@ import { getProfileData } from "./getProfileData"
 describe('getProfileCurrency', () => {
     test('should return value ', () => {
         const data = {
-                first: "Marica",
-                last: "Sav",
-                age: 32,
-                currency: Currency.EUR,
-                country: Country.RU,
-                city: "Moscow",
-                username: "marica",
-                avatar: "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
+            first: "Marica",
+            last: "Sav",
+            age: 32,
+            currency: Currency.EUR,
+            country: Country.RU,
+            city: "Moscow",
+            username: "marica",
+            avatar: "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
               
         }
         const state: DeepPartial<StateSchema>  = {

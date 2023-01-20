@@ -6,7 +6,7 @@ describe('getProfileCurrency', () => {
     test('should return value ', () => {
         const state: DeepPartial<StateSchema>  = {
             profile: {
-              readonly: true
+                readonly: true
             }
         }
         expect(getProfileReadOnly(state as StateSchema)).toEqual(true)

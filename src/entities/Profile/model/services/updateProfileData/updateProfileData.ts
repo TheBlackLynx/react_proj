@@ -15,6 +15,7 @@ ThunkConfig<ValidateProfileError[]>>(
         const formData = getProfileData(getState());
         const errors = validateProfileData(formData);
        
+        console.log('formData', formData);
         
         if (errors.length) {
             return rejectWithValue(errors);
@@ -24,7 +25,9 @@ ThunkConfig<ValidateProfileError[]>>(
         try {
             const response = await extra.api.put<ProfileType>(
                 '/profile', formData)
-            
+            if (!response.data){
+                throw new Error()
+            }
             return response?.data
         } catch (e){
             console.log(e);

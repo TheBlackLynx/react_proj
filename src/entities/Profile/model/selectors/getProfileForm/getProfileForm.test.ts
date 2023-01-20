@@ -15,7 +15,7 @@ describe('getProfileCurrency', () => {
             username: "marica",
             avatar: "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
           
-    }
+        }
         const state: DeepPartial<StateSchema>  = {
             profile: {
                 form: data

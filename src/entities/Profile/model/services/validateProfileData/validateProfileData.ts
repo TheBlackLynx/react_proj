@@ -17,14 +17,14 @@ export const validateProfileData = (profile?: ProfileType) => {
     if(!country) {
         errors.push(ValidateProfileError.INCORRECT_COUNTRY);
     }
-    if (!username) {
+    if (!username && username === '') {
         errors.push(ValidateProfileError.INCORRECT_USERNAME);
     }
 
     if (age && age.toString().length > 3) {
         errors.push(ValidateProfileError.INCORRECT_AGE_LENGTH);
     }
-
+    console.log('errors', errors);
     return errors;
     
 }

@@ -6,9 +6,9 @@ describe('getProfileCurrency', () => {
     test('should return value ', () => {
         const state: DeepPartial<StateSchema>  = {
             profile: {
-              data: {
-                username: 'marica'
-              }
+                data: {
+                    username: 'marica'
+                }
             }
         }
         expect(getProfileUsername(state as StateSchema)).toEqual('marica')
