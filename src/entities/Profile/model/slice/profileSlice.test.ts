@@ -28,13 +28,12 @@ describe('loginSlice', () => {
         const state: DeepPartial<ProfileSchema>  = {form: {first: ''}}
         expect(profileReducer(
             state as ProfileSchema, 
-            profileActions.updateProfile
-            ({
+            profileActions.updateProfile({
                 first: 'MARICA'
             })
-            )).toEqual({
-                form: {first: 'MARICA'}
-            })
+        )).toEqual({
+            form: {first: 'MARICA'}
+        })
     })
 
     test('test save', () => {
@@ -43,40 +42,40 @@ describe('loginSlice', () => {
         expect(profileReducer(
             state as ProfileSchema, 
             profileActions.save())).toEqual({
-                readonly: true,
-                data,
-                form: data
-            })
+            readonly: true,
+            data,
+            form: data
+        })
     })
 
     test('test cancel edit', () => {
         
         const state: DeepPartial<ProfileSchema>  = {data: data, form: { first: ''}}
         expect(profileReducer(state as ProfileSchema, profileActions.cancelEdit
-            ())).toEqual({
-                readonly: true,
-                validateErrors: [],
-                data,
-                form: data
-            })
+        ())).toEqual({
+            readonly: true,
+            validateErrors: [],
+            data,
+            form: data
+        })
     })
 
     test('test fetchProfileData pending', () => {
         
         const state: DeepPartial<ProfileSchema>  = {isLoading: false, validateErrors: [ValidateProfileError.SERVER_ERROR]}
         expect(profileReducer(state as ProfileSchema, fetchProfileData.pending())).toEqual({
-                isLoading: true,
-                validateErrors: [ValidateProfileError.SERVER_ERROR],
-            })
+            isLoading: true,
+            validateErrors: [ValidateProfileError.SERVER_ERROR],
+        })
     })
 
     test('test fetchProfileData fulfilled', () => {
         
         const state: DeepPartial<ProfileSchema>  = {isLoading: true}
         expect(profileReducer(state as ProfileSchema, fetchProfileData.fulfilled(data, ''))).toEqual({
-                isLoading: false,
-                data,
-                form: data
-            })
+            isLoading: false,
+            data,
+            form: data
+        })
     })
 })

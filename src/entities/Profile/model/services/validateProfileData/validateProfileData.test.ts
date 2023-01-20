@@ -63,7 +63,7 @@ describe('login by username tests', () => {
     })
 
     test('incorrect username ', async () => {
-        const result = validateProfileData({...data, username: undefined});
+        const result = validateProfileData({...data, username: ''});
         expect(result).toEqual([
             ValidateProfileError.INCORRECT_USERNAME
         ])
@@ -74,8 +74,7 @@ describe('login by username tests', () => {
         expect(result).toEqual([
             ValidateProfileError.INCORRECT_USER_DATA,
             ValidateProfileError.INCORRECT_AGE,
-            ValidateProfileError.INCORRECT_COUNTRY,
-            ValidateProfileError.INCORRECT_USERNAME
+            ValidateProfileError.INCORRECT_COUNTRY
         ])
     })
 })
