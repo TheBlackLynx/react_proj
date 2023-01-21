@@ -10,9 +10,9 @@ const Main = memo(() => {
     const [inputValue, setInputValue] = useState('');
 
     return (
-        <div className={classes.main}>
+        <div className={classes.main} style={{color: 'pink'}}>
             <BugButton />
-            {t('Главная страница')}
+            {t('Главная страницаfffff')}
             <Input />
         </div>
     )

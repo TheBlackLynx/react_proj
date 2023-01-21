@@ -63,7 +63,7 @@ describe('loginSlice', () => {
     test('test fetchProfileData pending', () => {
         
         const state: DeepPartial<ProfileSchema>  = {isLoading: false, validateErrors: [ValidateProfileError.SERVER_ERROR]}
-        expect(profileReducer(state as ProfileSchema, fetchProfileData.pending())).toEqual({
+        expect(profileReducer(state as ProfileSchema, fetchProfileData.pending(''))).toEqual({
             isLoading: true,
             validateErrors: [ValidateProfileError.SERVER_ERROR],
         })
