@@ -22,7 +22,8 @@ export function buildWebpackConfig(
         output: {
             filename: '[name].[contenthash].js',
             path: build,
-            clean: true
+            clean: true,
+            publicPath: '/'
         },
         plugins: buildPlugins({paths, isDev, apiUrl, project}),
     }

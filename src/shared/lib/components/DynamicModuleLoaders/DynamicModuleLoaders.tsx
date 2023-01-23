@@ -32,7 +32,7 @@ export const DynamicModuleLoaders: FC<DynamicModuleLoadersProps> =
             if(removeAfterUnmount) {
                 Object.entries(reducers).forEach(([name, reducer]) => {
                     store.reducerManager.remove(name as StateSchemaKeys)
-                  //  dispatch({type: `@destroy ${name} reducers`})
+                    //  dispatch({type: `@destroy ${name} reducers`})
                 }) }
            
         }
