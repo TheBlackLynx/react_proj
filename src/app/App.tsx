@@ -5,17 +5,18 @@ import { AppRouter } from "./providers/router";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
 import "shared/config/i18n/i18n";
-import { useDispatch } from "react-redux";
-import { userActions } from "entities/User";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserAuthData, getUserMounted, userActions } from "entities/User";
 
 
 const App = () => {
     const { theme } = useTheme();
     const dispatch = useDispatch();
+    const userMounted = useSelector(getUserMounted);
+    const authData = useSelector(getUserAuthData)
 
     useEffect(() => {
-        dispatch(userActions.initAuthdata)
-        console.log('userActions.initAuthdata', userActions.initAuthdata);
+        dispatch(userActions.initAuthdata())
         
     }, [dispatch])
 
@@ -36,7 +37,7 @@ const App = () => {
                     <Navbar />
                     <div className="content-page">
                         <Sidebar />
-                        <AppRouter />
+                        {userMounted && <AppRouter />}
                     </div>
                 </Suspense>
                 

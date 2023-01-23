@@ -5,6 +5,10 @@ export {
     userReducer,
     
 } from "./model/slice/userSlice"
+
+export {
+    getUserMounted
+} from './model/selectors/getUserMounted/getUserMounted'
 export { 
     User, 
     UserSchema,
