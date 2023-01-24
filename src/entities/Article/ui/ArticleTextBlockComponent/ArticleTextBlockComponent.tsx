@@ -1,13 +1,12 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const ArticleDetailPage = memo(() => {
+const ArticleTextBlockComponent = memo(() => {
     const {t} = useTranslation('article');
     return (
         <div >
-            {t('ArticleDetailPage')}
+            {t('ArticleTextBlockComponent')}
         </div>
     )
 });
-export default memo(ArticleDetailPage);
-
+export default memo(ArticleTextBlockComponent);

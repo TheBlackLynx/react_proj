@@ -1,5 +1,5 @@
 import { AboutPage } from "pages/About"
-import { ArticleDetailPage } from "pages/ArticleDetailPage"
+import ArticleDetailsPage from "pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage"
 import { ArticlesPage } from "pages/ArticlesPage"
 import { MainPage } from "pages/Main"
 import { NotFoundPage } from 'pages/NotFoundPage'
@@ -55,7 +55,7 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     },
     [AppRoutes.ARTICLE_DETAILS]: {
         path: `${RoutePath.article_details}:id`,
-        element: <ArticleDetailPage />,
+        element: <ArticleDetailsPage />,
         authOnly: true
     },
     [AppRoutes.NOT_FOUND]: {
