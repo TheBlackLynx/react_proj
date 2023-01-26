@@ -1,22 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ArticleDetailsPage } from './ArticleDetailsPage';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
-
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
-    title: 'pages/ArticleDetailsPage',
-    component: ArticleDetailsPage,
-    // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof ArticleDetailsPage>;
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
-
+import { StateSchema } from "app/providers/StoreProvider"
+import { ArticleBlockType, ArticleType } from "../types/article"
+import { getArticleDetailsData, getArticleDetailsIsLoading, getArticleDetailsError} from "./articleDetails"
 const data = {
     "id": "1",
     "title": "Javascript news",
@@ -86,13 +70,47 @@ const data = {
         }
     ]
 }
-export const Normal = Template.bind({});
-Normal.args = {
-};
-Normal.decorators = [StoreDecorator({
-    articleDetails: {
-        data
-    }
-})]
+describe('getArticleDetailsData', () => {
+    test('should return value ', () => {
+        const state: DeepPartial<StateSchema>  = {
+            articleDetails: {
+                data
+            }
+        }
+        expect(getArticleDetailsData(state as StateSchema)).toEqual(data)
+    })
+    test('value with empty state', () => {
+        const state: DeepPartial<StateSchema>  = {}
+        expect(getArticleDetailsData(state as StateSchema)).toEqual(undefined)
+    })
+})
 
+describe('getArticleDetailsIsLoading', () => {
+    test('should return value ', () => {
+        const state: DeepPartial<StateSchema>  = {
+            articleDetails: {
+                isLoading: true
+            }
+        }
+        expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(true)
+    })
+    test('value with empty state', () => {
+        const state: DeepPartial<StateSchema>  = {}
+        expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(undefined)
+    })
+})
 
+describe('cgetArticleDetailsError', () => {
+    test('should return value ', () => {
+        const state: DeepPartial<StateSchema>  = {
+            articleDetails: {
+                error: 'error'
+            }
+        }
+        expect(getArticleDetailsError(state as StateSchema)).toEqual('error')
+    })
+    test('value with empty state', () => {
+        const state: DeepPartial<StateSchema>  = {}
+        expect(getArticleDetailsError(state as StateSchema)).toEqual(undefined)
+    })
+})

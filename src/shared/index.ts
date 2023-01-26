@@ -4,6 +4,7 @@ import { AppLink } from "./ui/AppLink/AppLink";
 import { Loader } from "./ui/Loader/Loader";
 import  { Input } from './ui/Input/Input';
 import { Text } from "./ui/Text/Text";
+import { Icon } from "./ui/Icon/Icon";
 
 export {
     classNames,
@@ -11,5 +12,6 @@ export {
     AppButton,
     Loader,
     Input,
-    Text
+    Text,
+    Icon
 }

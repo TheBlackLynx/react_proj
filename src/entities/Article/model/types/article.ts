@@ -4,7 +4,7 @@ export interface Article {
     subtitle: string,
     img: string,
     views: number,
-    createdAt: Date,
+    createdAt: string,
     type: ArticleType[],
     blocks: ActicleBlocks[]
 }
@@ -16,10 +16,10 @@ export enum ArticleType {
 }
 
 
-enum ArticleBlockType {
-    'CODE' = 'code',
-    'TEXT' = 'text',
-    'IMAGE' = 'image'
+export enum ArticleBlockType {
+    CODE = 'CODE',
+    TEXT = 'TEXT',
+    IMAGE = 'IMAGE'
 }
 
 

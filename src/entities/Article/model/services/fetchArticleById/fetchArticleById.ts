@@ -9,8 +9,6 @@ ThunkConfig<string>>(
     'articleDetails/fetchArticleById',
     async (articleId, thunkAPI) => {
         const { extra, dispatch, rejectWithValue } = thunkAPI;
-       
-       
         try {
             const response = await extra.api.get<Article>(
                 `/articles/${articleId}`)

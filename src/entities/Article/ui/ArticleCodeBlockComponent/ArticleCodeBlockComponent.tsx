@@ -1,12 +1,20 @@
+import { ArticleCodeBlock } from 'entities/Article/model/types/article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Code } from 'shared/ui/Code/Code';
 
-const ArticleCodeBlockComponent = memo(() => {
-    const {t} = useTranslation('article');
+interface ArticleCodeBlockComponentProps {
+    className?: string;
+    block: ArticleCodeBlock;
+}
+
+export const ArticleCodeBlockComponent = memo((props: ArticleCodeBlockComponentProps) => {
+    const { t } = useTranslation('article');
+    const { className, block } = props;
     return (
         <div >
-            {t('ArticleCodeBlockComponent')}
+            <Code text={block.code} />
+
         </div>
     )
 });
-export default memo(ArticleCodeBlockComponent);

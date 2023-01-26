@@ -13,9 +13,6 @@ export const articleDetailsSlice = createSlice({
     name: 'articleDetails',
     initialState,
     reducers: {
-        setReadonly: (state, action: PayloadAction<boolean>) => {
-            
-        },
     }, extraReducers: (builder) => {
         builder
         .addCase(fetchArticleById.pending, (state) => {

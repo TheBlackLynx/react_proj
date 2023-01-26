@@ -36,18 +36,17 @@ export const Text = memo((props: TextProps) => {
         align = Align.LEFT,
         size = TextSize.M
     } = props
-    const mods: Record<string, boolean> = {
-        [cls[theme]] : true,
-    }
+
     return (
-        <div className={classNames(cls.Text, mods, [cls[align]])} >
+        <div className={classNames(cls.Text, {
+        }, [cls[align], cls[size], cls[theme]])} >
             {
                 title && 
-                <p className={classNames(cls.title, {}, [cls[size]])}>{title}</p>
+                <p className={cls.title}>{title}</p>
             }
             {
                 text && 
-                <p className={classNames(cls.text, {}, [cls[size]])}>{text}</p>
+                <p className={cls.text}>{text}</p>
             }
             
         </div>

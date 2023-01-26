@@ -1,6 +1,9 @@
 {
+  "ArticleCodeBlockComponent": "ArticleCodeBlockComponent",
   "ArticleDetailPage": "ArticleDetailPage",
   "ArticleDetails": "ArticleDetails",
+  "ArticleImageBlockComponent": "ArticleImageBlockComponent",
+  "ArticleTextBlockComponent": "ArticleTextBlockComponent",
   "ArticlesPage": "ArticlesPage",
   "Password": "Password",
   "Username": "Username",

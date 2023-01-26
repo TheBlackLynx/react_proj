@@ -1,0 +1,14 @@
+.imgWrapper {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.title {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.img {
+    max-width: 100%;
+}
