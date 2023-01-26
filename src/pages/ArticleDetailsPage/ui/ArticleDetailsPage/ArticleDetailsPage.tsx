@@ -10,8 +10,8 @@ const ArticleDetailsPage = memo(() => {
     if (!id) {
         return (
             <div >
-            {t('статья не найдена')}
-        </div>
+                {t('статья не найдена')}
+            </div>
         )
     }
     return (

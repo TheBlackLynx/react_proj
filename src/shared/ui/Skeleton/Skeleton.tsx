@@ -17,17 +17,17 @@ export const Skeleton = memo(( props: SkeletonProps ) => {
         height,
         width,
         border
-     } = props;
+    } = props;
 
-     const styles: CSSProperties = {
+    const styles: CSSProperties = {
         height,
         width,
         borderRadius: border
-     }
+    }
     return (
         <div 
-        className={classNames(cls.Skeleton, {}, [className])}
-        style={styles}>
+            className={classNames(cls.Skeleton, {}, [className])}
+            style={styles}>
        
         </div>
     )

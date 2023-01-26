@@ -5,7 +5,8 @@ import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { BrowserRouter } from 'react-router-dom';
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { profileReducer } from 'entities/Profile';
-import { articleDetailsActions, articleDetailsReducer } from 'entities/Article/model/slice/articleSlice';
+import { articleDetailsActions, articleDetailsReducer }
+    from 'entities/Article/model/slice/articleSlice';
 
 
 const defaultAsyncReducers: ReducerList = {

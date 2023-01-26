@@ -14,7 +14,7 @@ export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponen
     return (
         <div className={cls.imgWrapper}>
             <img src={block.src} className={cls.img}></img>
-            {block.title && <Text title={block.title} className={cls.title} align={Align.CENTER}/> }
+            {block.title && <Text title={block.title} className={cls.title} align={Align.CENTER}/> }
         </div>
     )
 });
