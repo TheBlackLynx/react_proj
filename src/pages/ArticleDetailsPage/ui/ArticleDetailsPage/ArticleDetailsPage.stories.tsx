@@ -1,8 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ArticleDetailsPage } from './ArticleDetailsPage';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers';
+import ArticleDetailsPage from './ArticleDetailsPage';  
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 
@@ -15,7 +13,7 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof ArticleDetailsPage>;
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage />;
 
 const data = {
     "id": "1",

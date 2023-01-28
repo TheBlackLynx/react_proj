@@ -17,7 +17,7 @@ describe('login by username tests', () => {
         getState = jest.fn();
     })
     test('should return value from server ', async () => {
-        const userValue = {username: '123', id: '1'};
+        const userValue = {login: '123', id: '1'};
         
         const thunk = new TestAsyncThunk(loginByUserName);
         thunk.api.post.mockReturnValue(Promise.resolve({data: userValue}))

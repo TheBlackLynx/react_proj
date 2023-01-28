@@ -107,13 +107,15 @@
       "id": "1",
       "login": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
     },
     {
       "id": "2",
       "login": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
     }
   ],
   "profile": {
