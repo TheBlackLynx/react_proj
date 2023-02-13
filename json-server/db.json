@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "jjjj",
+      "id": "4KLn8In"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "hgjg",
+      "id": "8a5_p3v"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": ";lip8908",
+      "id": "l6lDAZ0"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hghjg",
+      "id": "sQzsYdD"
     }
   ],
   "users": [
@@ -118,14 +144,28 @@
       "avatar": "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
     }
   ],
-  "profile": {
-    "first": ",mkjk",
-    "last": "",
-    "age": 12,
-    "currency": "RUB",
-    "country": "USA",
-    "city": "",
-    "username": "",
-    "avatar": "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": ",mkjk",
+      "last": "",
+      "age": 12,
+      "currency": "RUB",
+      "country": "USA",
+      "city": "",
+      "username": "",
+      "avatar": "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
+    },
+    {
+      "id": "2",
+      "first": "Jack111",
+      "last": "Sparrow",
+      "age": 45,
+      "currency": "USD",
+      "country": "USA",
+      "city": "",
+      "username": "sparrow",
+      "avatar": "https://avatarko.ru/img/kartinka/32/film_pirat_31050.jpg"
+    }
+  ]
 }

@@ -19,7 +19,7 @@ import { ArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchem
  export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
     (state) => state.comments || commentsAdapter.getInitialState())
   const atricleDetailsCommentsSlice = createSlice({
-    name: 'atricleDetailsCommentsSlice',
+    name: 'atricleDetailsComments',
     initialState: commentsAdapter.getInitialState<ArticleDetailsCommentSchema>({
         isLoading: false,
         error: undefined,

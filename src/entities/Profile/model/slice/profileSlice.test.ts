@@ -63,7 +63,7 @@ describe('loginSlice', () => {
     test('test fetchProfileData pending', () => {
         
         const state: DeepPartial<ProfileSchema>  = {isLoading: false, validateErrors: [ValidateProfileError.SERVER_ERROR]}
-        expect(profileReducer(state as ProfileSchema, fetchProfileData.pending(''))).toEqual({
+        expect(profileReducer(state as ProfileSchema, fetchProfileData.pending('', '1'))).toEqual({
             isLoading: true,
             validateErrors: [ValidateProfileError.SERVER_ERROR],
         })
@@ -72,7 +72,7 @@ describe('loginSlice', () => {
     test('test fetchProfileData fulfilled', () => {
         
         const state: DeepPartial<ProfileSchema>  = {isLoading: true}
-        expect(profileReducer(state as ProfileSchema, fetchProfileData.fulfilled(data, ''))).toEqual({
+        expect(profileReducer(state as ProfileSchema, fetchProfileData.fulfilled(data, '', '1'))).toEqual({
             isLoading: false,
             data,
             form: data

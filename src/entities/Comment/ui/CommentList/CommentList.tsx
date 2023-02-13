@@ -17,6 +17,15 @@ export const CommentList = memo((props: CommentList) => {
     const { comments, isLoading } = props;
     const {t} = useTranslation('comments')
    
+    if (isLoading) {
+        return (
+            <div>
+                <CommentItem isLoading/>
+                <CommentItem isLoading/>
+                <CommentItem isLoading/>
+            </div>
+        )
+    }
     return (
         <div >
             {comments?.length
@@ -28,3 +37,4 @@ export const CommentList = memo((props: CommentList) => {
     )
 });
 
+ 

@@ -8,7 +8,7 @@ import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/arti
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'entity/CommentItem',
+    title: 'entities/CommentItem',
     component: CommentItem,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
@@ -19,9 +19,21 @@ const Template: ComponentStory<typeof CommentItem> = (args) => <CommentItem {...
 
 export const Normal = Template.bind({});
 Normal.args = {
+    comment: {
+        id: '1',
+        text: 'hello world',
+        user: { id: '1', login: 'Vasya' },
+    },
 };
-Normal.decorators = [StoreDecorator({
-   
-})]
+
+export const Loading = Template.bind({});
+Loading.args = {
+    comment: {
+        id: '1',
+        text: 'hello world',
+        user: { id: '1', login: 'Vasya' },
+    },
+    isLoading: true,
+};
 
 

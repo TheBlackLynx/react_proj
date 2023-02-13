@@ -17,7 +17,8 @@ const data = {
     country: Country.RU,
     city: "Moscow",
     username: "marica",
-    avatar: "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
+    avatar: "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif",
+    id: '1'
   
 }
 
@@ -29,7 +30,8 @@ const data2 = {
     country: Country.RU,
     city: "Moscow",
     username: "marica",
-    avatar: "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
+    avatar: "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif",
+    id: '1'
 }
 
 describe('login by username tests', () => {

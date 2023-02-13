@@ -4,7 +4,8 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { classNames, Text } from 'shared';
+import { AppLink, classNames, Text } from 'shared';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { TextSize } from 'shared/ui/Text/Text';
@@ -32,12 +33,12 @@ export const CommentItem = memo((props: CommentItemProps) => {
     }
     return (
         <div className={classNames(cls.CommentItem, {}, [className])}>
-            <div className={cls.CommentItemHeader}>
+            <AppLink to={`${RoutePath.profile}${comment?.user.id}`} className={cls.CommentItemHeader}>
                 { comment?.user.avatar &&
                  <Avatar size={30} src={comment?.user.avatar}  />
                 }
                 <Text size={TextSize.S} text={comment?.user.login} />
-            </div>
+            </AppLink>
             <Text size={TextSize.S} text={comment?.text} className={cls.CommentItemText}/>
         </div>
 

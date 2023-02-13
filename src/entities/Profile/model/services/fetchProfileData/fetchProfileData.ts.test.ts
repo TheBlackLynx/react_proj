@@ -31,7 +31,7 @@ describe('login by username tests', () => {
     test('should return value from server ', async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({data: data}))
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toBe(data)
@@ -41,7 +41,7 @@ describe('login by username tests', () => {
         
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.reject({status: 403}))
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
         expect(result.meta.requestStatus).toBe('rejected');
     })
 })

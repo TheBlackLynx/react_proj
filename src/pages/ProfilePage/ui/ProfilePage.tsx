@@ -13,6 +13,8 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
 import { TextTheme } from 'shared/ui/Text/Text';
 import { Text } from 'shared/ui/Text/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 
 const reducers: ReducerList = {
@@ -26,6 +28,7 @@ const ProfilePage = memo(() => {
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadOnly);
     const validationErrors = useSelector(getProfileValidateErrors);
+    const { id } = useParams<{ id: string }>();
 
     const onChangeFirstname = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({first: value || ''}))
@@ -72,13 +75,17 @@ const ProfilePage = memo(() => {
         t('Не указано имя пользователя'),
 
     }
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook'){
-            dispatch(fetchProfileData())
-        }
      
-        
-    }, [dispatch])
+    if (!id) {
+        return (
+            <div >
+                {t('профиль пользователя не найден')}
+            </div>
+        )
+    }
+    useInitialEffect(() => {
+        dispatch(fetchProfileData(id))
+    })
 
     return (
         <div >

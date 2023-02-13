@@ -24,7 +24,7 @@ ThunkConfig<ValidateProfileError[]>>(
         
         try {
             const response = await extra.api.put<ProfileType>(
-                '/profile', formData)
+                `/profile/${formData?.id}`, formData)
             if (!response.data){
                 throw new Error()
             }

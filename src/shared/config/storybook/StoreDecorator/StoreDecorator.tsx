@@ -7,12 +7,16 @@ import { ReducerList } from 'shared/lib/components/DynamicModuleLoaders/DynamicM
 import { profileReducer } from 'entities/Profile';
 import { articleDetailsActions, articleDetailsReducer }
     from 'entities/Article/model/slice/articleSlice';
+import { addNewCommentFormReducer } from 'features/AddNewComment/model/slice/addNewCommentForm';
+import { atricleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/atricleDetailsCommentsSlice';
 
 
 const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
     profile: profileReducer,
-    articleDetails: articleDetailsReducer
+    articleDetails: articleDetailsReducer,
+    addNewCommentForm: addNewCommentFormReducer,
+    comments: atricleDetailsCommentsReducer
 }
 export const StoreDecorator = (
     state?: DeepPartial<StateSchema>,
