@@ -3,22 +3,23 @@ import {
     createSlice,
     EntityState,
     PayloadAction,
-  } from '@reduxjs/toolkit'
+} from '@reduxjs/toolkit'
 import { StateSchema } from 'app/providers/StoreProvider';
 import { CommentType } from 'entities/Comment';
-import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } 
+from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { ArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchema';
   
   
-  const commentsAdapter = createEntityAdapter<CommentType>({
+const commentsAdapter = createEntityAdapter<CommentType>({
     // Assume IDs are stored in a field other than `book.id`
     selectId: (comment) => comment.id,
     // Keep the "all IDs" array sorted based on book titles
-  })
+})
   
- export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
+export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
     (state) => state.comments || commentsAdapter.getInitialState())
-  const atricleDetailsCommentsSlice = createSlice({
+const atricleDetailsCommentsSlice = createSlice({
     name: 'atricleDetailsComments',
     initialState: commentsAdapter.getInitialState<ArticleDetailsCommentSchema>({
         isLoading: false,
@@ -28,8 +29,8 @@ import { ArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchem
     }),
     reducers: {
      
-      },
-      extraReducers: (builder) => {
+    },
+    extraReducers: (builder) => {
         builder
             .addCase(fetchCommentsByArticleId.pending, (state) => {
                 state.error = undefined;
@@ -46,7 +47,7 @@ import { ArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchem
                 state.error = action.payload;
             })
     }
-    },
-  )
-  export const { actions: atricleDetailsCommentsActions } = atricleDetailsCommentsSlice;
-  export const { reducer: atricleDetailsCommentsReducer } = atricleDetailsCommentsSlice;
+},
+)
+export const { actions: atricleDetailsCommentsActions } = atricleDetailsCommentsSlice;
+export const { reducer: atricleDetailsCommentsReducer } = atricleDetailsCommentsSlice;

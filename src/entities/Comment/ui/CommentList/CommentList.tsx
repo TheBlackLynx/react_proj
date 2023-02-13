@@ -29,10 +29,10 @@ export const CommentList = memo((props: CommentList) => {
     return (
         <div >
             {comments?.length
-            ? comments.map((comment) => (
+                ? comments.map((comment) => (
                     <CommentItem  className={cls.CommentItem} comment={comment}/>
                 ))
-        : <Text text={t('Комментарии отсутствуют')}/>}
+                : <Text text={t('Комментарии отсутствуют')}/>}
         </div>
     )
 });

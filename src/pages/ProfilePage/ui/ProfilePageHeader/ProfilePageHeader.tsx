@@ -54,22 +54,22 @@ export const ProfilePageHeader = memo((props: ProfilePageHeaderProps) => {
                             onClick={EditClickHandler}>
                             {t('Редактировать')}
                         </AppButton>
-                    :
-                    <div>
-                        <AppButton
-                            buttonTheme={AppButtonTheme.OUTLINE_RED}
-                            className={cls.ProfileCardEditBtn}
-                            onClick={CancelClickHandler}>
-                            {t('Отменить')}
-                        </AppButton>
-                        <AppButton
-                            buttonTheme={AppButtonTheme.OUTLINE}
-                            className={cls.ProfileCardSaveBtn}
-                            onClick={SaveClickHandler}>
-                            {t('Сохранить')}
-                        </AppButton>
-                    </div>
-                }
+                        :
+                        <div>
+                            <AppButton
+                                buttonTheme={AppButtonTheme.OUTLINE_RED}
+                                className={cls.ProfileCardEditBtn}
+                                onClick={CancelClickHandler}>
+                                {t('Отменить')}
+                            </AppButton>
+                            <AppButton
+                                buttonTheme={AppButtonTheme.OUTLINE}
+                                className={cls.ProfileCardSaveBtn}
+                                onClick={SaveClickHandler}>
+                                {t('Сохранить')}
+                            </AppButton>
+                        </div>
+                    }
                 </div>
 
             )}

@@ -1,4 +1,5 @@
-import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId"
+import { fetchCommentsByArticleId }
+ from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId"
 import { useEffect } from "react"
 import { useAppDispatch } from "./useAppDispatch"
 

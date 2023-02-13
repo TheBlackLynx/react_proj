@@ -3,5 +3,5 @@ import { AddNewCommentFormProps } from './AddNewCommentForm';
 
 export const AddNewCommentFormAsync = 
 lazy <FC<AddNewCommentFormProps>>(() => new Promise((resolve) => {
-  resolve(import('./AddNewCommentForm'));
+    resolve(import('./AddNewCommentForm'));
 }));

@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback } from 'react';
 import { DynamicModuleLoaders, ReducerList } from
     'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
-import { fetchProfileData, getProfileData, getProfileError, getProfileForm, 
+import { fetchProfileData, getProfileError, getProfileForm, 
     getProfileIsLoading, getProfileReadOnly,
     getProfileValidateErrors,
     profileActions, ProfileCard, profileReducer, ValidateProfileError } from 'entities/Profile';

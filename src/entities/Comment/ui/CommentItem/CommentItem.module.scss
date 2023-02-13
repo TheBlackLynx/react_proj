@@ -5,12 +5,15 @@
 
 .CommentItemHeader {
     display: flex;
-    & img, div {
+
+    & img,
+    div {
         margin-right: 10px;
     }
-    align-items: center;
 
+    align-items: center;
 }
+
 .CommentItemText {
     margin-top: 10px;
 }

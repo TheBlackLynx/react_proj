@@ -17,11 +17,11 @@ ThunkConfig<string>>(
         const articleData = getArticleDetailsData(getState());
 
         console.log('userData', userData);
-   console.log('text', text);
+        console.log('text', text);
         console.log('articleData', articleData);
         
         if ( !userData || !text || !articleData ) {
-           return rejectWithValue('no data99999')
+            return rejectWithValue('no data99999')
         }
         try {
             const response = await extra.api.post<CommentType>(
