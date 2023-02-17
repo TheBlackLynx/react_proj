@@ -4,20 +4,21 @@ import { memo, useMemo, useState } from "react";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher";
 import { AppButtonSize, AppButtonTheme } from "shared/ui/AppButton/AppButton";
-import { SidebarItemsList } from "widgets/Sidebar/model/items";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
+import { useSelector } from "react-redux";
+import { getSidebarItems } from "../../model/selectors/getSidebarItems";
 
 
 
 export const Sidebar = memo(() => {
     const [collapsed, setCollapsed] = useState(false);
-
+    const sidebarItemsList = useSelector(getSidebarItems);
     const onToggle = () => {
         setCollapsed((prev) => !prev);
     };
 
     const itemsList = useMemo(() => {
-        return (SidebarItemsList.map(item => {
+        return (sidebarItemsList.map(item  => {
             return (
                 <SidebarItem 
                     key={item.path} 
@@ -26,7 +27,7 @@ export const Sidebar = memo(() => {
             )
         }))
     
-    }, [collapsed])
+    }, [collapsed, sidebarItemsList])
     return (
         <div
             data-testid="sidebar"
