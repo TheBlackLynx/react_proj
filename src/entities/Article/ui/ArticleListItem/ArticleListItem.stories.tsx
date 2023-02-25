@@ -1,9 +1,22 @@
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared';
-import cls from './ArticlesPage.module.scss';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
-import { ArticleType } from 'entities/Article/model/types/article';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import  {ArticleListItem} from './ArticleListItem';
+import { ThemeDecorator } from 
+    'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers';
+import { Article, ArticleView } from 'entities/Article/model/types/article';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
+// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+export default {
+    title: 'entities/Article/ArticleListItem',
+    component: ArticleListItem,
+    // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof ArticleListItem>;
+const Template: 
+ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
 
 const article = {
     id: 1,
@@ -79,26 +92,16 @@ const article = {
           "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы."
         ],
       },
-    ] };
-
-const ArticlesPage = memo(() => {
-    const {t} = useTranslation('article');
-   
-    return (
-        <div className={classNames(cls.ArticlePage, {}, [])}>
-        
-            <ArticleList  
-             articles={
-                // @ts-ignore
-              new Array(16)
-              .fill(0)
-              .map((item, index) => ({
-                ...article,
-                id: String(index)
-              })) as Article[]
-            } 
-           /> 
-        </div>
-    )
-});
-export default memo(ArticlesPage);
+    ] }; 
+export const List = Template.bind({});
+List.args = {
+    view: ArticleView.LIST,
+    article: article as unknown as Article
+};
+List.decorators = [RouterDecorator()]
+export const Tile = Template.bind({});
+Tile.args = {
+    view: ArticleView.TILE,
+    article: article as unknown as Article
+};
+Tile.decorators = [RouterDecorator()]

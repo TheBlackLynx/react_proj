@@ -87,7 +87,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
             <div className={cls.ProfileData}>
                 {data?.avatar && (
                     <div className={cls.AvatarWrapper}>
-                        <Avatar src={data?.avatar} className={cls.ProfileAvatar} />
+                        <Avatar size={200} src={data?.avatar} className={cls.ProfileAvatar} />
                     </div>
                 )
                 }

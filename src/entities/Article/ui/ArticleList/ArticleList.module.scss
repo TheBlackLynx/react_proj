@@ -1,0 +1,23 @@
+
+//    .ArticleList {
+//     display: flex;
+//     flex-wrap: wrap;
+// }
+
+
+.TILE {
+    &.ArticleList {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .Card {
+        margin-right: 30px;
+        margin-top: 30px;
+    }
+}
+
+.LIST {
+    .Card {
+        margin-bottom: 30px;
+    }
+}

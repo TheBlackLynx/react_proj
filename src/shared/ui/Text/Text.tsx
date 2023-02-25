@@ -34,12 +34,13 @@ export const Text = memo((props: TextProps) => {
         text, 
         theme = TextTheme.NORMAL,
         align = Align.LEFT,
-        size = TextSize.M
+        size = TextSize.M,
+        className
     } = props
 
     return (
         <div className={classNames(cls.Text, {
-        }, [cls[align], cls[size], cls[theme]])} >
+        }, [className, cls[align], cls[size], cls[theme]])} >
             {
                 title && 
                 <p className={cls.title}>{title}</p>
