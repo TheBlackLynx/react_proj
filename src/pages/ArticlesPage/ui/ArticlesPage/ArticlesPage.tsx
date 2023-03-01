@@ -1,9 +1,17 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared';
 import cls from './ArticlesPage.module.scss';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
+import { Article, ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
 import { ArticleType } from 'entities/Article/model/types/article';
+import { DynamicModuleLoaders, ReducerList } from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
+import { articlePageActions, articlePageReducer, getArticles } from '../../model/slice/ArticlePageSlice';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { useSelector } from 'react-redux';
+import{  getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView }  from '../../model/selectors/articlesPageSelectors';
+import { articleDetailsActions } from 'entities/Article/model/slice/articleSlice';
 
 const article = {
     id: 1,
@@ -83,22 +91,38 @@ const article = {
 
 const ArticlesPage = memo(() => {
     const {t} = useTranslation('article');
-   
+    const dispatch = useAppDispatch();
+    const articles = useSelector(getArticles.selectAll);
+
+    const isLoading = useSelector(getArticlesPageIsLoading);
+    const error = useSelector(getArticlesPageError);
+    const view = useSelector(getArticlesPageView);
+
+    const reducers: ReducerList = {
+      articles: articlePageReducer,
+    }
+
+    useInitialEffect(() => {
+      dispatch(fetchArticlesList())
+     dispatch(articlePageActions.initState())
+    })
+
+    const onViewClick = useCallback((view: ArticleView) => {
+      dispatch(articlePageActions.setView(view))
+    }, [dispatch])
     return (
+      <DynamicModuleLoaders  reducers={reducers}>
         <div className={classNames(cls.ArticlePage, {}, [])}>
-        
+        <ArticleViewSelector view={view as ArticleView} onViewClick={onViewClick}/>
             <ArticleList  
-             articles={
-                // @ts-ignore
-              new Array(16)
-              .fill(0)
-              .map((item, index) => ({
-                ...article,
-                id: String(index)
-              })) as Article[]
-            } 
+             articles={articles} 
+             isLoading={isLoading}
+             error={error}
+             view={view}
+             
            /> 
         </div>
+        </DynamicModuleLoaders>
     )
 });
 export default memo(ArticlesPage);

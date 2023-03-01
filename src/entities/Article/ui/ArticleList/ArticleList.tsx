@@ -10,6 +10,7 @@ interface ArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleView;
+    error?: string
 
 }
 
@@ -26,7 +27,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
         articles,
-        isLoading = true,
+        isLoading,
+        error,
         view = ArticleView.LIST } = props;
 
 
