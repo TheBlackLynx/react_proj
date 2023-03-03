@@ -2,7 +2,7 @@ import classes from './Main.module.scss';
 import { useTranslation } from 'react-i18next';
 import { BugButton } from 'app/providers/ErrorBoundary';
 import { memo, useState } from 'react';
-import { Input } from 'shared';
+import { Input, Page } from 'shared';
 
 const Main = memo(() => {
     const {t} = useTranslation('main');
@@ -10,11 +10,11 @@ const Main = memo(() => {
     const [inputValue, setInputValue] = useState('');
 
     return (
-        <div className={classes.main} style={{color: 'pink'}}>
+        <Page className={classes.main}>
             <BugButton />
             {t('Главная страницаfffff')}
             <Input />
-        </div>
+        </Page>
     )
 });
 

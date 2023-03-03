@@ -23,7 +23,6 @@ server.post('/login', (req, res) => {
         const { login, password } = req.body;
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
         const { users = [] } = db;
-        console.log('db', db);
         const userFromBd = users.find(
             (user) => user.login === login && user.password === password,
         );
@@ -34,7 +33,6 @@ server.post('/login', (req, res) => {
 
         return res.status(403).json({ message: 'Доступ запрещен' });
     } catch (e) {
-        console.log(e);
         return res.status(500).json({ message: e.message });
     }
 });

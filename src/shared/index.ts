@@ -5,6 +5,7 @@ import { Loader } from "./ui/Loader/Loader";
 import  { Input } from './ui/Input/Input';
 import { Text } from "./ui/Text/Text";
 import { Icon } from "./ui/Icon/Icon";
+import { Page } from './ui/Page/Page'
 
 export {
     classNames,
@@ -13,5 +14,6 @@ export {
     Loader,
     Input,
     Text,
-    Icon
+    Icon,
+    Page
 }

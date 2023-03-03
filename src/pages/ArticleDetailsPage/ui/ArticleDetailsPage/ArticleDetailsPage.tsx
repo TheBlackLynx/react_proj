@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { clearScreenDown } from 'readline';
-import { AppButton, Text } from 'shared';
+import { AppButton, Page, Text } from 'shared';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { DynamicModuleLoaders, ReducerList }
     from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
@@ -61,7 +61,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     })
     return (
         <DynamicModuleLoaders reducers={reducersList} removeAfterUnmount>
-            <div >
+            <Page>
                 <AppButton
                     buttonTheme={AppButtonTheme.OUTLINE}
                     onClick={onBackToList}>{t('Назад к списку')}</AppButton>
@@ -71,7 +71,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
                 <CommentList
                     isLoading={isLoading}
                     comments={comments} />
-            </div>
+            </Page>
         </DynamicModuleLoaders>
 
     )

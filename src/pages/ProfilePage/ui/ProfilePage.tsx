@@ -15,6 +15,7 @@ import { TextTheme } from 'shared/ui/Text/Text';
 import { Text } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared';
 
 
 const reducers: ReducerList = {
@@ -88,7 +89,7 @@ const ProfilePage = memo(() => {
     })
 
     return (
-        <div >
+        <Page>
             <DynamicModuleLoaders reducers={reducers} removeAfterUnmount={true}>
                 <ProfilePageHeader />
                 {
@@ -113,7 +114,7 @@ const ProfilePage = memo(() => {
                     onChangeCountry={onChangeCountry}
                 />
             </DynamicModuleLoaders>
-        </div>
+        </Page>
     )
 });
 

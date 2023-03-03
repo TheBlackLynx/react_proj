@@ -22,7 +22,6 @@ interface ArticleListItemProps {
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { className, article, view } = props;
     const [isHover, bindHover] = useHover();
-    console.log('hover', isHover);
     const navigate = useNavigate();
 
     const onOpenArticle = useCallback(() => {

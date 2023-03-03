@@ -16,9 +16,6 @@ ThunkConfig<string>>(
         //const text = getAddNewCommentFormText(getState());
         const articleData = getArticleDetailsData(getState());
 
-        console.log('userData', userData);
-        console.log('text', text);
-        console.log('articleData', articleData);
         
         if ( !userData || !text || !articleData ) {
             return rejectWithValue('no data99999')
