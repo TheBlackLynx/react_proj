@@ -15,11 +15,13 @@ export const StoreProvider = ( props: StoreProviderProps ) => {
     const { children, initialState, asyncReducers } = props;
     //добавление navigate в middleware
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
+
+    
     const store = createReduxStore(
         initialState as StateSchema,  
         asyncReducers as ReducersMapObject<StateSchema>,
-        navigate
+        // navigate
     )
     // AppDispatch = typeof store.dispatch;
 

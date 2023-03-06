@@ -31,6 +31,7 @@ const articlePageSlice = createSlice({
         view: ArticleView.TILE,
         page: 1,
         hasMore: true,
+        _inited: false
     }),
     reducers: { 
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -61,8 +62,7 @@ const articlePageSlice = createSlice({
                 state.isLoading = false;
                 articlesAdapter.addMany(state, action.payload);   
                 state.hasMore = action.payload.length > 0;
-                console.log('view', action.payload.length);
-                
+                state._inited = true;
 
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
