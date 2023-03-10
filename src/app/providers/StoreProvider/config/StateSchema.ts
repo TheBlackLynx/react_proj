@@ -6,6 +6,7 @@ import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { AddNewCommentSchema } from "features/AddNewComment";
 import { LoginSchema } from "features/AuthByUsername";
+import { ScrollSaveSchema } from "features/ScrollSave/model/type/ScrollSaveSchema";
 import { ArticleDetailsCommentSchema } from "pages/ArticleDetailsPage";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { NavigateOptions, To } from "react-router-dom";
@@ -13,13 +14,14 @@ import { NavigateOptions, To } from "react-router-dom";
 export interface StateSchema{
     user: UserSchema,
 
+    scroll: ScrollSaveSchema,
     //асинхронные редюсеры
     loginForm?: LoginSchema,
     profile?: ProfileSchema,
     articleDetails?: ArticleDetailSchema,
     comments?:  ArticleDetailsCommentSchema,
     addNewCommentForm?: AddNewCommentSchema,
-    articles?: ArticlesPageSchema
+    articles?: ArticlesPageSchema,
 }
 
 export type StateSchemaKeys = keyof StateSchema;
