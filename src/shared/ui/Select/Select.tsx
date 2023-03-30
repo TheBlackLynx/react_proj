@@ -3,20 +3,20 @@ import { classNames } from 'shared';
 import { ChangeEvent, CSSProperties, memo, useMemo } from 'react';
 import { TextSize } from '../Text/Text';
 
-export interface SelectOption {
-    value: string,
-    content: string
+export interface SelectOption<T extends string>{
+    value: T,
+    content: T
 }
-interface SelectProps {
+interface SelectProps<T extends string> {
     className?: string;
-    label?: string;
-    options?: SelectOption[];
-    value?: string;
-    onChange?: (value: string) => void;
+    label?: T;
+    options?: SelectOption<T>[];
+    value?: T;
+    onChange?: (value: T) => void;
     readonly?: boolean
 }
 
-export const Select = memo((props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
     const {
         className,
         label,
@@ -40,7 +40,7 @@ export const Select = memo((props: SelectProps) => {
     }, [options])
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value)
+        onChange?.(e.target.value as T)
     }
     return (
         <div
@@ -58,4 +58,4 @@ export const Select = memo((props: SelectProps) => {
             </select>
         </div>
     )
-});
+};

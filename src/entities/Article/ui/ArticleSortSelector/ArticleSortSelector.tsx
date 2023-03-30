@@ -1,0 +1,81 @@
+import { ArticleSortField, ArticleView } from '../../model/types/article';
+import { memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Code } from 'shared/ui/Code/Code';
+import TileIcon from 'shared/assets/icons/TileIcon.svg';
+import ListIcon from 'shared/assets/icons/ListIcon.svg';
+import { AppButton, classNames, Icon } from 'shared';
+import cls from './ArticleSortSelector.module.scss'
+import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
+import { Select, SelectOption } from 'shared/ui/Select/Select';
+import { SortOrder } from 'shared/types';
+
+interface ArticleSortSelectorProps {
+    className?: string;
+    sort: ArticleSortField;
+    order: SortOrder;
+    onChangeOrder: (newOrder: SortOrder) => void;
+    onChangeSort: (newSort: ArticleSortField) => void;
+}
+
+export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
+    const { t } = useTranslation('article');
+    const { className, sort, order, onChangeOrder, onChangeSort} = props;
+
+     const orderOptions = useMemo<SelectOption<SortOrder>[]>(
+        () => [
+            {
+                value: 'asc',
+                content: t('возрастанию')
+            },
+            {
+                value: 'desc',
+                content: t('убыванию')
+            },
+        ]
+     , [t])
+
+
+     const sortFiledOptions = useMemo<SelectOption<ArticleSortField>[]>(
+        () => [
+            {
+                value: ArticleSortField.CREATED,
+                content: t('дате создания')
+            },
+            {
+                value: ArticleSortField.TITLE,
+                content: t('заголовку')
+            },
+            {
+                value: ArticleSortField.VIEWS,
+                content: t('количеству просмотров')
+            },
+        ]
+     , [t])
+
+     const onChangeSortHandler = useCallback((newSort) => {
+        onChangeSort(newSort as ArticleSortField)
+     }, [onChangeSort])
+
+     const onChangeOrderHandler = useCallback((newOrder) => {
+        onChangeOrder(newOrder as SortOrder)
+     }, [onChangeOrder])
+
+    return (
+        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+            <Select 
+            className={classNames(cls.sort, {}, [className])}
+            options={sortFiledOptions} 
+            label={t('Сортировать по')}
+            value={sort}
+            onChange={onChangeSort}
+           
+            />
+            <Select 
+            options={orderOptions} 
+            label={t('по')}
+            value={order}
+            onChange={onChangeOrder}/>
+        </div>
+    )
+};

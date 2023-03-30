@@ -15,6 +15,9 @@ import { articleDetailsActions } from 'entities/Article/model/slice/articleSlice
 import { fetchNextArticlePage } from 'pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { unmountComponentAtNode } from 'react-dom';
 import { initeArticlesPage } from 'pages/ArticlesPage/model/services/initeArticlesPage/initeArticlesPage';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
+import { Text } from 'shared';
 
 
 const ArticlesPage = memo(() => {
@@ -23,17 +26,19 @@ const ArticlesPage = memo(() => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
   const error = useSelector(getArticlesPageError);
-  const view = useSelector(getArticlesPageView);
   const page = useSelector(getArticlesPagePage);
   const hasMore = useSelector(getArticlesPageHasMore);
-  const inited = useSelector(getArticlesPageInited)
-
+  const inited = useSelector(getArticlesPageInited);
+  const view = useSelector(getArticlesPageView);
+  let [searchParams, setSearchParams] = useSearchParams();
+  //console.log(searchParams);
+  
   const reducers: ReducerList = {
     articles: articlePageReducer,
   }
 
   useInitialEffect(() => {
-    dispatch(initeArticlesPage())
+    dispatch(initeArticlesPage(searchParams))
   })
 
   const onLoadNextPart = useCallback(() => {
@@ -42,22 +47,28 @@ const ArticlesPage = memo(() => {
   }, [dispatch])
 
 
+  // if (!isLoading && !articles.length) {
+  //   return (
+  //     <div className={classNames('', {}, [])}>
+  //       <Text title={t('статьи не найдены')}  />
+  //       </div>
+  //   )
+  // }
 
-  const onViewClick = useCallback((view: ArticleView) => {
-    dispatch(articlePageActions.setView(view))
-  }, [dispatch])
+
   return (
     <DynamicModuleLoaders reducers={reducers} removeAfterUnmount={false}>
       <Page
         className={classNames(cls.ArticlePage, {}, [])}
         onScrollEnd={onLoadNextPart}
       >
-        <ArticleViewSelector view={view as ArticleView} onViewClick={onViewClick} />
+      <ArticlesPageFilters />
         <ArticleList
           articles={articles}
           isLoading={isLoading}
           error={error}
           view={view}
+          className={cls.list}
 
         />
       </Page>

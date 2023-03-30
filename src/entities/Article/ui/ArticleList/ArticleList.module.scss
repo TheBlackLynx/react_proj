@@ -9,11 +9,9 @@
     &.ArticleList {
         display: flex;
         flex-wrap: wrap;
+        gap: 30px;
     }
-    .Card {
-        margin-right: 30px;
-        margin-top: 30px;
-    }
+  
 }
 
 .LIST {

@@ -6,6 +6,7 @@ import  { Input } from './ui/Input/Input';
 import { Text } from "./ui/Text/Text";
 import { Icon } from "./ui/Icon/Icon";
 import { Page } from '../widgets/Page/Page'
+import { Card } from './ui/Card/Card'
 
 export {
     classNames,
@@ -15,5 +16,6 @@ export {
     Input,
     Text,
     Icon,
-    Page
+    Page,
+    Card
 }
