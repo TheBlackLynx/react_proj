@@ -7,5 +7,9 @@ export {
 } from './model/types/ArticleDetailsCommentSchema';
 
 export {
+    ArticleDetailsRecomendationsSchema
+} from './model/types/ArticleDetailsRecomendationsSchema';
+
+export {
     getCommentsIsLoading, getCommentsError
 } from './model/selectors/comments';

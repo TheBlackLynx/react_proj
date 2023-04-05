@@ -10,6 +10,7 @@ import { articleDetailsActions, articleDetailsReducer }
 import { addNewCommentFormReducer } from 'features/AddNewComment/model/slice/addNewCommentForm';
 import { atricleDetailsCommentsReducer } 
 from 'pages/ArticleDetailsPage/model/slice/atricleDetailsCommentsSlice';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
 
 
 const defaultAsyncReducers: ReducerList = {
@@ -17,7 +18,7 @@ const defaultAsyncReducers: ReducerList = {
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addNewCommentForm: addNewCommentFormReducer,
-    comments: atricleDetailsCommentsReducer
+    articleDetailsPage: articleDetailsPageReducer
 }
 export const StoreDecorator = (
     state?: DeepPartial<StateSchema>,

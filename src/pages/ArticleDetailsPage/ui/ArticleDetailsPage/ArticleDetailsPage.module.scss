@@ -1,3 +1,11 @@
 .commentTitle {
     margin-bottom: 20px;
 }
+
+.recommendations {
+    width: 80%;
+    margin-top: 20px;
+    flex-wrap: nowrap !important;
+    overflow-y: hidden;
+    overflow-x: auto;
+}

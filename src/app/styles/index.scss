@@ -18,3 +18,16 @@ body {
 .page-wrapper {
   
 }
+
+*::-webkit-scrollbar {
+    width: 12px;     
+    height: 12px;             /* ширина scrollbar */
+  }
+  *::-webkit-scrollbar-track {
+    background: var(--bg-card);        /* цвет дорожки */
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: white;    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+    border: 2px solid var(--primary-color);  /* padding вокруг плашки */
+  }

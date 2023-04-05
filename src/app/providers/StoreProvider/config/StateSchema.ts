@@ -7,7 +7,8 @@ import { UserSchema } from "entities/User";
 import { AddNewCommentSchema } from "features/AddNewComment";
 import { LoginSchema } from "features/AuthByUsername";
 import { ScrollSaveSchema } from "features/ScrollSave/model/type/ScrollSaveSchema";
-import { ArticleDetailsCommentSchema } from "pages/ArticleDetailsPage";
+import { ArticleDetailsCommentSchema, ArticleDetailsRecomendationsSchema } from "pages/ArticleDetailsPage";
+import { ArticleDetailPageSchema } from "pages/ArticleDetailsPage/model/types";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { NavigateOptions, To } from "react-router-dom";
 
@@ -19,9 +20,9 @@ export interface StateSchema{
     loginForm?: LoginSchema,
     profile?: ProfileSchema,
     articleDetails?: ArticleDetailSchema,
-    comments?:  ArticleDetailsCommentSchema,
     addNewCommentForm?: AddNewCommentSchema,
     articles?: ArticlesPageSchema,
+    articleDetailsPage?: ArticleDetailPageSchema
 }
 
 export type StateSchemaKeys = keyof StateSchema;

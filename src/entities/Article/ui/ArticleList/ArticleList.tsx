@@ -1,5 +1,5 @@
 import { Article, ArticleImageBlock, ArticleView } from 'entities/Article/model/types/article';
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames, Text } from 'shared';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -10,7 +10,8 @@ interface ArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleView;
-    error?: string
+    error?: string;
+    target?: HTMLAttributeAnchorTarget
 
 }
 
@@ -29,8 +30,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         isLoading,
         error,
+        target,
         view = ArticleView.LIST } = props;
 
+        console.log('articles', articles);
+        
 
     // if (isLoading) {
     //     return (
@@ -43,7 +47,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
     // }
 
     const renderArticle = (article: Article) => (
-        <ArticleListItem article={article} view={view} className={cls.Card} key={article.id} />
+        <ArticleListItem 
+        article={article} 
+        view={view} 
+        className={cls.Card} 
+        key={article.id} 
+        target={target}/>
     )
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
