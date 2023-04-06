@@ -5,6 +5,8 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 import { BindOptions } from 'dgram';
 import { BuildOptions } from './types/config';
+import CopyPlugin from "copy-webpack-plugin";
+
 
 
 export function buildPlugins({paths, isDev, apiUrl, project} : BuildOptions)
@@ -28,6 +30,11 @@ export function buildPlugins({paths, isDev, apiUrl, project} : BuildOptions)
         new ReactRefreshWebpackPlugin({
             overlay: false
         }),
+        new CopyPlugin({
+            patterns: [
+              { from: paths.buildLocales, to: paths.locales},
+            ],
+          }),
     ]
   
     if (isDev){
