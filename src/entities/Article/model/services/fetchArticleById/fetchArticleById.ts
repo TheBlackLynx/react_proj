@@ -11,7 +11,11 @@ ThunkConfig<string>>(
         const { extra, dispatch, rejectWithValue } = thunkAPI;
         try {
             const response = await extra.api.get<Article>(
-                `/articles/${articleId}`)
+                `/articles/${articleId}`, {
+                    params: {
+                        _expand: 'user'
+                    }
+                })
             if (!response){
                 throw new Error()
             }

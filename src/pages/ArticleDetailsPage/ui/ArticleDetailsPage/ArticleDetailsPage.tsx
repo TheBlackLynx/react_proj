@@ -27,6 +27,7 @@ import { getRecommendationsError, getRecommendationsIsLoading } from 'pages/Arti
 import { TextSize } from 'shared/ui/Text/Text';
 import { fetchArticlesRecommendations } from 'pages/ArticleDetailsPage/model/services/fetchArticlesRecommendations/fetchArticlesRecommendations';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 const reducersList: ReducerList = {
     articleDetailsPage: articleDetailsPageReducer
@@ -46,10 +47,8 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     const recommendationsIsLoading = useSelector(getRecommendationsIsLoading);
     const error = useSelector(getCommentsError);
     const recommendationsError = useSelector(getRecommendationsError);
-    const navigate = useNavigate();
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate])
+  
+ 
 
 
     if (!id) {
@@ -73,10 +72,8 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     
     return (
         <DynamicModuleLoaders reducers={reducersList} removeAfterUnmount>
-            <Page>
-                <AppButton
-                    buttonTheme={AppButtonTheme.OUTLINE}
-                    onClick={onBackToList}>{t('Назад к списку')}</AppButton>
+            <Page className={cls.ArticleDetailsPage}>
+               <ArticleDetailsPageHeader />
                 <ArticleDetails articleId={id} />
                 <Text
                     size={TextSize.L}
@@ -103,5 +100,5 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
 
     )
 });
-export default memo(ArticleDetailsPage);
+export default ArticleDetailsPage;
 

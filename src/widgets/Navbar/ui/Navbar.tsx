@@ -1,11 +1,15 @@
 import { t } from "i18next";
-import { AppButton, classNames } from "shared";
+import { AppButton, AppLink, classNames } from "shared";
 import cls from "./Navbar.module.scss";
 import { useState, useCallback, memo } from "react";
 import { AppButtonTheme } from "shared/ui/AppButton/AppButton";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
+import { Text } from "shared";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { AppLinkTheme } from "shared/ui/AppLink/AppLink";
+import { TextTheme } from "shared/ui/Text/Text";
 
 interface NavbarProps {
   className?: string;
@@ -28,6 +32,16 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.navbar, {}, [className])}>
+                <Text 
+                className={cls.appName} 
+                title='App'
+                theme={TextTheme.INVERTED} />
+                <AppLink 
+                to={RoutePath.article_create}
+                theme={AppLinkTheme.SECONDARY}
+                className={cls.createBtn}>
+                    {t('создать статью')}
+                </AppLink>
                 <AppButton 
                     buttonTheme={AppButtonTheme.CLEAR_INVERTED} 
                     className={classNames(cls.links)}

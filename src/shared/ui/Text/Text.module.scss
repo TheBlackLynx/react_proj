@@ -16,6 +16,16 @@
     }
 }
 
+.inverted {
+    .title {
+        color: var(--bg-color);
+    }
+
+    .text {
+        color: var(--inverted-bg-color);
+    }
+}
+
 .left {
     text-align: left;
 }

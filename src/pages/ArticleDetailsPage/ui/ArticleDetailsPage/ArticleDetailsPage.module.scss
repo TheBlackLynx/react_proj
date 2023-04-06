@@ -2,10 +2,19 @@
     margin-bottom: 20px;
 }
 
-.recommendations {
-    width: 80%;
+.recommendations .ArticleListItem {
+    display: flex;
+    flex-wrap: nowrap ;
+
+ 
     margin-top: 20px;
-    flex-wrap: nowrap !important;
-    overflow-y: hidden;
+    //
+    overflow-y: auto;
     overflow-x: auto;
 }
+
+// .ArticleDetailsPage {
+//     width: 71%;
+//     overflow-y: auto;
+//     overflow-x: hidden
+// }

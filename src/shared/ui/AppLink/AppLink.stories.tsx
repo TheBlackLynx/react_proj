@@ -34,6 +34,6 @@ export const Secondary = Template.bind({});
 Secondary.decorators = [ThemeDecorator(Theme.DARK)]
 Secondary.args = {
     children: 'text',
-    theme: AppLinkTheme.SECONFARY
+    theme: AppLinkTheme.SECONDARY
 };
 Secondary.decorators=[RouterDecorator()]
