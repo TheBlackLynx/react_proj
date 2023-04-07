@@ -9,7 +9,6 @@ body {
     background-color: var(--bg-color);
     color: var(--primary-color);
     min-height: 100vh;
-    
 }
 
 .content-page {
@@ -17,14 +16,16 @@ body {
 }
 
 *::-webkit-scrollbar {
-    width: 12px;     
+    width: 12px;
     height: 12px;             /* ширина scrollbar */
-  }
-  *::-webkit-scrollbar-track {
+}
+
+*::-webkit-scrollbar-track {
     background: var(--bg-card);        /* цвет дорожки */
-  }
-  *::-webkit-scrollbar-thumb {
+}
+
+*::-webkit-scrollbar-thumb {
     background-color: white;    /* цвет плашки */
     border-radius: 20px;       /* закругления плашки */
     border: 2px solid var(--primary-color);  /* padding вокруг плашки */
-  }
+}

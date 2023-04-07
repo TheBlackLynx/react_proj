@@ -2,12 +2,11 @@
 //     display: flex;
 //     flex-wrap: wrap;
 // }
-.TILE 
-{
+.TILE {
     &.ArticleList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
     }
 }
 
