@@ -19,7 +19,8 @@ ThunkConfig<string>>(
         const { extra, dispatch, getState } = thunkAPI;
         
         const inited = getArticlesPageInited(getState());
-
+        console.log('inited', inited);
+        
 
         if (!inited) {
             const orderFromUrl = searchParams.get('order') as SortOrder;
@@ -41,6 +42,6 @@ ThunkConfig<string>>(
             dispatch(articlePageActions.initState())
             dispatch(fetchArticlesList({}
             ))
-            }
+        }
     }
 )

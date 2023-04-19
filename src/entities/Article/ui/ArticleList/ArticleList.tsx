@@ -1,6 +1,10 @@
 import { Article, ArticleImageBlock, ArticleView } from 'entities/Article/model/types/article';
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
+import { FC, HTMLAttributeAnchorTarget, memo, MutableRefObject, Ref, useEffect, useRef, useState } from 'react';
+import { AutoSizer, List, WindowScroller } from 'react-virtualized';
+import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { classNames, Text } from 'shared';
+import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstogare';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss'
@@ -11,16 +15,17 @@ interface ArticleListProps {
     isLoading?: boolean;
     view?: ArticleView;
     error?: string;
-    target?: HTMLAttributeAnchorTarget
+    target?: HTMLAttributeAnchorTarget;
+    onScrollEnd?: () => void
 
 }
 
-const getSkeletons = (view: ArticleView) => {
-    return new Array(view === ArticleView.TILE ? 9 : 3)
-    .fill(0)
-    .map((item, index) => (
-        <ArticleListItemSkeleton className={cls.Card} key={index} view={view} />
-    ))
+const getSkeletons = () => {
+    return new Array(3)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton className={cls.Card} key={index} view={ArticleView.LIST} />
+        ))
 }
 
 
@@ -31,11 +36,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
         isLoading,
         error,
         target,
+        onScrollEnd,
         view = ArticleView.LIST } = props;
 
-        console.log('articles', articles);
-        
-
+    const virtuosoRef = useRef<VirtuosoGridHandle>(null);
     // if (isLoading) {
     //     return (
     //         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
@@ -46,22 +50,122 @@ export const ArticleList = memo((props: ArticleListProps) => {
     //     )
     // }
 
-    const renderArticle = (article: Article) => (
-        <ArticleListItem 
-        article={article} 
-        view={view} 
-        className={cls.Card} 
-        key={article.id} 
-        target={target}/>
+    const [selectedArticleId, setSelectedArticleId] = useState(1);
+
+    useEffect (()=> { 
+        const articleIndex = sessionStorage.getItem(ARTICLE_LIST_ITEM_INDEX) || 1;
+        setSelectedArticleId(+articleIndex)
+
+    }, [])
+
+    useEffect(() => {
+        let timeoutID: NodeJS.Timeout;
+
+        if (view === 'TILE') {
+            timeoutID = setTimeout(() => {
+                if(virtuosoRef.current) {
+                    virtuosoRef.current.scrollToIndex(selectedArticleId)
+                }
+            }, 100)
+            return () => clearTimeout(timeoutID);
+        }
+    }, [selectedArticleId, view])
+    const Header = () => <ArticlesPageFilters  className={cls.header}/>
+
+    const Footer = memo(() => {
+        if (isLoading) {
+            return (
+                <div className={cls.skeleton}>
+                    {getSkeletons()}
+                </div>
+            )
+        }
+        return null;
+    })
+
+
+    const ItemContainerComp: FC<{height: number, width: number, index: number}> = ({height, width, index}) => (
+        <div className={cls.gridItemsContainer}>
+            <ArticleListItemSkeleton key={index} view={view} className={cls.card}/>
+        </div>
     )
+
+    const renderArticle = (index: number, article: Article) => (
+
+        <ArticleListItem
+            article={article}
+            view={view}
+            className={cls.Card}
+            key={article.id}
+            target={target}
+            index={index}
+        />
+    )
+
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {articles ?
-                articles.map(renderArticle)
-                :
-                null
+            {   
+                view === 'LIST' ? (
+                    <Virtuoso
+                        className={cls.listItemsWrapper}
+                        style={{ height: '100%', position: 'relative' }}
+                        data={articles}
+                        itemContent={renderArticle}
+                        endReached={onScrollEnd}
+                        initialTopMostItemIndex={selectedArticleId}
+                        components={
+                            {
+                                Header,
+                                Footer,
+                            }
+                        }
+                    />
+                )
+                    : 
+                    (
+                        <VirtuosoGrid 
+                            className={cls.gridItemsWrapper}
+                            ref={virtuosoRef}
+                            totalCount={articles.length}
+                            components={{
+                                Header,
+                                ScrollSeekPlaceholder: ItemContainerComp
+                            }}
+                            endReached={onScrollEnd}
+                            data={articles}
+                            itemContent={renderArticle}
+                            listClassName={cls.itemsWrapper}
+                            scrollSeekConfiguration={{
+                                enter: (velocity) => Math.abs(velocity) > 200,
+                                exit: (velocity) => Math.abs(velocity) < 30
+                            }}
+
+                        />
+                    )
             }
-            {isLoading &&  getSkeletons(view)}
         </div>
+        //         <WindowScroller
+
+    //         onScroll={() => console.log('WindowScroller')}
+    //         scrollElement={document.getElementById('page-id') as Element}
+    //         >
+    //             {({height, width}) => (
+    //                         <List
+    //                             height={500}
+    //                             rowCount={articles.length}
+    //                             rowHeight={500}
+    //                             rowRenderer={() => <div>row</div>}
+    //                             width={width}
+    //                         />
+    // )}
+    //         </WindowScroller>
+    // <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+    //     {articles ?
+    //         articles.map(renderArticle)
+    //         :
+    //         null
+    //     }
+    //     {isLoading &&  getSkeletons(view)}
+    // </div>
     )
 });

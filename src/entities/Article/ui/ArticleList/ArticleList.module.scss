@@ -12,6 +12,54 @@
 
 .LIST {
     .Card {
-        margin-bottom: 30px;
+        margin: 30px 30px 0;
     }
+}
+
+.skeleton {
+    padding-bottom: 30px;
+}
+
+.listItemsWrapper {
+    height: 100%;
+    padding: 20px 20px 20px 45px;
+    height: calc(100vh - var(--navbar-height));
+   & :first-child {
+        position: inherit !important;
+    }
+}
+
+.gridItemsWrapper {
+   & :first-child {
+        position: inherit !important;
+    }
+}
+
+.itemsWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 30px;
+}
+
+.gridItemsContainer {
+    width: 230px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    margin-right: 30px;
+
+    @media (max-width: 1024px) {
+        width: 50%
+    }
+
+    @media (max-width: 300px) {
+        width: 100%
+    }
+}
+
+.header {
+    margin: 10px;
 }

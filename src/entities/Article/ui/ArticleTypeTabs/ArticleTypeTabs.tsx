@@ -30,18 +30,18 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
             value: ArticleType.WEB,
             content: 'WEB'
         },
-      ], [])
+    ], [])
       
-      const onChangeTypeHandler = useCallback( (tab: TabItem) => {
+    const onChangeTypeHandler = useCallback( (tab: TabItem) => {
         onChangeType(tab.value as ArticleType)
-      }, [onChangeType])
+    }, [onChangeType])
 
     return ( 
-    <Tabs 
-    tabs={typeTabs}
-    value={value} 
-    onTabClick={onChangeTypeHandler} 
-    className={className}/>
+        <Tabs 
+            tabs={typeTabs}
+            value={value} 
+            onTabClick={onChangeTypeHandler} 
+            className={className}/>
     )
 });
 

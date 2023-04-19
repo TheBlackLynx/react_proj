@@ -22,7 +22,7 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
     const { t } = useTranslation('article');
     const { className, sort, order, onChangeOrder, onChangeSort} = props;
 
-     const orderOptions = useMemo<SelectOption<SortOrder>[]>(
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(
         () => [
             {
                 value: 'asc',
@@ -33,10 +33,10 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
                 content: t('убыванию')
             },
         ]
-     , [t])
+        , [t])
 
 
-     const sortFiledOptions = useMemo<SelectOption<ArticleSortField>[]>(
+    const sortFiledOptions = useMemo<SelectOption<ArticleSortField>[]>(
         () => [
             {
                 value: ArticleSortField.CREATED,
@@ -51,31 +51,31 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
                 content: t('количеству просмотров')
             },
         ]
-     , [t])
+        , [t])
 
-     const onChangeSortHandler = useCallback((newSort) => {
+    const onChangeSortHandler = useCallback((newSort) => {
         onChangeSort(newSort as ArticleSortField)
-     }, [onChangeSort])
+    }, [onChangeSort])
 
-     const onChangeOrderHandler = useCallback((newOrder) => {
+    const onChangeOrderHandler = useCallback((newOrder) => {
         onChangeOrder(newOrder as SortOrder)
-     }, [onChangeOrder])
+    }, [onChangeOrder])
 
     return (
         <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
             <Select 
-            className={classNames(cls.sort, {}, [className])}
-            options={sortFiledOptions} 
-            label={t('Сортировать по')}
-            value={sort}
-            onChange={onChangeSort}
+                className={classNames(cls.sort, {}, [className])}
+                options={sortFiledOptions} 
+                label={t('Сортировать по')}
+                value={sort}
+                onChange={onChangeSort}
            
             />
             <Select 
-            options={orderOptions} 
-            label={t('по')}
-            value={order}
-            onChange={onChangeOrder}/>
+                options={orderOptions} 
+                label={t('по')}
+                value={order}
+                onChange={onChangeOrder}/>
         </div>
     )
 };

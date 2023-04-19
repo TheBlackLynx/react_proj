@@ -10,17 +10,17 @@ export function UseInfiniteScroll({ callback, triggerRef, wrapperRef }: UseInfin
     // const observer = useRef<IntersectionObserver | null>(null);
 
     useEffect(() => {
- // добавляем переменные в замыкание, чтобы зафиксировать ссылки wrapperRef и triggerRef
+        // добавляем переменные в замыкание, чтобы зафиксировать ссылки wrapperRef и triggerRef
         const wrapperRefClosure = wrapperRef.current
         const triggerRefClosure = triggerRef.current
         if (callback) {
-            let options = {
+            const options = {
                 root: wrapperRefClosure,
                 rootMargin: "0px",
                 threshold: 1.0,
             };
 
-           const observer = new IntersectionObserver(([entry]) => {
+            const observer = new IntersectionObserver(([entry]) => {
        
                 callback();
             }, options);

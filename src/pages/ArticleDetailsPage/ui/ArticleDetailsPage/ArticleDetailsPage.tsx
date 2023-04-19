@@ -73,7 +73,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoaders reducers={reducersList} removeAfterUnmount>
             <Page className={cls.ArticleDetailsPage}>
-               <ArticleDetailsPageHeader />
+                <ArticleDetailsPageHeader />
                 <ArticleDetails articleId={id} />
                 <Text
                     size={TextSize.L}
@@ -81,11 +81,11 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
                     className={cls.commentTitle}
                 />
                 <ArticleList
-                articles={recommendations} 
-                isLoading={recommendationsIsLoading} 
-                view = {ArticleView.TILE}
-                className={cls.recommendations}
-                target='_blank' />
+                    articles={recommendations} 
+                    isLoading={recommendationsIsLoading} 
+                    view = {ArticleView.TILE}
+                    className={cls.recommendations}
+                    target='_blank' />
                 <Text
                     size={TextSize.L}
                     title='Комментарии'

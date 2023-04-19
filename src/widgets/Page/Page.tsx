@@ -15,6 +15,7 @@ interface PageProps {
    children: ReactNode;
    onScrollEnd?: () => void;
 }
+const PAGE_ID = 'page-id'
 
 export const Page = ( props: PageProps ) => {
     const { className, children, onScrollEnd } = props;
@@ -44,9 +45,10 @@ export const Page = ( props: PageProps ) => {
     }, 1000)
     return (
         <section 
-        ref={wrapperRef} 
-        className={classNames(cls.Page, {}, [className])}
-        onScroll={onScroll}
+            ref={wrapperRef} 
+            className={classNames(cls.Page, {}, [className])}
+            onScroll={onScroll}
+            id={PAGE_ID}
         >
             {children}
             { onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}

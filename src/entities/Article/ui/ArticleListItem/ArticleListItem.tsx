@@ -3,6 +3,7 @@ import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppButton, AppLink, classNames, Icon, Text } from 'shared';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstogare';
 import { useHover } from 'shared/lib/hooks/useHover';
 import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
@@ -17,13 +18,17 @@ interface ArticleListItemProps {
     className?: string;
     article: Article;
     view?: ArticleView;
-    target?: HTMLAttributeAnchorTarget
+    target?: HTMLAttributeAnchorTarget;
+    index?:number
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const { className, article, view, target } = props;
+    const { className, article, view, target, index } = props;
     const [isHover, bindHover] = useHover();
 
+    const handleButtonClick = () => {
+        sessionStorage.setItem(ARTICLE_LIST_ITEM_INDEX, JSON.stringify(index));
+    }
 
     if (view === ArticleView.LIST || view === undefined) {
         const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
@@ -46,10 +51,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
                     <div className={cls.footer}>
                         <AppLink 
-                         target={target}
-                        to={RoutePath.article_details + article.id}>
+                            target={target}
+                            to={RoutePath.article_details + article.id}>
                             <AppButton
                                 buttonTheme={AppButtonTheme.OUTLINE}
+                                onClick={handleButtonClick}
                             >
                                 Читать далее...
                             </AppButton>
@@ -65,12 +71,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     }
     else {
 
-    return (
+        return (
         // @ts-ignore
-        <AppLink  {...bindHover}  
-        target={target}
-        to={RoutePath.article_details + article.id} 
-        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <AppLink  {...bindHover}  
+                target={target}
+                to={RoutePath.article_details + article.id} 
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card >
                     <div className={cls.imgWrapper}>
                         <img src={article.img} alt="" className={cls.image} />
@@ -84,7 +90,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     <Text className={cls.title} title={article.title} />
 
                 </Card>
-        </AppLink>
-    )
+            </AppLink>
+        )
     }
 });

@@ -19,12 +19,11 @@ import { ActicleBlocks, Article, ArticleBlockType }
     from 'entities/Article/model/types/article';
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from '../../../../shared/assets/icons/calendar-20-20.svg'
-import { ArticleImageBlockComponent } 
-    from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleCodeBlockComponent } 
-    from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+
 import { ArticleTextBlockComponent }
     from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleImageBlockComponent } from
+    'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 
 interface ArticleDetailsProps {
     className?: string,

@@ -5,7 +5,7 @@ export function useDebounce(callback: (...args: any[]) => void, delay: number) {
 
     return useCallback((...args: any[]) => {
         if (timer.current) {
-         clearTimeout(timer.current)
+            clearTimeout(timer.current)
         }
         timer.current = setTimeout(() => {
             callback(...args)

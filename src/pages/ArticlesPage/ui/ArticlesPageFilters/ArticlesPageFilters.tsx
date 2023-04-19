@@ -36,32 +36,32 @@ export const ArticlesPageFilters = memo(( props: ArticlesPageFiltersProps) => {
         dispatch(articlePageActions.setView(view))
         dispatch(articlePageActions.setPage(1))
         fetchData()
-      }, [dispatch, fetchData])
+    }, [dispatch, fetchData])
 
-      const onChangeOrder = useCallback((newOrder: SortOrder) => {
+    const onChangeOrder = useCallback((newOrder: SortOrder) => {
         dispatch(articlePageActions.setOrder(newOrder))
         dispatch(articlePageActions.setPage(1))
         fetchData()
-      }, [dispatch, fetchData])
+    }, [dispatch, fetchData])
 
-      const onChangeSort = useCallback((newSort: ArticleSortField) => {
+    const onChangeSort = useCallback((newSort: ArticleSortField) => {
         dispatch(articlePageActions.setSort(newSort))
         dispatch(articlePageActions.setPage(1))
         fetchData()
-      }, [dispatch, fetchData])
-      const debauncedFetchData = useDebounce(fetchData, 500)
+    }, [dispatch, fetchData])
+    const debauncedFetchData = useDebounce(fetchData, 500)
 
-      const onChangeSearch = useCallback( (search: string) => {
+    const onChangeSearch = useCallback( (search: string) => {
         dispatch(articlePageActions.setSearch(search))
         dispatch(articlePageActions.setPage(1))
         debauncedFetchData();
-      }, [dispatch, debauncedFetchData])
+    }, [dispatch, debauncedFetchData])
 
-      const onChangeType = useCallback( (value: ArticleType) => {
+    const onChangeType = useCallback( (value: ArticleType) => {
         dispatch(articlePageActions.setType(value))
         dispatch(articlePageActions.setPage(1))
         fetchData();
-      }, [dispatch, debauncedFetchData])
+    }, [dispatch, debauncedFetchData])
 
    
     return (
@@ -72,7 +72,7 @@ export const ArticlesPageFilters = memo(( props: ArticlesPageFiltersProps) => {
                     sort={sort}
                     onChangeOrder={onChangeOrder}
                     onChangeSort={onChangeSort} />
-            <ArticleViewSelector view={view as ArticleView} onViewClick={onViewClick} />
+                <ArticleViewSelector view={view as ArticleView} onViewClick={onViewClick} />
             </div>
             <Card className={cls.search}>
                 <Input placeholder={t('Поиск')} onChange={onChangeSearch} value={search} />

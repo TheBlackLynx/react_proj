@@ -21,58 +21,60 @@ import { Text } from 'shared';
 
 
 const ArticlesPage = memo(() => {
-  const { t } = useTranslation('article');
-  const dispatch = useAppDispatch();
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
-  const error = useSelector(getArticlesPageError);
-  const page = useSelector(getArticlesPagePage);
-  const hasMore = useSelector(getArticlesPageHasMore);
-  const inited = useSelector(getArticlesPageInited);
-  const view = useSelector(getArticlesPageView);
-  let [searchParams, setSearchParams] = useSearchParams();
-  //console.log(searchParams);
+    const { t } = useTranslation('article');
+    const dispatch = useAppDispatch();
+    const articles = useSelector(getArticles.selectAll);
+    const isLoading = useSelector(getArticlesPageIsLoading);
+    const error = useSelector(getArticlesPageError);
+    const page = useSelector(getArticlesPagePage);
+    const hasMore = useSelector(getArticlesPageHasMore);
+    const inited = useSelector(getArticlesPageInited);
+    const view = useSelector(getArticlesPageView);
+    const [searchParams, setSearchParams] = useSearchParams();
+    //console.log(searchParams);
   
-  const reducers: ReducerList = {
-    articles: articlePageReducer,
-  }
+    const reducers: ReducerList = {
+        articles: articlePageReducer,
+    }
 
-  useInitialEffect(() => {
-    dispatch(initeArticlesPage(searchParams))
-  })
+    useInitialEffect(() => {
+        dispatch(initeArticlesPage(searchParams))
+    })
 
-  const onLoadNextPart = useCallback(() => {
-    dispatch(fetchNextArticlePage())
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlePage())
 
-  }, [dispatch])
-
-
-  // if (!isLoading && !articles.length) {
-  //   return (
-  //     <div className={classNames('', {}, [])}>
-  //       <Text title={t('статьи не найдены')}  />
-  //       </div>
-  //   )
-  // }
+    }, [dispatch])
 
 
-  return (
-    <DynamicModuleLoaders reducers={reducers} removeAfterUnmount={false}>
-      <Page
+    // if (!isLoading && !articles.length) {
+    //   return (
+    //     <div className={classNames('', {}, [])}>
+    //       <Text title={t('статьи не найдены')}  />
+    //       </div>
+    //   )
+    // }
+
+    console.log(articles);
+  
+
+    return (
+        <DynamicModuleLoaders reducers={reducers} removeAfterUnmount={false}>
+            {/* <Page
         className={classNames(cls.ArticlePage, {}, [])}
-        onScrollEnd={onLoadNextPart}
-      >
-      <ArticlesPageFilters />
-        <ArticleList
-          articles={articles}
-          isLoading={isLoading}
-          error={error}
-          view={view}
-          className={cls.list}
+      //  onScrollEnd={onLoadNextPart}
+      > */}
+            <ArticleList
+                articles={articles}
+                isLoading={isLoading}
+                error={error}
+                view={view}
+                className={cls.list}
+                onScrollEnd={onLoadNextPart}
 
-        />
-      </Page>
-    </DynamicModuleLoaders>
-  )
+            />
+            {/* </Page> */}
+        </DynamicModuleLoaders>
+    )
 });
 export default memo(ArticlesPage);

@@ -33,13 +33,13 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         return (
             <div className={classNames(cls.navbar, {}, [className])}>
                 <Text 
-                className={cls.appName} 
-                title='App'
-                theme={TextTheme.INVERTED} />
+                    className={cls.appName} 
+                    title='App'
+                    theme={TextTheme.INVERTED} />
                 <AppLink 
-                to={RoutePath.article_create}
-                theme={AppLinkTheme.SECONDARY}
-                className={cls.createBtn}>
+                    to={RoutePath.article_create}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls.createBtn}>
                     {t('создать статью')}
                 </AppLink>
                 <AppButton 

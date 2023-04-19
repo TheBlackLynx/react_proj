@@ -32,9 +32,9 @@ export function buildPlugins({paths, isDev, apiUrl, project} : BuildOptions)
         }),
         new CopyPlugin({
             patterns: [
-              { from: paths.buildLocales, to: paths.locales},
+                { from: paths.buildLocales, to: paths.locales},
             ],
-          }),
+        }),
     ]
   
     if (isDev){

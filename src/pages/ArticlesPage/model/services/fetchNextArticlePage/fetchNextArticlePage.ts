@@ -25,7 +25,7 @@ ThunkConfig<string>>(
             dispatch(articlePageActions.setPage(page + 1))
             dispatch(fetchArticlesList(
                 { }
-              ))
-       }
+            ))
+        }
     }
 )

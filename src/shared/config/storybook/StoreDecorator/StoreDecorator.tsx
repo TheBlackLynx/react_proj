@@ -9,7 +9,7 @@ import { articleDetailsActions, articleDetailsReducer }
     from 'entities/Article/model/slice/articleSlice';
 import { addNewCommentFormReducer } from 'features/AddNewComment/model/slice/addNewCommentForm';
 import { atricleDetailsCommentsReducer } 
-from 'pages/ArticleDetailsPage/model/slice/atricleDetailsCommentsSlice';
+    from 'pages/ArticleDetailsPage/model/slice/atricleDetailsCommentsSlice';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
 
 

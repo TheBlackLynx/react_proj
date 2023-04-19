@@ -9,7 +9,7 @@ import { Article } from 'entities/Article';
 import { CommentType } from 'entities/Comment';
 import { fetchArticlesRecommendations } from '../services/fetchArticlesRecommendations/fetchArticlesRecommendations';
 import { fetchCommentsByArticleId } 
-from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+    from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { ArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchema';
 import { ArticleDetailsRecomendationsSchema } from '../types/ArticleDetailsRecomendationsSchema';
   

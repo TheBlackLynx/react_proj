@@ -33,7 +33,7 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps
                     </div>
                     <Skeleton  width={250} height={24} className={cls.title}/>
                     <Skeleton width={200} className={cls.image} />
-                     <Skeleton  className={cls.Paragraphs}/>
+                    <Skeleton  className={cls.Paragraphs}/>
                     <div className={cls.footer}>
                         <Skeleton  width={200} height={36} />
                     </div>

@@ -39,12 +39,12 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
             {
                 canEdit &&
                 <AppButton
-                className={cls.editBtn}
-                buttonTheme={AppButtonTheme.OUTLINE}
-                onClick={onEdit}
-            >
-                {t('Редактировать')}
-            </AppButton>
+                    className={cls.editBtn}
+                    buttonTheme={AppButtonTheme.OUTLINE}
+                    onClick={onEdit}
+                >
+                    {t('Редактировать')}
+                </AppButton>
             }
         </div>
     )

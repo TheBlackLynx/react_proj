@@ -13,7 +13,7 @@ module.exports = {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["react", "@typescript-eslint", "i18next", "react-hooks"],
+    "plugins": ["react", "@typescript-eslint", "i18next", "react-hooks", "marica-path-checker-plugin"],
     "rules": {
        "max-len": [1, 100, 2],
         'react-in-jsx-scope': 'off',
@@ -47,6 +47,7 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'off',
         'max-len': [2, 100],
         "react/jsx-props-no-spreading": "off",
+        "marica-path-checker-plugin/path-checker": 'error'
     },
     globals: {
         __API__: true,

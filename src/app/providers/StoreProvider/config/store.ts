@@ -12,7 +12,7 @@ import { StateSchema, ThunkExtraArg } from './StateSchema'
 export function createReduxStore(
     initialState?: StateSchema,
     asyncRedicers?: ReducersMapObject<StateSchema>
-    ) {
+) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncRedicers,
         user: userReducer,
