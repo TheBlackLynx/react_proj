@@ -5,8 +5,8 @@ import { useParams } from 'react-router-dom';
 import { Text } from 'shared';
 import { CommentItem } from '../CommentItem/CommentItem';
 import { CommentType } from 'entities/Comment/model/types/comment';
-import cls from './CommentList.module.scss'
 import { IsLoading } from 'entities/Profile/ui/ProfileCard/ProfileCard.stories';
+import { HStack, VStack } from 'shared/ui/Stack';
 
 interface CommentList {
     className?: string,
@@ -19,21 +19,21 @@ export const CommentList = memo((props: CommentList) => {
    
     if (isLoading) {
         return (
-            <div>
+            <VStack gap={'16'} max>
                 <CommentItem isLoading/>
                 <CommentItem isLoading/>
                 <CommentItem isLoading/>
-            </div>
+            </VStack>
         )
     }
     return (
-        <div >
+        <VStack gap={'16'} max>
             {comments?.length
                 ? comments.map((comment) => (
-                    <CommentItem  className={cls.CommentItem} comment={comment}/>
+                    <CommentItem key={comment.id}  comment={comment}/>
                 ))
                 : <Text text={t('Комментарии отсутствуют')}/>}
-        </div>
+        </VStack>
     )
 });
 

@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { AppButton, classNames } from "shared";
 import { AppButtonTheme } from "shared/ui/AppButton/AppButton";
 import { Text } from "shared";
-import cls from './ProfilePageHeader.module.scss'
 import { TextSize } from "shared/ui/Text/Text";
 import { useSelector } from "react-redux";
 import {
@@ -13,6 +12,7 @@ import {
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { profile } from "console";
 import { getUserAuthData } from "entities/User";
+import { HStack } from "shared/ui/Stack/HStack/HStack";
 
 interface ProfilePageHeaderProps {
     className?: string
@@ -39,41 +39,37 @@ export const ProfilePageHeader = memo((props: ProfilePageHeaderProps) => {
         dispatch(updateProfileData())
     }, [dispatch])
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+        <HStack justify={'between'} className={classNames('', {}, [className])}>
             <Text
                 title={t('Профиль')}
-                className={classNames(cls.ProfilePageHeaderText)}
                 size={TextSize.M} />
             {(authData?.id == profileData?.id) && (
-                <div className={cls.btnWrapper}>
+                <div>
                     {readonly ?
 
                         <AppButton
                             buttonTheme={AppButtonTheme.OUTLINE}
-                            className={cls.ProfileCardEditBtn}
                             onClick={EditClickHandler}>
                             {t('Редактировать')}
                         </AppButton>
                         :
-                        <div>
+                        <HStack gap={'8'}>
                             <AppButton
                                 buttonTheme={AppButtonTheme.OUTLINE_RED}
-                                className={cls.ProfileCardEditBtn}
                                 onClick={CancelClickHandler}>
                                 {t('Отменить')}
                             </AppButton>
                             <AppButton
                                 buttonTheme={AppButtonTheme.OUTLINE}
-                                className={cls.ProfileCardSaveBtn}
                                 onClick={SaveClickHandler}>
                                 {t('Сохранить')}
                             </AppButton>
-                        </div>
+                        </HStack>
                     }
                 </div>
 
             )}
 
-        </div>
+        </HStack>
     )
 });

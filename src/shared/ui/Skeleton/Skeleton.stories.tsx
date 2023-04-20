@@ -10,7 +10,7 @@ import { RouterDecorator }
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'shared/Skeleton',
+    title: 'shared/ui/Skeleton',
     component: Skeleton,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {

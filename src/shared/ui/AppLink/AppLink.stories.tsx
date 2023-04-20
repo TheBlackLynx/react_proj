@@ -10,7 +10,7 @@ import { RouterDecorator }
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Example/AppLink',
+    title: 'shared/ui/AppLink',
     component: AppLink,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {

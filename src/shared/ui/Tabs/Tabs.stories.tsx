@@ -7,7 +7,7 @@ import { action } from '@storybook/addon-actions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Example/Tabs',
+    title: 'shared/ui/Tabs',
     component: Tabs,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {

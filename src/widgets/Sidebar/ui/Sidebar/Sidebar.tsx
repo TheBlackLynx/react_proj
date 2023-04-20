@@ -7,6 +7,7 @@ import { AppButtonSize, AppButtonTheme } from "shared/ui/AppButton/AppButton";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { useSelector } from "react-redux";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
+import { VStack } from "shared/ui/Stack/VStack/VStack";
 
 
 
@@ -49,9 +50,9 @@ export const Sidebar = memo(() => {
             >
                 {collapsed? ">" : "<"}
             </AppButton>
-            <div className={cls.links}>
+            <VStack gap={'8'} align={'center'} className={cls.links}>
                 {itemsList}
-            </div>
+            </VStack>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher 

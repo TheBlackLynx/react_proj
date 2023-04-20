@@ -10,6 +10,7 @@ import { DynamicModuleLoaders, ReducerList }
     from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
+import { HStack } from 'shared/ui/Stack';
 import cls from './AddNewCommentForm.module.scss'
 
 export interface AddNewCommentFormProps {
@@ -41,7 +42,8 @@ export const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
     }, [onSendComment, onCommentTextChange, text])
     return (
         <DynamicModuleLoaders reducers={reducers}>
-            <div className={classNames(cls.AddNewCommentForm, {}, [className])}>
+            <HStack justify={"between"} max
+                className={classNames(cls.AddNewCommentForm, {}, [className])}>
                 <Input
                     className={cls.Input}
                     placeholder={t('Введите текст комментария')}
@@ -54,7 +56,7 @@ export const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
                 >
                     {t('Отправить')}
                 </AppButton>
-            </div>
+            </HStack>
         </DynamicModuleLoaders>
     )
 });

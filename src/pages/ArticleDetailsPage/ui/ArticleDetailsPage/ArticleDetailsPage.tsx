@@ -28,6 +28,7 @@ import { TextSize } from 'shared/ui/Text/Text';
 import { fetchArticlesRecommendations } from 'pages/ArticleDetailsPage/model/services/fetchArticlesRecommendations/fetchArticlesRecommendations';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { VStack } from 'shared/ui/Stack';
 
 const reducersList: ReducerList = {
     articleDetailsPage: articleDetailsPageReducer
@@ -86,15 +87,18 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
                     view = {ArticleView.TILE}
                     className={cls.recommendations}
                     target='_blank' />
-                <Text
-                    size={TextSize.L}
-                    title='Комментарии'
-                    className={cls.commentTitle}
-                />
-                <AddNewCommentForm onSendComment={onSendComment} />
-                <CommentList
-                    isLoading={isLoading}
-                    comments={comments} />
+                <VStack gap={"16"} max>
+                    <Text
+                        size={TextSize.L}
+                        title='Комментарии'
+                        className={cls.commentTitle}
+                    />
+               
+                    <AddNewCommentForm onSendComment={onSendComment} />
+                    <CommentList
+                        isLoading={isLoading}
+                        comments={comments} />
+                </VStack>
             </Page>
         </DynamicModuleLoaders>
 

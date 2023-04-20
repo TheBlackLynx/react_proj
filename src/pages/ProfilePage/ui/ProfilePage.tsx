@@ -2,10 +2,12 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { DynamicModuleLoaders, ReducerList } from
     'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
-import { fetchProfileData, getProfileError, getProfileForm, 
+import {
+    fetchProfileData, getProfileError, getProfileForm,
     getProfileIsLoading, getProfileReadOnly,
     getProfileValidateErrors,
-    profileActions, ProfileCard, profileReducer, ValidateProfileError } from 'entities/Profile';
+    profileActions, ProfileCard, profileReducer, ValidateProfileError
+} from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
@@ -16,6 +18,7 @@ import { Text } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { Page } from 'shared';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 
 
 const reducers: ReducerList = {
@@ -32,22 +35,22 @@ const ProfilePage = memo(() => {
     const { id } = useParams<{ id: string }>();
 
     const onChangeFirstname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({first: value || ''}))
+        dispatch(profileActions.updateProfile({ first: value || '' }))
     }, [dispatch])
     const onChangeLastname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({last: value || ''}))
+        dispatch(profileActions.updateProfile({ last: value || '' }))
     }, [dispatch])
 
     const onChangeCity = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({city: value || ''}))
+        dispatch(profileActions.updateProfile({ city: value || '' }))
     }, [dispatch])
 
     const onChangeUsername = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({username: value || ''}))
+        dispatch(profileActions.updateProfile({ username: value || '' }))
     }, [dispatch])
 
     const onChangeAvatar = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({avatar: value || ''}))
+        dispatch(profileActions.updateProfile({ avatar: value || '' }))
     }, [dispatch])
 
     const onChangeCurrency = useCallback((currency?: Currency) => {
@@ -59,24 +62,24 @@ const ProfilePage = memo(() => {
     }, [dispatch])
 
 
-    const validateErrorTranslates  = {
-        [ValidateProfileError.SERVER_ERROR]: 
-        t('Серверная ошибка при сохранении'),
+    const validateErrorTranslates = {
+        [ValidateProfileError.SERVER_ERROR]:
+            t('Серверная ошибка при сохранении'),
         [ValidateProfileError.INCORRECT_AGE]:
-         t('Неверный формат возраста'),
+            t('Неверный формат возраста'),
         [ValidateProfileError.INCORRECT_AGE_LENGTH]:
-         t('Значение возраста не может превыщать 3 символов'),
+            t('Значение возраста не может превыщать 3 символов'),
         [ValidateProfileError.NO_DATA]:
-         t('Данные не указаны'),
+            t('Данные не указаны'),
         [ValidateProfileError.INCORRECT_USER_DATA]:
-         t('Логин и имя пользователя обязательны при сохранении'),
-        [ValidateProfileError.INCORRECT_COUNTRY]: 
-        t('Не указана страна'),
-        [ValidateProfileError.INCORRECT_USERNAME]: 
-        t('Не указано имя пользователя'),
+            t('Логин и имя пользователя обязательны при сохранении'),
+        [ValidateProfileError.INCORRECT_COUNTRY]:
+            t('Не указана страна'),
+        [ValidateProfileError.INCORRECT_USERNAME]:
+            t('Не указано имя пользователя'),
 
     }
-     
+
     if (!id) {
         return (
             <div >
@@ -91,28 +94,31 @@ const ProfilePage = memo(() => {
     return (
         <Page>
             <DynamicModuleLoaders reducers={reducers} removeAfterUnmount={true}>
-                <ProfilePageHeader />
-                {
-                    validationErrors?.length && validationErrors.map(err => (
-                        <Text 
-                            key={err}
-                            theme={TextTheme.ERROR} 
-                            text={validateErrorTranslates[err]}/>
-                    ))
-                }
-                <ProfileCard
-                    data={data}
-                    isLoading={isLoading || false}
-                    error={error} 
-                    onChangeFirstname={onChangeFirstname}
-                    onChangeLastname={onChangeLastname}
-                    onChangeCity={onChangeCity}
-                    onChangeUsername={onChangeUsername}
-                    onChangeAvatar={onChangeAvatar}
-                    readonly={readonly}
-                    onChangeCurrency={onChangeCurrency}
-                    onChangeCountry={onChangeCountry}
-                />
+                <VStack gap={'16'} max>
+                    <ProfilePageHeader />
+                    {
+                        validationErrors?.length && validationErrors.map(err => (
+                            <Text
+                                key={err}
+                                theme={TextTheme.ERROR}
+                                text={validateErrorTranslates[err]} />
+                        ))
+                    }
+
+                    <ProfileCard
+                        data={data}
+                        isLoading={isLoading || false}
+                        error={error}
+                        onChangeFirstname={onChangeFirstname}
+                        onChangeLastname={onChangeLastname}
+                        onChangeCity={onChangeCity}
+                        onChangeUsername={onChangeUsername}
+                        onChangeAvatar={onChangeAvatar}
+                        readonly={readonly}
+                        onChangeCurrency={onChangeCurrency}
+                        onChangeCountry={onChangeCountry}
+                    />
+                </VStack>
             </DynamicModuleLoaders>
         </Page>
     )
