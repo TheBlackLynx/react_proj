@@ -31,7 +31,7 @@ interface TextProps {
 
 export type HeaderTagType = 'h1' | 'h2' | 'h3';
 
-const mapSizeToHeaderTag: Record<TextSize, HeaderTag> = {
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
     [TextSize.L]: 'h1',
     [TextSize.M]: 'h2',
     [TextSize.S]: 'h3',
