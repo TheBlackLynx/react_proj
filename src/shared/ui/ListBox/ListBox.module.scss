@@ -30,11 +30,19 @@
 .active {
     background: rgb(green, 0.2);
 }
-
-.optionsBottom {
-
+.optionsBottomLeft {
+    top: 100%;
+    right: 100%;
 }
-
-.optionsTop {
-    bottom: 100%
+.optionsBottomRight {
+    top: 100%;
+    left: 100%;
+}
+.optionsTopLeft {
+    bottom: 100%;
+    left: 0;
+}
+.optionsTopRight {
+    bottom: 100%;
+    right: 0;
 }

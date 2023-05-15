@@ -3,6 +3,7 @@ import { Listbox as HListbox} from '@headlessui/react';
 import cls from './ListBox.module.scss';
 import { AppButton, classNames } from 'shared';
 import { HStack } from '../Stack';
+import { DropDownDirection } from 'shared/types/ui';
 
 export interface ListBoxItem {
     value?: string,
@@ -10,7 +11,7 @@ export interface ListBoxItem {
     disabled?: boolean
 }
 
-type DropDownDirection = 'top' | 'bottom'
+
 
 interface ListBoxProps {
     items?: ListBoxItem[],
@@ -32,8 +33,10 @@ const people = [
 ]
 
 const mapDirectionClass: Record<DropDownDirection, string> = {
-    bottom: cls.optionsBottom,
-    top: cls.optionsTop
+    'bottom left': cls.optionsBottomLeft,
+    'bottom right': cls.optionsBottomRight,
+    'top left': cls.optionsTopLeft,
+    'top right': cls.optionsTopRight
 }
 
 export const  ListBox = ( props : ListBoxProps) => {
@@ -44,7 +47,7 @@ export const  ListBox = ( props : ListBoxProps) => {
         items,
         className,
         readonly,
-        direction = 'bottom',
+        direction = 'bottom right',
         label
 
     } = props
@@ -64,7 +67,7 @@ export const  ListBox = ( props : ListBoxProps) => {
 
                 <HListbox.Button 
                     className={cls.trigger} 
-                // disabled={readonly}   
+                    // disabled={readonly} 
                 >
                     <AppButton
                         disabled={readonly}   

@@ -1,9 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ListBox } from './ListBox';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers';
-
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'shared/ui/ListBox',
@@ -12,31 +9,75 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        (Story) => <div style={{padding: '150px'}}><Story /></div>
+    ]
 } as ComponentMeta<typeof ListBox>;
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox 
-    defaultValue={'Выберите значение'}
-    onChange={(value: string) => { const c = value}}
-    items={
-        [
-            {
-                value: '123213',
-                content: <div>weqweqwe</div>
-            },
-    
-            {
-                value: '23234',
-                content: <div>weq23423weqwe</div>,
-                disabled: true
-            },
-            {
-                value: '1231323213',
-                content: <div>123</div>
-            }
-        ]}
+const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args}
 />
 
-export const Primary = Template.bind({});
-Primary.args = {
-   
+export const Normal = Template.bind({});
+Normal.args = {
+    items: [
+        {
+            content: 'weqweqwe', value: 'wdweweqwe'
+        },
+        {
+            content: 'weqweqdewwewe', value: 'wdwewwrereqwe'
+        },
+    ]
 };
 
+export const topLeft = Template.bind({});
+topLeft.args = {
+    direction: 'top left',
+    value: '123',
+    items: [
+        {
+            content: 'weqweqwe', value: 'wdweweqwe'
+        },
+        {
+            content: 'weqweqdewwewe', value: 'wdwewwrereqwe'
+        },
+    ]
+};
+export const bottomLeft = Template.bind({});
+bottomLeft.args = {
+    direction: 'bottom left',
+    value: '123',
+    items: [
+        {
+            content: 'weqweqwe', value: 'wdweweqwe'
+        },
+        {
+            content: 'weqweqdewwewe', value: 'wdwewwrereqwe'
+        },
+    ]
+};
+
+export const topRight = Template.bind({});
+topRight.args = {
+    direction: 'top right',
+    value: '123',
+    items: [
+        {
+            content: 'weqweqwe', value: 'wdweweqwe'
+        },
+        {
+            content: 'weqweqdewwewe', value: 'wdwewwrereqwe'
+        },
+    ]
+};
+export const bottomRight = Template.bind({});
+bottomRight.args = {
+    direction: 'bottom right',
+    value: '123',
+    items: [
+        {
+            content: 'weqweqwe', value: 'wdweweqwe'
+        },
+        {
+            content: 'weqweqdewwewe', value: 'wdwewwrereqwe'
+        },
+    ]
+};
