@@ -7,7 +7,7 @@ import { Theme } from 'app/providers';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Example/Main',
+    title: 'pages/Main',
     component: Main,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {

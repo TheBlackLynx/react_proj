@@ -1,4 +1,10 @@
 .CommentItem {
     border: 1px solid var(--primary-color);
+  
+}
+
+.CommentItemHeader, .CommentItemText {
+    margin-left: 5px;
+    margin-top: 5px;
 }
 

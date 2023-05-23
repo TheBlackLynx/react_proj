@@ -6,6 +6,7 @@ import { userReducer } from 'entities/User';
 import { scrollReducer } from 'features/ScrollSave';
 import { NavigateOptions, To } from 'react-router-dom';
 import { $api } from 'shared/api/api';
+import { rtkApi } from 'shared/api/rtkApi';
 import { createReducerManager } from './ReducerManager'
 import { StateSchema, ThunkExtraArg } from './StateSchema'
 
@@ -16,7 +17,9 @@ export function createReduxStore(
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncRedicers,
         user: userReducer,
-        scroll: scrollReducer
+        scroll: scrollReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
+       
     }
 
     const reducerManager = createReducerManager(rootReducers);
@@ -27,12 +30,12 @@ export function createReduxStore(
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
-        middleware: (getDefaultMiddleware => getDefaultMiddleware({
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
             thunk: {
                 extraArgument: extraArgs
-            }
+            },
         }
-        ))
+        ).concat(rtkApi.middleware)
     })
 
     // @ts-ignore

@@ -18,6 +18,7 @@ import { initeArticlesPage } from 'pages/ArticlesPage/model/services/initeArticl
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { useSearchParams } from 'react-router-dom';
 import { Text } from 'shared';
+import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 
 
 const ArticlesPage = memo(() => {
@@ -41,39 +42,17 @@ const ArticlesPage = memo(() => {
         dispatch(initeArticlesPage(searchParams))
     })
 
-    const onLoadNextPart = useCallback(() => {
-        dispatch(fetchNextArticlePage())
-
-    }, [dispatch])
-
-
-    // if (!isLoading && !articles.length) {
-    //   return (
-    //     <div className={classNames('', {}, [])}>
-    //       <Text title={t('статьи не найдены')}  />
-    //       </div>
-    //   )
-    // }
-
-    console.log(articles);
-  
-
     return (
         <DynamicModuleLoaders reducers={reducers} removeAfterUnmount={false}>
-            {/* <Page
-        className={classNames(cls.ArticlePage, {}, [])}
-      //  onScrollEnd={onLoadNextPart}
-      > */}
-            <ArticleList
-                articles={articles}
-                isLoading={isLoading}
-                error={error}
-                view={view}
-                className={cls.list}
-                onScrollEnd={onLoadNextPart}
+            <Page // падает из-за использования библиотеки с частичной подгрузкой статей
+                className={classNames(cls.ArticlePage, {}, [])}
+                //  onScrollEnd={onLoadNextPart}
+            >
+                <ArticleInfiniteList className={cls.list}/>
+            </Page>
 
-            />
-            {/* </Page> */}
+            {/* <ArticlesPageFilters /> */}
+          
         </DynamicModuleLoaders>
     )
 });

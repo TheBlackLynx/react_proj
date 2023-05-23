@@ -11,7 +11,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Example/Sidebar',
+    title: 'widgets/Sidebar',
     component: Sidebar,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {

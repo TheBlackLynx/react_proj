@@ -1,25 +1,14 @@
 import cls from './ProfileCard.module.scss';
-import { memo, useCallback, useEffect } from "react";
+import { memo } from "react";
 import { ProfileType } from "entities/Profile/model/types/profile";
-import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData';
-import { useSelector } from 'react-redux';
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
-import { getProfileIsLoading } from
-    'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { AppButton, classNames, Input } from 'shared';
+import { classNames, Input } from 'shared';
 import { Text } from 'shared';
 import { useTranslation } from 'react-i18next';
-import App from 'app/App';
-import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
 import { Spinner, SpinnerSize } from 'shared/ui/Spinner/Spinner';
 import { Align, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { profileActions } from 'entities/Profile/model/slice/profileSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { getProfileReadOnly } 
-    from 'entities/Profile/model/selectors/getProfileReadOnly/getProfileReadOnly';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Mods } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared/ui/Select/Select';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';

@@ -6,7 +6,7 @@ import { ThemeDecorator } from
 import { Theme } from 'app/providers';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Example/NotFoundPage',
+    title: 'pages/NotFoundPage',
     component: NotFoundPage,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
