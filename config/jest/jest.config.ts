@@ -35,6 +35,14 @@ export default {
     coveragePathIgnorePatterns: [
         "/node_modules/"
     ],
+    reporters: [
+        "default",
+        ["jest-html-reporters", {
+            publicPath: `<rootDir>/reports/html-report`,
+            filename: "report.html",
+            openReport: true
+        }]
+    ],
 
     // Indicates which provider should be used to instrument code for coverage
     // coverageProvider: "babel",
