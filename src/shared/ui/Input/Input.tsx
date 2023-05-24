@@ -19,7 +19,8 @@ export interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void,
     placeholder?: string,
     autoFocus?: boolean,
-    readonly?: boolean
+    readonly?: boolean,
+    'data-testid'?: string
 }
 
 
@@ -32,6 +33,7 @@ export const Input:FC<InputProps> = memo((props: InputProps) => {
         placeholder,
         autoFocus,
         readonly,
+        'data-testid': dataTestId = 'test',
         ...otherProps } = props;
 
     const [isfocused, setIsFocused] = useState(false);
@@ -80,6 +82,7 @@ export const Input:FC<InputProps> = memo((props: InputProps) => {
                     onBlur={onBlur}
                     onSelect={onSelect}
                     readOnly={readonly}
+                    data-testid={`${dataTestId}`}
                 />
                 { isCarret &&
                 <span 

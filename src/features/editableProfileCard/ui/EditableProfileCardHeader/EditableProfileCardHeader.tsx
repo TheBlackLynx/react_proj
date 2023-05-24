@@ -49,19 +49,22 @@ export const EditableProfileCardHeader = memo((props: ProfilePageHeaderProps) =>
 
                         <AppButton
                             buttonTheme={AppButtonTheme.OUTLINE}
-                            onClick={EditClickHandler}>
+                            onClick={EditClickHandler}
+                            data-testid={`EditableProfileCardHeader.EditButton`}>
                             {t('Редактировать')}
                         </AppButton>
                         :
                         <HStack gap={'8'}>
                             <AppButton
                                 buttonTheme={AppButtonTheme.OUTLINE_RED}
-                                onClick={CancelClickHandler}>
+                                onClick={CancelClickHandler}
+                                data-testid={`EditableProfileCardHeader.CancelButton`}>
                                 {t('Отменить')}
                             </AppButton>
                             <AppButton
                                 buttonTheme={AppButtonTheme.OUTLINE}
-                                onClick={SaveClickHandler}>
+                                onClick={SaveClickHandler}
+                                data-testid={`EditableProfileCardHeader.SaveButton`}>
                                 {t('Сохранить')}
                             </AppButton>
                         </HStack>

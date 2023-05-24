@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { TextSize } from 'shared';
-import { ArticleList } from 'entities/Article';
+import { ArticleList, ArticleView } from 'entities/Article';
 import { Text } from 'shared';
 import { VStack } from 'shared';
 import { rtkApi } from 'shared/api/rtkApi';
@@ -23,7 +23,7 @@ export const ArticleReccomendationsList = memo((props: ArticleReccomendationsLis
     const { t } = useTranslation();
     const { isLoading, data: articles, error } = useArticleReccomendationsList(3);
 
-    if (isLoading || error) {
+    if (isLoading || error || !articles) {
         return (
             <VStack>
                 <Text size={TextSize.L}  title={t('Произошла ошибка')} />
@@ -39,6 +39,7 @@ export const ArticleReccomendationsList = memo((props: ArticleReccomendationsLis
                 title='Рекомендуем'
             />
             <ArticleList
+                view={ArticleView.TILE}
                 articles={articles} 
                 target='_blank' />
         </VStack>

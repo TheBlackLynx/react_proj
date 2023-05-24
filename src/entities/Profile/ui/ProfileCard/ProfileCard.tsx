@@ -89,6 +89,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 onChange={onChangeFirstname}
                 readonly={readonly}
                 className={cls.ProfileCardInput}
+                data-testid='ProfileCard.firstname'
             />
             <Input
                 value={data?.last}
@@ -96,6 +97,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 onChange={onChangeLastname}
                 readonly={readonly}
                 className={cls.ProfileCardInput}
+                data-testid={`ProfileCard.lastname`}
             />
 
             <Input
@@ -104,6 +106,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 onChange={onChangeAge}
                 readonly={readonly}
                 className={cls.ProfileCardInput}
+                data-testid={`ProfileCard.age`}
             />
 
 
@@ -113,6 +116,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 onChange={onChangeCity}
                 readonly={readonly}
                 className={cls.ProfileCardInput}
+                data-testid={`ProfileCard.city`}
             />
             <Input
                 value={data?.username}
@@ -120,6 +124,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 onChange={onChangeUsername}
                 readonly={readonly}
                 className={cls.ProfileCardInput}
+                data-testid={`ProfileCard.username`}
             />
             <Input
                 value={data?.avatar}
@@ -127,6 +132,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 onChange={onChangeAvatar}
                 readonly={readonly}
                 className={cls.ProfileCardInput}
+                data-testid={`ProfileCard.avatar`}
             />
             <CurrencySelect
                 className={cls.ProfileCardInput}

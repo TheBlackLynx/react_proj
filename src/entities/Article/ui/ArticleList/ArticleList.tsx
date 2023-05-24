@@ -15,8 +15,10 @@ interface ArticleListProps {
     isLoading?: boolean;
     view?: ArticleView;
     error?: string;
-    target?: HTMLAttributeAnchorTarget;
-    onScrollEnd?: () => void
+    target?: HTMLAttributeAnchorTarget,
+    virtualized?: boolean,
+    onScrollEnd?: () => void,
+  
 
 }
 
@@ -28,7 +30,7 @@ const getSkeletons = () => {
         ))
 }
 
-
+// @ts-ignore
 export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
@@ -37,7 +39,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
         error,
         target,
         onScrollEnd,
-        view = ArticleView.LIST } = props;
+        view = ArticleView.LIST,
+        virtualized = false } = props;
 
     const virtuosoRef = useRef<VirtuosoGridHandle>(null);
     // if (isLoading) {
@@ -84,7 +87,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
     })
 
 
-    const ItemContainerComp: FC<{height: number, width: number, index: number}> = ({height, width, index}) => (
+    const ItemContainerComp: 
+    FC<{height: number, width: number, index: number}> = ({height, width, index}) => (
         <div className={cls.gridItemsContainer}>
             <ArticleListItemSkeleton key={index} view={view} className={cls.card}/>
         </div>
@@ -101,71 +105,65 @@ export const ArticleList = memo((props: ArticleListProps) => {
             index={index}
         />
     )
-
-    return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {   
-                view === 'LIST' ? (
-                    <Virtuoso
-                        className={cls.listItemsWrapper}
-                        style={{ height: '100%', position: 'relative' }}
-                        data={articles}
-                        itemContent={renderArticle}
-                        endReached={onScrollEnd}
-                        initialTopMostItemIndex={selectedArticleId}
-                        components={
-                            {
-                                Header,
-                                Footer,
-                            }
+    if (view === 'LIST' ) {
+        return (
+            virtualized ? (
+                <Virtuoso
+                    className={cls.listItemsWrapper}
+                    style={{ height: '100%', position: 'relative' }}
+                    data={articles}
+                    itemContent={renderArticle}
+                    endReached={onScrollEnd}
+                    initialTopMostItemIndex={selectedArticleId}
+                    components={
+                        {
+                            Header,
+                            Footer,
                         }
-                    />
+                    }
+                />)
+                : (
+                    <>
+                        <ArticlesPageFilters  className={cls.header}/>
+                        {
+                            articles.map(article => (
+                                <ArticleListItem 
+                                    article={article}
+                                    view={view}
+                                    target={target}
+                                    key={article.id}
+                                    className={cls.card}
+
+                                />
+                   
+                            ))}
+                    </>
+                    
                 )
-                    : 
-                    (
-                        <VirtuosoGrid 
-                            className={cls.gridItemsWrapper}
-                            ref={virtuosoRef}
-                            totalCount={articles.length}
-                            components={{
-                                Header,
-                                ScrollSeekPlaceholder: ItemContainerComp
-                            }}
-                            endReached={onScrollEnd}
-                            data={articles}
-                            itemContent={renderArticle}
-                            listClassName={cls.itemsWrapper}
-                            scrollSeekConfiguration={{
-                                enter: (velocity) => Math.abs(velocity) > 200,
-                                exit: (velocity) => Math.abs(velocity) < 30
-                            }}
+            
+        )
+    }
+    else {
+        return (
+            <VirtuosoGrid 
+                className={cls.gridItemsWrapper}
+                ref={virtuosoRef}
+                totalCount={articles.length}
+                components={{
+                    Header,
+                    ScrollSeekPlaceholder: ItemContainerComp
+                }}
+                endReached={onScrollEnd}
+                data={articles}
+                itemContent={renderArticle}
+                listClassName={cls.itemsWrapper}
+                scrollSeekConfiguration={{
+                    enter: (velocity) => Math.abs(velocity) > 200,
+                    exit: (velocity) => Math.abs(velocity) < 30
+                }}
 
-                        />
-                    )
-            }
-        </div>
-        //         <WindowScroller
-
-    //         onScroll={() => console.log('WindowScroller')}
-    //         scrollElement={document.getElementById('page-id') as Element}
-    //         >
-    //             {({height, width}) => (
-    //                         <List
-    //                             height={500}
-    //                             rowCount={articles.length}
-    //                             rowHeight={500}
-    //                             rowRenderer={() => <div>row</div>}
-    //                             width={width}
-    //                         />
-    // )}
-    //         </WindowScroller>
-    // <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-    //     {articles ?
-    //         articles.map(renderArticle)
-    //         :
-    //         null
-    //     }
-    //     {isLoading &&  getSkeletons(view)}
-    // </div>
-    )
+            />
+        )
+    }
+ 
 });
