@@ -10,7 +10,7 @@ import { ReducersMapObject } from "@reduxjs/toolkit";
 export interface ComponentRenderOptions {
     route?: string;
     initialState?: DeepPartial<StateSchema>,
-    asyncReducers: DeepPartial<ReducersMapObject<StateSchema>>
+    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
 }
 export function componentRender(
     component: ReactNode,

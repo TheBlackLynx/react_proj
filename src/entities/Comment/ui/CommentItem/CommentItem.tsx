@@ -23,13 +23,13 @@ export const CommentItem = memo((props: CommentItemProps) => {
     //  const isLoading = useSelector(getCommentsIsLoading);
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentItem, {}, [className])}>
+            <VStack max gap={"8"} className={classNames(cls.CommentItem, {}, [className])}>
                 <div className={cls.CommentItemHeader}>
                     <Skeleton width={30} height={30} border={'50%'} />
                     <Skeleton  height={30} width={80}/>
                 </div>
                 <Skeleton  height={30} width={150} className={cls.CommentItemText}/>
-            </div>
+            </VStack>
         )
     }
     return (
