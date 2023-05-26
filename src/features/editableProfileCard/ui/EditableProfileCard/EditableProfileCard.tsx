@@ -16,13 +16,13 @@ import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { ProfileCard } from 'entities/Profile';
-import { DynamicModuleLoaders, ReducerList } from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
+import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 
 interface EditableProfileCardProps {
     className?: string;
-    id: string
+    id?: string
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
@@ -93,7 +93,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     }
     
     return (
-        <DynamicModuleLoaders reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers}>
             <VStack gap={'8'}
                 max >
                 <EditableProfileCardHeader />
@@ -121,6 +121,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                     onChangeCountry={onChangeCountry}
                 />
             </VStack>
-        </DynamicModuleLoaders>
+        </DynamicModuleLoader>
     );
 });

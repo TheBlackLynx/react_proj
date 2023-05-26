@@ -25,6 +25,7 @@ Normal.args = {
         user: { id: '1', login: 'Vasya' },
     },
 };
+Normal.decorators = [StoreDecorator({})]
 
 export const Loading = Template.bind({});
 Loading.args = {
@@ -36,4 +37,4 @@ Loading.args = {
     isLoading: true,
 };
 
-
+Loading.decorators = [StoreDecorator({})]

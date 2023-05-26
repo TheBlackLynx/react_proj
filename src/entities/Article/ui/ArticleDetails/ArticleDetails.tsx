@@ -7,7 +7,7 @@ import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import cls from './ArticleDetails.module.scss'
-import { DynamicModuleLoaders, ReducerList } from
+import { DynamicModuleLoader, ReducerList } from
     'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Spinner } from 'shared/ui/Spinner/Spinner';
@@ -29,7 +29,7 @@ import { HStack, VStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsProps {
     className?: string,
-    articleId: string
+    articleId?: string
 }
 const reducers: ReducerList = {
     articleDetails: articleDetailsReducer
@@ -119,11 +119,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         )
     }
     return (
-        <DynamicModuleLoaders reducers={reducers} removeAfterUnmount={true}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
             <VStack gap={'16'} max className={cls.ArticleDetails}>
                 {content}
             </VStack>
-        </DynamicModuleLoaders>
+        </DynamicModuleLoader>
 
     )
 });

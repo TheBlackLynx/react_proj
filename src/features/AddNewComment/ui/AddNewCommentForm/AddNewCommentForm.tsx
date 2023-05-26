@@ -6,7 +6,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { AppButton, classNames, Input, Text } from 'shared';
-import { DynamicModuleLoaders, ReducerList } 
+import { DynamicModuleLoader, ReducerList } 
     from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
@@ -41,7 +41,7 @@ export const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
 
     }, [onSendComment, onCommentTextChange, text])
     return (
-        <DynamicModuleLoaders reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers}>
             <HStack justify={"between"} max
                 className={classNames(cls.AddNewCommentForm, {}, [className])}>
                 <Input
@@ -57,7 +57,7 @@ export const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
                     {t('Отправить')}
                 </AppButton>
             </HStack>
-        </DynamicModuleLoaders>
+        </DynamicModuleLoader>
     )
 });
 

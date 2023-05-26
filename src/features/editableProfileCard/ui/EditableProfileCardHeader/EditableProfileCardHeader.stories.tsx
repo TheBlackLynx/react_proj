@@ -19,3 +19,4 @@ Primary.decorators = [StoreDecorator({
     profile: { isLoading: false, readonly: true },
 })]
 Primary.args = {};
+Primary.decorators = [StoreDecorator()];

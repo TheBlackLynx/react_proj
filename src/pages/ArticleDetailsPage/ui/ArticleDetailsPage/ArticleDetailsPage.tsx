@@ -17,7 +17,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { clearScreenDown } from 'readline';
 import { AppButton, Page, Text } from 'shared';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { DynamicModuleLoaders, ReducerList }
+import { DynamicModuleLoader, ReducerList }
     from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
@@ -48,30 +48,17 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     const recommendations = useSelector(getArticleRecomendations.selectAll);
     const isLoading = useSelector(getCommentsIsLoading);
   
- 
-
-
-    if (!id) {
-        return (
-            <div >
-                {t('статья не найдена')}
-            </div>
-        )
-    }
-
-
-  
     console.log('recommendations', recommendations);
     
     return (
-        <DynamicModuleLoaders reducers={reducersList} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducersList} removeAfterUnmount>
             <Page className={cls.ArticleDetailsPage}>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails articleId={id} />
                 <ArticleReccomendationsList />
                 <ArticleDetailsComments id={id}/>
             </Page>
-        </DynamicModuleLoaders>
+        </DynamicModuleLoader>
 
     )
 });

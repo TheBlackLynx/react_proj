@@ -33,11 +33,14 @@ Normal.args = {
     ],
 };
 
+Normal.decorators = [StoreDecorator({})]
+
 export const Loading = Template.bind({});
 Loading.args = {
     comments: [],
     isLoading: true,
 };
+Loading.decorators = [StoreDecorator({})]
 
 
 

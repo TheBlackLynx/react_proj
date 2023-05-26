@@ -4,7 +4,7 @@ import { classNames, Page } from 'shared';
 import cls from './ArticlesPage.module.scss';
 import { Article, ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
 import { ArticleType } from 'entities/Article/model/types/article';
-import { DynamicModuleLoaders, ReducerList } from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
+import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { articlePageActions, articlePageReducer, getArticles } from '../../model/slice/ArticlePageSlice';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -43,7 +43,7 @@ const ArticlesPage = memo(() => {
     })
 
     return (
-        <DynamicModuleLoaders reducers={reducers} removeAfterUnmount={false}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page // падает из-за использования библиотеки с частичной подгрузкой статей
                 className={classNames(cls.ArticlePage, {}, [])}
                 //  onScrollEnd={onLoadNextPart}
@@ -53,7 +53,7 @@ const ArticlesPage = memo(() => {
 
             {/* <ArticlesPageFilters /> */}
           
-        </DynamicModuleLoaders>
+        </DynamicModuleLoader>
     )
 });
 export default memo(ArticlesPage);

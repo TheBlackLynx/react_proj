@@ -6,6 +6,7 @@ import { ThemeDecorator } from
 import { Theme } from 'app/providers';
 import { Article, ArticleView } from 'entities/Article/model/types/article';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'entities/Article/ArticleList',
@@ -24,6 +25,7 @@ isLoading.args = {
     articles: [],
     view: ArticleView.LIST
 };
+isLoading.decorators = [StoreDecorator({})]
 const article = {
     id: 1,
     title: "Javascript news",
@@ -108,6 +110,7 @@ List.args = {
     view: ArticleView.LIST
 };
 List.decorators = [RouterDecorator()]
+List.decorators = [StoreDecorator()];
 
 
 export const Tile = Template.bind({});
@@ -117,3 +120,4 @@ Tile.args = {
     view: ArticleView.TILE
 };
 Tile.decorators = [RouterDecorator()]
+Tile.decorators = [StoreDecorator()];

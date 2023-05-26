@@ -20,9 +20,9 @@ export default {
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
 export const Light = Template.bind({});
-Light.decorators=[RouterDecorator(), StoreDecorator({})]
+Light.decorators=[ StoreDecorator({}), RouterDecorator()]
 Light.args = {};
 
 export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator(), StoreDecorator({})]
+Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator(),StoreDecorator({})]
 Dark.args = {};

@@ -18,7 +18,7 @@ import { getLoginError } from
     "features/AuthByUsername/model/selectors/getLoginError/getLoginError";
 import { getLoginIsLoading } from 
     "features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading";
-import { DynamicModuleLoaders, ReducerList } from 
+import { DynamicModuleLoader, ReducerList } from 
     "shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders";
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
@@ -59,7 +59,7 @@ const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
     }, [onSuccess, dispatch, login, password]);
 
     return (
-        <DynamicModuleLoaders 
+        <DynamicModuleLoader
             reducers={initialReducers} 
             // reducers={loginForm: loginReducer} 
             // если передавать в таком виде, то при каждом рендере ссылка будет меняться
@@ -89,7 +89,7 @@ const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
                     {t('Войти')}
                 </AppButton>
             </div>
-        </DynamicModuleLoaders>
+        </DynamicModuleLoader>
     );
 });
 

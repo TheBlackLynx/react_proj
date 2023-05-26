@@ -22,8 +22,9 @@ const Template:
 ComponentStory<typeof Sidebar> = () => <Sidebar />;
 
 export const Light = Template.bind({});
-Light.args = {};
-Light.decorators = [ RouterDecorator()]
+Light.decorators = [ StoreDecorator({
+    user: {authData: {}}
+})]
 
 export const Dark = Template.bind({});
 Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator(), StoreDecorator({

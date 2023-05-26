@@ -15,14 +15,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 const ProfilePage = memo(() => {
     const { t } = useTranslation('profile');
     const { id } = useParams<{ id: string }>();
-    console.log('id', id);
     
-
-    if (!id) {
-        return (
-            <Text title={t('Неверный id пользователя')}/>
-        )
-    }
 
     return (
         <Page>
