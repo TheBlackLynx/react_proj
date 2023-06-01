@@ -67,7 +67,7 @@ export const Input:FC<InputProps> = memo((props: InputProps) => {
 
     const isCarret = isfocused && !readonly;
     return (
-        <div className={classNames(cls.InputWrapper, mods, [])}>
+        <div className={classNames(cls.InputWrapper, mods, [className])}>
             { placeholder && <div className={cls.placeholder}>
                 {`${placeholder} >`}
             </div>}
@@ -84,10 +84,10 @@ export const Input:FC<InputProps> = memo((props: InputProps) => {
                     readOnly={readonly}
                     data-testid={`${dataTestId}`}
                 />
-                { isCarret &&
+                {/* { isCarret &&
                 <span 
                     style={{left: `${carriagePosition * 7.5}px`}}
-                    className={cls.carriage}/>}
+                    className={cls.carriage}/>} */}
             </div>
         </div>
         

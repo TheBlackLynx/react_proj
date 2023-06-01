@@ -8,6 +8,7 @@ import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { useSelector } from "react-redux";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
 import { VStack } from "shared/ui/Stack/VStack/VStack";
+import { isUserAdmin, isUserManager } from "entities/User";
 
 
 
