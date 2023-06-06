@@ -15,17 +15,14 @@ import { Icon, Text } from 'shared';
 import { Align, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { ActicleBlocks, Article, ArticleBlockType } 
-    from 'entities/Article/model/types/article';
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from '../../../../shared/assets/icons/calendar-20-20.svg'
-
-import { ArticleTextBlockComponent }
-    from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleImageBlockComponent } from
-    'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleBlockType } from 'entities/Article';
+import { ActicleBlocks } from 'entities/Article/model/types/article';
 
 interface ArticleDetailsProps {
     className?: string,

@@ -1,11 +1,6 @@
-import { ArticleImageBlock, ArticleType } from 'entities/Article/model/types/article';
-import { articlePageActions } from 'pages/ArticlesPage/model/slice/ArticlePageSlice';
+import { ArticleType } from 'entities/Article';
 import { memo, useCallback, useMemo } from 'react';
-import { Text } from 'shared';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
-import { Align } from 'shared/ui/Text/Text';
-import cls from './ArticleTypeTabs.module.scss'
 
 interface ArticleTypeTabsProps {
     className?: string;

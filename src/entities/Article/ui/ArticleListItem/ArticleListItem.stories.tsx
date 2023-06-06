@@ -4,8 +4,8 @@ import  {ArticleListItem} from './ArticleListItem';
 import { ThemeDecorator } from 
     'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers';
-import { Article, ArticleView } from 'entities/Article/model/types/article';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
+import { Article, ArticleView } from 'entities/Article';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'entities/Article/ArticleListItem',

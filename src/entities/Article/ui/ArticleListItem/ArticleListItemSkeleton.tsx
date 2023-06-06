@@ -1,17 +1,8 @@
-import { Article, ArticleBlockType, ArticleImageBlock, ArticleTextBlock, ArticleView } from 'entities/Article/model/types/article';
-import { memo, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AppButton, classNames, Icon, Text } from 'shared';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { useHover } from 'shared/lib/hooks/useHover';
-import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { ArticleView } from 'entities/Article/model/consts/consts';
+import { memo } from 'react';
+import { classNames} from 'shared';
 import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { TextSize } from 'shared/ui/Text/Text';
-
-import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg'
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss'
 
 interface ArticleListItemSkeletonProps {

@@ -1,14 +1,10 @@
-import { ArticleSortField, ArticleView } from '../../model/types/article';
-import { memo, useCallback, useMemo } from 'react';
+import {useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Code } from 'shared/ui/Code/Code';
-import TileIcon from 'shared/assets/icons/TileIcon.svg';
-import ListIcon from 'shared/assets/icons/ListIcon.svg';
-import { AppButton, classNames, Icon } from 'shared';
+import { classNames } from 'shared';
 import cls from './ArticleSortSelector.module.scss'
-import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { SortOrder } from 'shared/types';
+import { ArticleSortField } from 'entities/Article/model/consts/consts';
 
 interface ArticleSortSelectorProps {
     className?: string;

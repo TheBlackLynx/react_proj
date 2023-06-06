@@ -1,12 +1,8 @@
-import axios from 'axios';
 import { Dispatch } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { fetchArticleById } from './fetchArticleById';
-import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { ArticleBlockType, ArticleType } from '../../types/article';
+import { ArticleBlockType, ArticleType } from 'entities/Article';
 
 const data = {
     "id": "1",

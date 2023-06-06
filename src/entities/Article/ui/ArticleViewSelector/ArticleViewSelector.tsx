@@ -1,4 +1,3 @@
-import { ArticleView } from '../../model/types/article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Code } from 'shared/ui/Code/Code';
@@ -7,6 +6,7 @@ import ListIcon from 'shared/assets/icons/ListIcon.svg';
 import { AppButton, classNames, Icon } from 'shared';
 import cls from './ArticleViewSelector.module.scss'
 import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
+import { ArticleView } from 'entities/Article';
 
 interface ArticleViewSelectorProps {
     className?: string;

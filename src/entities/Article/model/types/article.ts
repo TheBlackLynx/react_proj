@@ -1,4 +1,6 @@
+import { ArticleBlockType, ArticleType } from "entities/Article";
 import { User } from "entities/User";
+
 
 export interface Article {
     id: string,
@@ -12,28 +14,8 @@ export interface Article {
     blocks: ActicleBlocks[]
 }
 
-export enum ArticleView {
-    TILE = 'TILE',
-    LIST = 'LIST'
-}
-export enum ArticleType {
-    'IT' = 'it',
-    'WEB' = 'web',
-    'FRONTEND' = 'frontend'
-}
-
-export enum ArticleSortField {
-    'VIEWS' = 'views',
-    "TITLE" = 'title',
-    'CREATED' = 'createdAt'
-}
 
 
-export enum ArticleBlockType {
-    CODE = 'CODE',
-    TEXT = 'TEXT',
-    IMAGE = 'IMAGE'
-}
 
 
 export type ActicleBlocks = ArticleCodeBlock | ArticleTextBlock | ArticleImageBlock;

@@ -1,5 +1,4 @@
-import { ArticleSortField, ArticleSortSelector, ArticleTypeTabs, ArticleView, ArticleViewSelector } from "entities/Article";
-import { ArticleType } from "entities/Article/model/types/article";
+import { ArticleSortField, ArticleSortSelector, ArticleType, ArticleTypeTabs, ArticleView, ArticleViewSelector } from "entities/Article";
 import { getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType, getArticlesPageView } from "pages/ArticlesPage/model/selectors/articlesPageSelectors";
 import { fetchArticlesList } from "pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
 import { articlePageActions } from "pages/ArticlesPage/model/slice/ArticlePageSlice";

@@ -1,6 +1,5 @@
 import { ProfileType } from "entities/Profile";
-import { useTranslation } from "react-i18next";
-import { ValidateProfileError } from "../../types/editableProfileCardSchema";
+import { ValidateProfileError } from "../../consts/consts";
 
 export const validateProfileData = (profile?: ProfileType) => {
     if (!profile) {

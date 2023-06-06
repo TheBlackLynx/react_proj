@@ -1,6 +1,5 @@
-import { Article, ArticleBlockType, ArticleImageBlock, ArticleTextBlock, ArticleView } from 'entities/Article/model/types/article';
-import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from 'entities/Article';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { AppButton, AppLink, classNames, Icon, Text } from 'shared';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstogare';
@@ -31,10 +30,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     }
 
     if (view === ArticleView.LIST || view === undefined) {
-        const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+        const textBlock = 
+        article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
         return (
             // @ts-ignore
-            <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div {...bindHover} 
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view ? view : ""]])}>
                 <Card className={cls.Card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
@@ -57,12 +58,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                                 buttonTheme={AppButtonTheme.OUTLINE}
                                 onClick={handleButtonClick}
                             >
-                                Читать далее...
+                                t('Читать далее...')
                             </AppButton>
                         </AppLink>
 
 
-                        <Text text={String(article.views)} className={cls.views} size={TextSize.S} />
+                        <Text 
+                            text={String(article.views)} 
+                            className={cls.views} size={TextSize.S} />
                         <Icon Svg={EyeIcon} className={cls.icons} />
                     </div>
                 </Card>

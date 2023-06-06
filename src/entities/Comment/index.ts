@@ -6,7 +6,7 @@ export  {
     CommentItem
 } from './ui/CommentItem/CommentItem';
 
-export {
+export type {
     CommentType
 } from './model/types/comment';
 

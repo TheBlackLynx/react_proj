@@ -17,13 +17,13 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
     const userRoles = useSelector(getUserRole);
     const hasRequiredRoles = useMemo(() => {
         if(!roles) {
-            return false;
+            return true;
         }
         return userRoles?.some(role => {
             return Boolean(roles.includes(role))
         })
     }, [roles, userRoles])
-    console.log('???hasRequiredRoles', hasRequiredRoles);
+    console.log('???userRoles', hasRequiredRoles);
     
  
     if (!auth ) {

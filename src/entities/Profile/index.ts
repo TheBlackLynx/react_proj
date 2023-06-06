@@ -1,5 +1,5 @@
 
-export {
+export type {
     ProfileType
 } from './model/types/profile'
 

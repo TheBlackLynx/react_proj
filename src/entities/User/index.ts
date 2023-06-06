@@ -9,10 +9,9 @@ export {
 export {
     getUserMounted
 } from './model/selectors/getUserMounted/getUserMounted'
-export { 
+export type { 
     User, 
-    UserSchema,
-    UserRole
+    UserSchema
 } from './model/types/user'
 
 export {
@@ -23,4 +22,8 @@ export {
 export {
     isUserAdmin,
     isUserManager
-} from './model/selectors/roleSelectors'
+} from './model/selectors/roleSelectors';
+
+export {
+    UserRole
+} from './model/consts/consts'

@@ -1,4 +1,4 @@
-import { Article, ArticleImageBlock, ArticleView } from 'entities/Article/model/types/article';
+import { Article, ArticleView } from 'entities/Article';
 import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import { FC, HTMLAttributeAnchorTarget, memo, MutableRefObject, Ref, useEffect, useRef, useState } from 'react';
 import { AutoSizer, List, WindowScroller } from 'react-virtualized';

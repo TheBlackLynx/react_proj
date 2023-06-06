@@ -34,6 +34,7 @@
         // можно писать
         // import React from 'react'
         "allowSyntheticDefaultImports": true,
+        "isolatedModules": true
         
     },
     "ts-node": {
