@@ -106,8 +106,10 @@
   "dependencies": {
     "@headlessui/react": "^1.7.14",
     "@reduxjs/toolkit": "^1.9.1",
+    "@types/circular-dependency-plugin": "^5.0.5",
     "@types/react-virtualized": "^9.21.21",
     "axios": "^1.2.1",
+    "circular-dependency-plugin": "^5.2.2",
     "concurrently": "^7.6.0",
     "i18next": "^21.9.2",
     "i18next-browser-languagedetector": "^6.1.5",
