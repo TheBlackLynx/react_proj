@@ -13,3 +13,7 @@ export type {
 export {
     getCommentsIsLoading, getCommentsError
 } from './model/selectors/comments';
+
+export {
+    ArticleDetailsPageAsync as ArticleDetailsPage
+} from './ui/ArticleDetailsPage/ArticleDetailsPage.async'

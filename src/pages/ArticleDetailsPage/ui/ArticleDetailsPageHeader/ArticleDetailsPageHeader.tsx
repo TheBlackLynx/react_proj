@@ -5,7 +5,7 @@ import { FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { AppButton, classNames, Page } from "shared";
+import { AppButton, classNames} from "shared";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { AppButtonTheme } from "shared/ui/AppButton/AppButton";
 import cls from './ArticleDetailsPageHeader.module.scss'

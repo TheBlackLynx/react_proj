@@ -1,36 +1,22 @@
-import { ArticleDetails, ArticleList, ArticleView } from 'entities/Article';
-import { CommentList } from 'entities/Comment';
-import { AddNewCommentForm } from 'features/AddNewComment';
-import { getCommentsError, getCommentsIsLoading }
+import { ArticleDetails } from 'entities/Article';
+import {getCommentsIsLoading }
     from 'pages/ArticleDetailsPage/model/selectors/comments';
-import { addCommentForArticle }
-    from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
-import { fetchCommentsByArticleId }
-    from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleDetailsPageRecomendationsReducer, getArticleRecomendations } from '../../model/slice/articleDetailsPageRecomendationsSlice';
-import { atricleDetailsCommentsReducer, getArticleComments }
+import {  getArticleRecomendations } from '../../model/slice/articleDetailsPageRecomendationsSlice';
+import { getArticleComments }
     from 'pages/ArticleDetailsPage/model/slice/atricleDetailsCommentsSlice';
-import { memo, useCallback, useEffect } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { clearScreenDown } from 'readline';
-import { AppButton, Page, Text } from 'shared';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import {  useParams } from 'react-router-dom';
 import { DynamicModuleLoader, ReducerList }
     from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
 import cls from './ArticleDetailsPage.module.scss'
-import { getRecommendationsError, getRecommendationsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/recomendations';
-import { TextSize } from 'shared/ui/Text/Text';
-import { fetchArticlesRecommendations } from 'pages/ArticleDetailsPage/model/services/fetchArticlesRecommendations/fetchArticlesRecommendations';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { VStack } from 'shared/ui/Stack';
 import { ArticleReccomendationsList } from 'features/articleReccomendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { Page } from 'widgets';
 
 const reducersList: ReducerList = {
     articleDetailsPage: articleDetailsPageReducer

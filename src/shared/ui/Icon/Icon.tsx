@@ -1,7 +1,7 @@
 import cls from './Icon.module.scss';
 import { memo } from 'react';
 import { clearScreenDown } from 'readline';
-import { classNames } from 'shared';
+import { classNames } from '../../lib/classNames/classNames';
 
 interface IconProps {
    className?: string;

@@ -6,7 +6,7 @@ import ListIcon from 'shared/assets/icons/ListIcon.svg';
 import { AppButton, classNames, Icon } from 'shared';
 import cls from './ArticleViewSelector.module.scss'
 import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
-import { ArticleView } from 'entities/Article';
+import { ArticleView } from '../../model/consts/consts';
 
 interface ArticleViewSelectorProps {
     className?: string;

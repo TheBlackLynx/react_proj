@@ -2,11 +2,10 @@ import { ArticleDetails } from 'entities/Article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { Text } from 'shared';
+import { Text, VStack } from 'shared';
 import { CommentItem } from '../CommentItem/CommentItem';
 import { CommentType } from 'entities/Comment/model/types/comment';
 import { IsLoading } from 'entities/Profile/ui/ProfileCard/ProfileCard.stories';
-import { HStack, VStack } from 'shared/ui/Stack';
 
 interface CommentList {
     className?: string,

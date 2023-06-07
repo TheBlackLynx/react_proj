@@ -1,5 +1,5 @@
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading }
-    from 'entities/Article/model/selectors/articleDetails';
+    from '../../model/selectors/articleDetails';
 import { fetchArticleById } from 
     'entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleSlice';
@@ -11,18 +11,17 @@ import { DynamicModuleLoader, ReducerList } from
     'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Spinner } from 'shared/ui/Spinner/Spinner';
-import { Icon, Text } from 'shared';
+import { HStack, Icon, Text, VStack } from 'shared';
 import { Align, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from '../../../../shared/assets/icons/calendar-20-20.svg'
-import { HStack, VStack } from 'shared/ui/Stack';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleBlockType } from 'entities/Article';
-import { ActicleBlocks } from 'entities/Article/model/types/article';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+import { ActicleBlocks } from '../../model/types/article';
+import { ArticleBlockType } from 'entities/Article/model/consts/consts';
 
 interface ArticleDetailsProps {
     className?: string,
