@@ -1,4 +1,4 @@
-import babeRemovePropsPlugin from "../../babel/babeRemovePropsPlugin";
+import babelRemovePropsPlugin from "../../babel/babelRemovePropsPlugin";
 import { BuildOptions } from "../types/config";
 
 
@@ -13,7 +13,7 @@ export function buildBabelLoader({ isDev, isTsx }: BabelLoaderProps) {
         use: {
             loader: "babel-loader",
             options: {
-                presets: ['@babel/preset-env', '@babel/preset-react'],
+                presets: ['@babel/preset-env'],
                 "plugins": [
                     ["i18next-extract", {
                         "locales": [
@@ -23,17 +23,18 @@ export function buildBabelLoader({ isDev, isTsx }: BabelLoaderProps) {
                         "keyAsDefaultValue": true
                     }],
                     [
-                        "@babel/plugin-transform-runtime"
+                        '@babel/plugin-transform-typescript',
+                        {
+                            isTsx,
+                        },
                     ],
-                    ["@babel/plugin-transform-typescript", {
-                        isTsx,
-                    }],
-                    // [
-                    //     babeRemovePropsPlugin,
-                    //     {
-                    //         props: ['data-testid']
-                    //     },
-                    // ]
+                    '@babel/plugin-transform-runtime',
+                    [
+                        babelRemovePropsPlugin,
+                        {
+                            props: ['data-testid'],
+                        },
+                    ],
 
                 ],
             },
