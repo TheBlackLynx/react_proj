@@ -8,15 +8,15 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const { isDev } = options;
     const cssLoaders = buildCssLoaders(isDev);
        
-    // const typescriptLoaders = 
-    //     //если не используем TS, то нужно добавлять еще 
-    //     //babel-loader - транспилятор для преобразования нового 
-    //     //стандарта в старый
-    //     {
-    //         test: /\.tsx?$/,
-    //         use: 'ts-loader',
-    //         exclude: /node_modules/,
-    //     }
+    const typescriptLoaders = 
+        //если не используем TS, то нужно добавлять еще 
+        //babel-loader - транспилятор для преобразования нового 
+        //стандарта в старый
+        {
+            test: /\.tsx?$/,
+            use: 'ts-loader',
+            exclude: /node_modules/,
+        }
     const svgLoader = buildSvgLoader();
 
     const fileLoader = {
@@ -32,6 +32,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     return [
         codeBabelLoader,
         tsxCodeBabelLoader,
+        typescriptLoaders,
         cssLoaders,
         svgLoader,
         fileLoader,
