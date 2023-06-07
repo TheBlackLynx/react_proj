@@ -28,12 +28,12 @@ export function buildBabelLoader({ isDev, isTsx }: BabelLoaderProps) {
                     ["@babel/plugin-transform-typescript", {
                         isTsx,
                     }],
-                    [
-                        babeRemovePropsPlugin,
-                        {
-                            props: ['data-testid']
-                        },
-                    ]
+                    // [
+                    //     babeRemovePropsPlugin,
+                    //     {
+                    //         props: ['data-testid']
+                    //     },
+                    // ]
 
                 ],
             },

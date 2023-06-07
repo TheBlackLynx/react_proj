@@ -1,13 +1,13 @@
-import { Article, ArticleView } from 'entities/Article';
-import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
+
+import { ArticleView } from '../../model/consts/consts';
+import { Article } from '../../model/types/article';
 import { FC, HTMLAttributeAnchorTarget, memo, MutableRefObject, Ref, useEffect, useRef, useState } from 'react';
-import { AutoSizer, List, WindowScroller } from 'react-virtualized';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
-import { classNames, Text } from 'shared';
 import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstogare';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss'
+// import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 
 interface ArticleListProps {
     className?: string;
@@ -73,7 +73,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             return () => clearTimeout(timeoutID);
         }
     }, [selectedArticleId, view])
-    const Header = () => <ArticlesPageFilters  className={cls.header}/>
+    // const Header = () => <ArticlesPageFilters  className={cls.header}/>
 
     const Footer = memo(() => {
         if (isLoading) {
@@ -117,14 +117,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     initialTopMostItemIndex={selectedArticleId}
                     components={
                         {
-                            Header,
+                            // Header,
                             Footer,
                         }
                     }
                 />)
                 : (
                     <>
-                        <ArticlesPageFilters  className={cls.header}/>
+                        {/* <ArticlesPageFilters  className={cls.header}/> */}
                         {
                             articles.map(article => (
                                 <ArticleListItem 
@@ -150,7 +150,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 ref={virtuosoRef}
                 totalCount={articles.length}
                 components={{
-                    Header,
+                    // Header,
                     ScrollSeekPlaceholder: ItemContainerComp
                 }}
                 endReached={onScrollEnd}

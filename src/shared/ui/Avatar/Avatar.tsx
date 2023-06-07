@@ -1,6 +1,6 @@
 import  './Avatar.module.scss';
 import cls from './Avatar.module.scss'
-import {classNames} from 'shared';
+import {classNames} from '../../lib/classNames/classNames';
 import { CSSProperties, memo, useMemo } from 'react';
 import { TextSize } from '../Text/Text';
 

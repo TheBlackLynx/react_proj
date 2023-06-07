@@ -5,12 +5,11 @@ import { addNewCommentFormActions, addNewCommentFormReducer }
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { AppButton, classNames, Input, Text } from 'shared';
+import { AppButton, classNames, HStack, Input, Text } from 'shared';
 import { DynamicModuleLoader, ReducerList } 
     from 'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
-import { HStack } from 'shared/ui/Stack';
 import cls from './AddNewCommentForm.module.scss'
 
 export interface AddNewCommentFormProps {

@@ -1,7 +1,7 @@
 import cls from './ProfileCard.module.scss';
 import { memo } from "react";
 import { ProfileType } from "entities/Profile/model/types/profile";
-import { classNames, Input } from 'shared';
+import { classNames, HStack, Input, VStack } from 'shared';
 import { Text } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { Spinner, SpinnerSize } from 'shared/ui/Spinner/Spinner';
@@ -11,8 +11,6 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Mods } from 'shared/lib/classNames/classNames';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
-import { HStack } from 'shared/ui/Stack';
 
 
 export interface ProfileCardProps {

@@ -1,6 +1,6 @@
 import './Card.module.scss';
 import cls from './Card.module.scss'
-import { classNames } from 'shared';
+import { classNames } from '../../lib/classNames/classNames';
 import { CSSProperties, HTMLAttributes, memo, ReactNode, useMemo } from 'react';
 import { TextSize } from '../Text/Text';
 

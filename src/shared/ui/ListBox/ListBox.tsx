@@ -2,7 +2,7 @@ import { Fragment, ReactNode, useState } from 'react'
 import { Listbox as HListbox} from '@headlessui/react';
 import cls from './ListBox.module.scss';
 import { AppButton, classNames } from 'shared';
-import { HStack } from '../Stack';
+import { HStack } from '../Stack/HStack/HStack';
 import { DropDownDirection } from 'shared/types/ui';
 
 export interface ListBoxItem {
