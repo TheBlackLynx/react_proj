@@ -1,9 +1,11 @@
 import { Fragment, ReactNode, useState } from 'react'
 import { Listbox as HListbox} from '@headlessui/react';
 import cls from './ListBox.module.scss';
+import popupCls from '../../styles/popup.module.scss'
 import { AppButton, classNames } from 'shared';
-import { HStack } from '../Stack/HStack/HStack';
+import { HStack } from '../../../Stack/HStack/HStack';
 import { DropDownDirection } from 'shared/types/ui';
+import { mapDirectionClass } from '../../styles/consts';
 
 export interface ListBoxItem {
     value?: string,
@@ -32,12 +34,6 @@ const people = [
     { id: 5, name: 'Katelyn Rohan', unavailable: false },
 ]
 
-const mapDirectionClass: Record<DropDownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top left': cls.optionsTopLeft,
-    'top right': cls.optionsTopRight
-}
 
 export const  ListBox = ( props : ListBoxProps) => {
     const {
@@ -61,12 +57,12 @@ export const  ListBox = ( props : ListBoxProps) => {
             <HListbox 
                 as={'div'} 
                 disabled={readonly}
-                className={classNames(cls.ListBox, {}, [className])} 
+                className={classNames(popupCls.popup, {}, [className, popupCls.popup])} 
                 value={value} 
                 onChange={onChange}>
 
                 <HListbox.Button 
-                    className={cls.trigger} 
+                    className={popupCls.trigger} 
                     // disabled={readonly} 
                 >
                     <AppButton
@@ -88,7 +84,7 @@ export const  ListBox = ( props : ListBoxProps) => {
                             as={Fragment}
                         >
                             {({ active, selected }) => (
-                                <li className={classNames(cls.item, {[cls.active]: active, 
+                                <li className={classNames(cls.item, {[popupCls.active]: active, 
                                     [cls.unavailable]: item.disabled}, )} 
                                 >
                                     {selected && '!!!'}

@@ -7,8 +7,9 @@
     padding: 20px;
 }
 
-.links, .dropdown {
+.links, .actions {
     margin-left: auto;
+    margin-right: 10px;
 }
 
 .mainLink {
@@ -19,3 +20,5 @@
     width: var(--sidebar-width);
     margin-left: 15px;
 }
+
+

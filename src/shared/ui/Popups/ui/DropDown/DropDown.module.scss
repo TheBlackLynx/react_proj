@@ -1,0 +1,22 @@
+
+
+.dropDownMenu {
+    background: var(--bg-card);
+    position: absolute;
+    z-index: 10000;
+    border-radius: 8px;
+    border: solid 1px var(--primary-color);
+    flex-direction: column;
+    display: flex;
+}
+
+.dropDownMenuItem {
+    padding: 10px 25px;
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
