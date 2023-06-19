@@ -1,10 +1,10 @@
 import  cls from './Overlay.module.scss';
 import {classNames} from '../../lib/classNames/classNames';
-import { memo } from 'react';
+import { memo, MouseEventHandler } from 'react';
 
 interface OverlayProps {
    className: string | null;
-   onClick: () => void | null;
+   onClick: (() => void) | null;
 }
 
 export const Overlay = memo(( props: OverlayProps ) => {
@@ -17,7 +17,7 @@ export const Overlay = memo(( props: OverlayProps ) => {
             className={
                 classNames(cls.Overlay, {}, [className? className : ''])
             }
-            onClick={onClick}>
+            onClick={onClick as MouseEventHandler}>
         </div>
     )
 });
