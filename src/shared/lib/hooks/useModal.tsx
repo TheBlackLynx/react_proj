@@ -12,22 +12,21 @@ export function useModal({
     isOpen,
     animationDelay
 }: UseModalProps) {
-    const {theme } = useTheme();
     const [isMounted, setIsMounted] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-    
+
     useEffect(() => {
-        if(isOpen){
+        if (isOpen) {
             setIsMounted(true)
         }
     }, [isOpen])
     const closeHandler = useCallback(() => {
-        if(onClose){
+        if (onClose) {
             timeRef.current = setTimeout(() => {
                 onClose()
-            }, animationDelay? animationDelay : 0)
+            }, animationDelay ? animationDelay : 0)
         }
     }, [onClose, animationDelay])
 
@@ -53,5 +52,5 @@ export function useModal({
         isMounted,
         closeHandler
     }
-    
+
 }
