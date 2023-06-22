@@ -6,7 +6,7 @@
     right: 0;
     opacity: 0;
     pointer-events: none;
-    z-index: 1;
+    z-index: 0;
     display: flex;
     align-items: flex-end;
 }
@@ -39,6 +39,16 @@
     border-radius: 12px;
 }
 
+.isClosing {
+    // pointer-events: auto;
+    // opacity: 1;
+    // transition: 3s opacity;
+    .content {
+        transition: 0.3s transform;
+        transform: translateY(100%);
+    }
+}
+
 .opened {
     pointer-events: auto;
     opacity: 1;
@@ -48,8 +58,3 @@
     }
 }
 
-.isClosing {
-    .content{
-        transform: translateY(100%);
-    }
-}

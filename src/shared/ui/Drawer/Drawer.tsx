@@ -35,13 +35,16 @@ export const Drawer = memo(( props: DrawerProps ) => {
     });
     const mods: Mods = {
         [cls.isClosing]: isClosing,
-        [cls.opened]: isOpen
+        //  баг - isOpen меняет свое значение по истечении animationDelay
+        [cls.opened]: isOpen 
 
     }
 
     if(lazy && !isMounted) {
         return null;
     }
+    console.log('isClosing', isClosing);
+    
 
     return (
         <Portal>
