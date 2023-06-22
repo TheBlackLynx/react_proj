@@ -23,9 +23,11 @@ export function useModal({
         }
     }, [isOpen])
     const closeHandler = useCallback(() => {
+        setIsClosing(true)
         if (onClose) {
             timeRef.current = setTimeout(() => {
                 onClose()
+                setIsClosing(false)
             }, animationDelay ? animationDelay : 0)
         }
     }, [onClose, animationDelay])
