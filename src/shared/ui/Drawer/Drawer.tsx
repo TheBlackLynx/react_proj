@@ -29,14 +29,15 @@ export const Drawer = memo(( props: DrawerProps ) => {
         closeHandler,
         isClosing,
         isMounted } = useModal({
-        animationDelay: 300,
+        animationDelay: 500,
         onClose,
         isOpen
     });
     const mods: Mods = {
+        [cls.opened]: isOpen && !isClosing,
         [cls.isClosing]: isClosing,
         //  баг - isOpen меняет свое значение по истечении animationDelay
-        [cls.opened]: isOpen 
+ 
 
     }
 

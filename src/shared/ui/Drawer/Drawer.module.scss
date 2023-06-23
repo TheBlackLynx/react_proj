@@ -40,12 +40,10 @@
 }
 
 .isClosing {
-    // pointer-events: auto;
-    // opacity: 1;
-    // transition: 3s opacity;
+    opacity: 1;
     .content {
-        transition: 0.3s transform;
-        transform: translateY(100%);
+        transition: 0.5s transform;
+         transform: translateY(100%);
     }
 }
 
