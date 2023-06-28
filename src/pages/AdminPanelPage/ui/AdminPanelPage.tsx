@@ -6,7 +6,7 @@ const AdminPanelPage = memo(() => {
     const {t} = useTranslation('about');
     return (
         <Page className={''}>
-            {t('панель администратора')}
+            {t('Панель администратора')}
         </Page>
     )
 });
