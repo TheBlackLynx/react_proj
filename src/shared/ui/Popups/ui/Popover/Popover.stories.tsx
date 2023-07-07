@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { AppButton } from 'shared/ui/AppButton/AppButton';
+import { AppButton } from '@/shared/ui/AppButton/AppButton';
 
 import { PopoverCustom as  Popover } from './Popover';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

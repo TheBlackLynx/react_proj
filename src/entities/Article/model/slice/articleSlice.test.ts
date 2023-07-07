@@ -1,6 +1,6 @@
  
-import { Article, ArticleDetailSchema, ArticleType } from "entities/Article"
-import { ArticleTextBlockComponent } from "entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent"
+import { Article, ArticleDetailSchema, ArticleType } from "@/entities/Article"
+import { ArticleTextBlockComponent } from "@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent"
 import { fetchArticleById } from "../services/fetchArticleById/fetchArticleById"
 import { articleDetailsReducer } from "./articleSlice"
 

@@ -1,27 +1,27 @@
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading }
     from '../../model/selectors/articleDetails';
 import { fetchArticleById } from 
-    'entities/Article/model/services/fetchArticleById/fetchArticleById';
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleSlice';
+    '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '@/entities/Article/model/slice/articleSlice';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import cls from './ArticleDetails.module.scss'
 import { DynamicModuleLoader, ReducerList } from
-    'shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Spinner } from 'shared/ui/Spinner/Spinner';
-import { HStack, Icon, Text, VStack } from 'shared';
-import { Align, TextSize } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
+    '@/shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Spinner } from '@/shared/ui/Spinner/Spinner';
+import { HStack, Icon, Text, VStack } from '@/shared';
+import { Align, TextSize } from '@/shared/ui/Text/Text';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from '../../../../shared/assets/icons/calendar-20-20.svg'
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { ActicleBlocks } from '../../model/types/article';
-import { ArticleBlockType } from 'entities/Article/model/consts/consts';
+import { ArticleBlockType } from '@/entities/Article/model/consts/consts';
 
 interface ArticleDetailsProps {
     className?: string,

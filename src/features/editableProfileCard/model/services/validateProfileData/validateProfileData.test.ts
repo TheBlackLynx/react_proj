@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { Dispatch } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { validateProfileData } from './validateProfileData';
-import { userActions } from 'entities/User';
-import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { userActions } from '@/entities/User';
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import { ValidateProfileError } from '../../consts/consts';
 
 const data = {

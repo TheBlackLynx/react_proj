@@ -1,20 +1,20 @@
-import { CommentList } from "entities/Comment"
-import { AddNewCommentForm } from "features/AddNewComment"
+import { CommentList } from "@/entities/Comment"
+import { AddNewCommentForm } from "@/features/AddNewComment"
 import { getCommentsIsLoading } from 
-    "pages/ArticleDetailsPage/model/selectors/comments"
+    "@/pages/ArticleDetailsPage/model/selectors/comments"
 import { addCommentForArticle } from
-    "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle"
+    "@/pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle"
 import { fetchCommentsByArticleId } from
     "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId"
 import { getArticleRecomendations } from 
-    "pages/ArticleDetailsPage/model/slice/articleDetailsPageRecomendationsSlice"
+    "@/pages/ArticleDetailsPage/model/slice/articleDetailsPageRecomendationsSlice"
 import { getArticleComments } from 
-    "pages/ArticleDetailsPage/model/slice/atricleDetailsCommentsSlice"
+    "@/pages/ArticleDetailsPage/model/slice/atricleDetailsCommentsSlice"
 import { useCallback } from "react"
 import { useSelector } from "react-redux"
-import { TextSize, VStack, Text } from "shared"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect"
+import { TextSize, VStack, Text } from "@/shared"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch"
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect"
 
 interface ArticleDetailsCommentsProps {
     className?: string,

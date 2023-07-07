@@ -2,9 +2,9 @@ import { Fragment, ReactNode, useState } from 'react'
 import { Listbox as HListbox, Popover} from '@headlessui/react';
 import cls from './Popover.module.scss';
 import popupCls from '../../styles/popup.module.scss'
-import { AppButton, classNames } from 'shared';
+import { AppButton, classNames } from '@/shared';
 import { HStack } from '../../../Stack/HStack/HStack';
-import { DropDownDirection } from 'shared/types/ui';
+import { DropDownDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../styles/consts';
 
 

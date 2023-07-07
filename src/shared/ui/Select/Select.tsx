@@ -1,5 +1,5 @@
 import cls from './Select.module.scss'
-import { classNames } from 'shared';
+import { classNames } from '@/shared';
 import { ChangeEvent, CSSProperties, memo, useMemo } from 'react';
 import { TextSize } from '../Text/Text';
 

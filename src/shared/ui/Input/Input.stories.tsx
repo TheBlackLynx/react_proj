@@ -2,8 +2,8 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from 
-    'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers';
+    '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers';
 import { Input } from './Input';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

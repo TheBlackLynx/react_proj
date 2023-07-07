@@ -1,11 +1,11 @@
 import { Notification } from '../../model/types/notification';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Page } from 'widgets/Page/Page';
+import { Page } from '@/widgets/Page/Page';
 import cls from './NotificationItem.module.scss'
-import { Card, classNames } from 'shared';
-import { CardTheme } from 'shared/ui/Card/Card';
-import { Text } from 'shared';
+import { Card, classNames } from '@/shared';
+import { CardTheme } from '@/shared/ui/Card/Card';
+import { Text } from '@/shared';
 
 interface NotificationItemProps {
     className?: string,

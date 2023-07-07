@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Dispatch } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchNextArticlePage } from './fetchNextArticlePage';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 

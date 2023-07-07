@@ -2,11 +2,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Navbar } from './Navbar';
 import { ThemeDecorator } from 
-    'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers';
+    '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers';
 import { RouterDecorator } from
-    'shared/config/storybook/RouterDecorator/RouterDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+    '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

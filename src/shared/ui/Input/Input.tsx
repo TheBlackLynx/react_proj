@@ -6,8 +6,8 @@ import React, {
     useEffect, 
     useRef, 
     useState } from "react";
-import { Mods } from 'shared/lib/classNames/classNames';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Mods } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 type HTMLInputProps = 
 Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>

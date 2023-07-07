@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Code } from 'shared/ui/Code/Code';
-import TileIcon from 'shared/assets/icons/TileIcon.svg';
-import ListIcon from 'shared/assets/icons/ListIcon.svg';
-import { AppButton, classNames, Icon } from 'shared';
+import { Code } from '@/shared/ui/Code/Code';
+import TileIcon from '@/shared/assets/icons/TileIcon.svg';
+import ListIcon from '@/shared/assets/icons/ListIcon.svg';
+import { AppButton, classNames, Icon } from '@/shared';
 import cls from './ArticleViewSelector.module.scss'
-import { AppButtonTheme } from 'shared/ui/AppButton/AppButton';
+import { AppButtonTheme } from '@/shared/ui/AppButton/AppButton';
 import { ArticleView } from '../../model/consts/consts';
 
 interface ArticleViewSelectorProps {

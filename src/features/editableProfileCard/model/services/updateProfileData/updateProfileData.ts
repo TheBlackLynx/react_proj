@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ThunkConfig } from "app/providers/StoreProvider/config/StateSchema";
-import { ProfileType } from "entities/Profile";
-import { User, userActions } from "entities/User";
-import { USER_LOCALSTORAGE_KEY } from "shared/const/localstogare";
+import { ThunkConfig } from "@/app/providers/StoreProvider/config/StateSchema";
+import { ProfileType } from "@/entities/Profile";
+import { User, userActions } from "@/entities/User";
+import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstogare";
 import { ValidateProfileError } from "../../consts/consts";
 import { getProfileData } from "../../selectors/getProfileData/getProfileData";
 import { validateProfileData } from "../validateProfileData/validateProfileData";

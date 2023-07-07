@@ -2,11 +2,11 @@ import {
     CombinedState, configureStore, getDefaultMiddleware,
     Reducer, ReducersMapObject
 } from '@reduxjs/toolkit';
-import { userReducer } from 'entities/User';
-import { scrollReducer } from 'features/ScrollSave';
+import { userReducer } from '@/entities/User';
+import { scrollReducer } from '@/features/ScrollSave';
 import { NavigateOptions, To } from 'react-router-dom';
-import { $api } from 'shared/api/api';
-import { rtkApi } from 'shared/api/rtkApi';
+import { $api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi';
 import { createReducerManager } from './ReducerManager'
 import { StateSchema, ThunkExtraArg } from './StateSchema'
 

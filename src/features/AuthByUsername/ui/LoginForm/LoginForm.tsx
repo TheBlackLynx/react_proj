@@ -1,26 +1,26 @@
 import cls from './LoginForm.module.scss'
-import { AppButton, Text } from "shared";
+import { AppButton, Text } from "@/shared";
 import { useTranslation } from "react-i18next";
-import { Input } from "shared/ui/Input/Input";
-import { AppButtonTheme } from "shared/ui/AppButton/AppButton";
+import { Input } from "@/shared/ui/Input/Input";
+import { AppButtonTheme } from "@/shared/ui/AppButton/AppButton";
 import { useSelector} from "react-redux";
 import { memo, useCallback } from "react";
-import { loginActions, loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
+import { loginActions, loginReducer } from "@/features/AuthByUsername/model/slice/loginSlice";
 
 import { loginByUserName } from
-    "features/AuthByUsername/model/services/loginByUserName/loginByUserName";
+    "@/features/AuthByUsername/model/services/loginByUserName/loginByUserName";
 // import { AppDispatch } from "app/providers/StoreProvider/config/store";
-import { TextTheme } from "shared/ui/Text/Text";
-import { getLoginLogin } from "features/AuthByUsername/model/selectors/getLoginLogin/getLoginLogin";
+import { TextTheme } from "@/shared/ui/Text/Text";
+import { getLoginLogin } from "@/features/AuthByUsername/model/selectors/getLoginLogin/getLoginLogin";
 import { getLoginPassword } from 
-    "features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword";
+    "@/features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword";
 import { getLoginError } from
-    "features/AuthByUsername/model/selectors/getLoginError/getLoginError";
+    "@/features/AuthByUsername/model/selectors/getLoginError/getLoginError";
 import { getLoginIsLoading } from 
-    "features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading";
+    "@/features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { DynamicModuleLoader, ReducerList } from 
-    "shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders";
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+    "@/shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders";
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 
 
 export interface LoginFormProps {

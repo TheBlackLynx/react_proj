@@ -1,10 +1,10 @@
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { AppButton, AppButtonTheme, AppLink, Avatar, Card, classNames, Icon, Text, TextSize } from 'shared';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { ARTICLE_LIST_ITEM_INDEX } from 'shared/const/localstogare';
-import { useHover } from 'shared/lib/hooks/useHover';
+import { AppButton, AppButtonTheme, AppLink, Avatar, Card, classNames, Icon, Text, TextSize } from '@/shared';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { ARTICLE_LIST_ITEM_INDEX } from '@/shared/const/localstogare';
+import { useHover } from '@/shared/lib/hooks/useHover';
 
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';

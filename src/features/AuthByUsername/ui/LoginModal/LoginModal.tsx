@@ -1,5 +1,5 @@
-import { Modal } from "shared/ui/Modal/Modal";
-import { classNames, Loader } from "shared";
+import { Modal } from "@/shared/ui/Modal/Modal";
+import { classNames, Loader } from "@/shared";
 import { memo, Suspense } from "react";
 import { LoginFormAsync } from "../LoginForm/LoginForm.async";
 

@@ -1,5 +1,5 @@
 import  './Skeleton.module.scss';
-import {classNames} from 'shared';
+import {classNames} from '@/shared';
 import { CSSProperties, memo } from 'react';
 import { clearScreenDown } from 'readline';
 import cls from './Skeleton.module.scss'

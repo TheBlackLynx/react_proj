@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import { memo, Suspense, useCallback, useMemo } from "react";
-import { AppRouteProps, AppRoutes, routeConfig } from "shared/config/routeConfig/routeConfig";
-import { PageLoader } from "widgets/PageLoader";
+import { AppRouteProps, AppRoutes, routeConfig } from "@/shared/config/routeConfig/routeConfig";
+import { PageLoader } from "@/widgets/PageLoader";
 import { useSelector } from "react-redux";
-import { getUserAuthData } from "entities/User";
+import { getUserAuthData } from "@/entities/User";
 import { RequireAuth } from "./RequireAuth";
 
 const AppRouter = () => {

@@ -1,7 +1,7 @@
 import cls from './Code.module.scss';
 import { memo, ReactNode, useCallback } from 'react';
 import { clearScreenDown } from 'readline';
-import { AppButton, classNames, Icon } from 'shared';
+import { AppButton, classNames, Icon } from '@/shared';
 import CopyIcon from '../../../shared/assets/icons/copy.svg'
 import { AppButtonTheme } from '../AppButton/AppButton';
 

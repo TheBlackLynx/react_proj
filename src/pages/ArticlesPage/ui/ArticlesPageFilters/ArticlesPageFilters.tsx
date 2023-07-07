@@ -3,14 +3,14 @@ import { getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getAr
 import { FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { Card, classNames, Input } from "shared";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { useDebounce } from "shared/lib/hooks/useDebounce";
-import { SortOrder } from "shared/types";
+import { Card, classNames, Input } from "@/shared";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useDebounce } from "@/shared/lib/hooks/useDebounce";
+import { SortOrder } from "@/shared/types";
 import cls from './ArticlesPageFilters.module.scss'
 import { articlePageActions } from "../../model/slice/ArticlePageSlice";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
-import { ArticleSortField, ArticleSortSelector, ArticleType, ArticleTypeTabs, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { ArticleSortField, ArticleSortSelector, ArticleType, ArticleTypeTabs, ArticleView, ArticleViewSelector } from '@/entities/Article';
 
 interface ArticlesPageFiltersProps {
     className?: string

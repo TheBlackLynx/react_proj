@@ -1,12 +1,12 @@
 import { Suspense, useEffect } from "react";
 import { useTheme } from "./providers";
-import { classNames } from "shared";
+import { classNames } from "@/shared";
 import { AppRouter } from "./providers/router";
-import { Navbar } from "widgets/Navbar";
-import { Sidebar } from "widgets/Sidebar";
-import "shared/config/i18n/i18n";
+import { Navbar } from "@/widgets/Navbar";
+import { Sidebar } from "@/widgets/Sidebar";
+import "@/shared/config/i18n/i18n";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAuthData, getUserMounted, userActions } from "entities/User";
+import { getUserAuthData, getUserMounted, userActions } from "@/entities/User";
 
 
 const App = () => {

@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Tabs } from './Tabs';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers';
 import { action } from '@storybook/addon-actions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
