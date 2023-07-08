@@ -37,7 +37,7 @@ export const Tabs = memo((props: TabProps) => {
                 return (
                     <Card 
                         theme={tab.value == value ? CardTheme.NORMAL : CardTheme.OUTLINED}
-                   
+                        key={tab.value}
                         className={cls.card}
                         onClick={clickHandler(tab)}>
                         {tab.content}

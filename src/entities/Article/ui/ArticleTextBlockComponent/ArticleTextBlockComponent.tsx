@@ -24,7 +24,8 @@ export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentP
                         key={paragraph} 
                         text={paragraph} 
                         className={cls.paragraph} 
-                        size={TextSize.S} />
+                        size={TextSize.S} 
+                    />
                 )
               
             })}

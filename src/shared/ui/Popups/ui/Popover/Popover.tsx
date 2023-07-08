@@ -29,7 +29,9 @@ export const PopoverCustom = ( props : PopoverProps) => {
     const optionClasses = [mapDirectionClass[direction]]
     return (
         <Popover className={classNames(cls.Popover, {}, [className, popupCls.popup])}>
-            <Popover.Button className={popupCls.trigger}>
+            <Popover.Button 
+                as="div"
+                className={popupCls.trigger}>
                 {trigger}
             </Popover.Button>
 
