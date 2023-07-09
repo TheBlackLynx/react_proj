@@ -5,6 +5,8 @@ import { memo, useState } from 'react';
 import { Page } from '@/widgets';
 import { HStack } from '@/shared';
 import { ListBox } from '@/shared/ui/Popups';
+import { StarRating } from '@/shared/ui/StarRating/StarRating';
+import { RatingCard } from '@/entities/Rating';
 
 const Main = memo(() => {
     const {t} = useTranslation('main');
@@ -13,28 +15,6 @@ const Main = memo(() => {
 
     return (
         <Page className={classes.main}>
-            <HStack>
-                <ListBox 
-                    defaultValue={'Выберите значение'}
-                    onChange={(value: string) => { const c = value}} 
-                    items={
-                        [
-                            {
-                                value: '123213',
-                                content: <div>weqweqwe</div>
-                            },
-                    
-                            {
-                                value: '23234',
-                                content: <div>weq23423weqwe</div>,
-                                disabled: true
-                            },
-                            {
-                                value: '1231323213',
-                                content: <div>123</div>
-                            }
-                        ]}/>
-            </HStack>
         </Page>
     )
 });

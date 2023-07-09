@@ -18,7 +18,7 @@
 
 .outline {
     border: 2px solid var(--primary-color);
-    color: var(--inverted-bg-color);
+    color: var(--primary-color);
     padding: 5px;
     background: none;
 }
@@ -92,6 +92,10 @@
 
 .size_xl {
     font-size: var(--font-size-xl);
+}
+
+.fullwidth {
+    width: 100%;
 }
 
 // .square {
