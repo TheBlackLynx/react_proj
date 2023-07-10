@@ -16,7 +16,7 @@ export interface AddNewCommentFormProps {
     className?: string,
     onSendComment: (text: string) => void
 }
-export const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
+const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
     const { className, onSendComment } = props;
     const { t } = useTranslation('comments');
 
@@ -51,8 +51,7 @@ export const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
                 />
                 <AppButton 
                     buttonTheme={AppButtonTheme.OUTLINE}
-                    onClick={onSendHandler}
-                >
+                    onClick={onSendHandler} fullWidth={null}                >
                     {t('Отправить')}
                 </AppButton>
             </HStack>

@@ -87,7 +87,7 @@ const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
                     buttonTheme={AppButtonTheme.OUTLINE}
                     className={cls.loginBtn}
                     disabled={isLoading}
-                    onClick={onLoginClick}>
+                    onClick={onLoginClick} fullWidth={null}>
                     {t('Войти')}
                 </AppButton>
             </div>

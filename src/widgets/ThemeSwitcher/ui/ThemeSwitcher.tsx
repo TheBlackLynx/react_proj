@@ -21,8 +21,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(( props ) => {
             <AppButton 
                 buttonTheme={AppButtonTheme.CLEAR}
                 className={classNames('', {}, [className])}
-                onClick={toggleTheme}
-            >
+                onClick={toggleTheme} fullWidth={null}            >
 
                 { theme === Theme.DARK ? <DarkTheme /> :  <LightTheme /> }
             </AppButton>

@@ -19,7 +19,7 @@ const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args}
 
 export const Normal = Template.bind({});
 Normal.args = {
-    trigger: <AppButton>Press</AppButton>, 
+    trigger: <AppButton fullWidth={null}>Press</AppButton>, 
     direction: 'top left',
     children: <>
         wqrwqrqwr</>

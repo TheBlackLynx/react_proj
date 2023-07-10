@@ -32,8 +32,7 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
         <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
             <AppButton
                 buttonTheme={AppButtonTheme.OUTLINE}
-                onClick={onBackToList}
-            >
+                onClick={onBackToList} fullWidth={null}            >
                 {t('Назад к списку')}
             </AppButton>
             {
@@ -41,8 +40,7 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
                 <AppButton
                     className={cls.editBtn}
                     buttonTheme={AppButtonTheme.OUTLINE}
-                    onClick={onEdit}
-                >
+                    onClick={onEdit} fullWidth={null}                >
                     {t('Редактировать')}
                 </AppButton>
             }

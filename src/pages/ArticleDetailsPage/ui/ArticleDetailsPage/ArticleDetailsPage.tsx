@@ -17,6 +17,7 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import { ArticleReccomendationsList } from '@/features/articleReccomendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { Page } from '@/widgets';
+import { ArticleRating } from '@/features/articleRating';
 
 const reducersList: ReducerList = {
     articleDetailsPage: articleDetailsPageReducer
@@ -41,6 +42,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
             <Page className={cls.ArticleDetailsPage}>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails articleId={id} />
+                <ArticleRating className={null} articleId={id ?? null} />
                 <ArticleReccomendationsList />
                 <ArticleDetailsComments id={id}/>
             </Page>

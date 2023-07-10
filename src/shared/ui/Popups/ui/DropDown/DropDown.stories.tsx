@@ -19,7 +19,7 @@ ComponentStory<typeof DropDown> = (args) => <DropDown {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    trigger: <AppButton>Open me!</AppButton>,
+    trigger: <AppButton fullWidth={null}>Open me!</AppButton>,
     items: [
         {
             content: 'first'

@@ -13,9 +13,10 @@ interface RatingCardProps {
     className: string | null;
     title: string | null;
     feedBackTitle: string | null;
-    hasFeebBack: boolean | null;
+    hasfeedback: boolean | null;
+    rate: number | null;
     onCancel: ((starCount: number) => void) | null;
-    onAccept: ((starCount: number, feebBack?: string) => void) | null;
+    onAccept: ((starCount: number, feedback?: string) => void) | null;
 
 }
 export const RatingCard = memo((props: RatingCardProps) => {
@@ -23,13 +24,14 @@ export const RatingCard = memo((props: RatingCardProps) => {
         className,
         title, 
         feedBackTitle,
-        hasFeebBack,
+        hasfeedback,
+        rate,
         onAccept,
         onCancel
     } = props;
     const { t } = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
 
@@ -37,23 +39,23 @@ export const RatingCard = memo((props: RatingCardProps) => {
     
     const onSelectStars = useCallback((selectedStars: number) => {
         setStarsCount(selectedStars);
-        if (hasFeebBack){
+        if (hasfeedback){
             setIsModalOpen(true);
         } else {
             onAccept?.(selectedStars)
         }
         
-    }, [hasFeebBack, onAccept]);
+    }, [hasfeedback, onAccept]);
 
 
     const acceptHandle = useCallback(() => {
         setIsModalOpen(false);
-        onAccept?.(starsCount, feedback)
+        onAccept?.(starsCount ?? 0, feedback)
     }, [onAccept, feedback, starsCount])
 
     const cancelHandle = useCallback(() => {
         setIsModalOpen(false);
-        onCancel?.(starsCount)
+        onCancel?.(starsCount ?? 0)
     }, [onCancel, starsCount])
 
     const modalContent = (
@@ -69,8 +71,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
     return (
         <Card className={classNames(cls.RatingCard, {}, [className?? ''])}>
             <VStack gap={'8'} align={'center'} >
-                <Text title={title?? ''} />
-                <StarRating className={null} onSelect={onSelectStars} size={40} selectedStars={0}/>
+                <Text title={starsCount ? t('Thank you for rating') : title?? ''} />
+                <StarRating className={null} 
+                    onSelect={onSelectStars} 
+                    size={40}
+                    selectedStars={starsCount}/>
             </VStack>
            
             <BrowserView>

@@ -46,8 +46,7 @@ export const Sidebar = memo(() => {
                 className={classNames(cls.collapseBtn, {}, [cls.square])}
                 square
                 size={AppButtonSize.XL}
-                buttonTheme={AppButtonTheme.BACKGROUND_INVERTED}
-               
+                buttonTheme={AppButtonTheme.BACKGROUND_INVERTED} fullWidth={null}               
             >
                 {collapsed? ">" : "<"}
             </AppButton>

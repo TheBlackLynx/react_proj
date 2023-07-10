@@ -17,7 +17,7 @@ export const BugButton = () => {
 
     }, [error])
     return (
-        <AppButton onClick={onThrow}>
+        <AppButton onClick={onThrow} fullWidth={null}>
             {t("Генерация ошибки")}
         </AppButton>
     )

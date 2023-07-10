@@ -59,9 +59,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <div className={classNames(cls.navbar, {}, [className])}>
          
             <AppButton 
-                buttonTheme={AppButtonTheme.CLEAR_INVERTED} 
+                buttonTheme={AppButtonTheme.CLEAR_INVERTED}
                 className={classNames(cls.links)}
-                onClick={onShowModal}>
+                onClick={onShowModal} fullWidth={null}>
                 {t('Войти')}
             </AppButton>
             {isAuthModal && <LoginModal isOpen={isAuthModal} 

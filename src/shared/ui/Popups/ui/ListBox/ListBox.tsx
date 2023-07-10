@@ -67,8 +67,7 @@ export const  ListBox = ( props : ListBoxProps) => {
                     // disabled={readonly} 
                 >
                     <AppButton
-                        disabled={readonly}   
-                    >
+                        disabled={readonly} fullWidth={null}                    >
                         {value ?? defaultValue}
 
                     </AppButton>

@@ -1085,21 +1085,28 @@
       "id": "1",
       "login": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
     },
     {
       "id": "2",
       "login": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
     },
     {
       "id": "3",
       "login": "manager",
       "password": "123",
-      "roles": ["MANAGER", "ADMIN"],
+      "roles": [
+        "MANAGER",
+        "ADMIN"
+      ],
       "avatar": "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
     }
   ],
@@ -1125,6 +1132,80 @@
       "city": "",
       "username": "sparrow",
       "avatar": "https://avatarko.ru/img/kartinka/32/film_pirat_31050.jpg"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 5,
+      "feedback": "Good article",
+      "userId": "2",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "normal article",
+      "userId": "1",
+      "articleId": "14"
+    },
+    {
+      "id": "3",
+      "rate": 2,
+      "feedback": "The worst article",
+      "userId": "1",
+      "articleId": "7"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "rate": 4,
+      "feedback": "",
+      "id": "HxSuouV"
+    },
+    {
+      "userId": "1",
+      "articleId": "8",
+      "rate": 2,
+      "feedback": "wqerwerwqrweq",
+      "id": "h8AN9FZ"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 5,
+      "feedback": "",
+      "id": "cwryLCQ"
+    },
+    {
+      "userId": "1",
+      "articleId": "15",
+      "rate": 4,
+      "feedback": "",
+      "id": "TDUKP4n"
+    }
+  ],
+  "user-ratings": [
+    {
+      "id": "1",
+      "rate": 5,
+      "feedback": "Good profile",
+      "userId": "2",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "feedback": "coo!",
+      "userId": "1",
+      "profileId": "2"
+    },
+    {
+      "id": "3",
+      "rate": 1,
+      "feedback": "Trolley",
+      "userId": "2",
+      "profileId": "1"
     }
   ]
 }

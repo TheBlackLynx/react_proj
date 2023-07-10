@@ -5,14 +5,15 @@ import { AppButtonTheme } from './AppButton';
 describe('AppButton', () => {
     test('test app button creation', () => {
         render (
-            <AppButton>TEST</AppButton>
+            <
+                AppButton fullWidth={null}>TEST</AppButton>
         );
         expect(screen.getByText('TEST')).toBeInTheDocument;
 
     })
     test('test app button theme', () => {
         render (
-            <AppButton buttonTheme={AppButtonTheme.CLEAR}>TEST</AppButton>
+            <AppButton buttonTheme={AppButtonTheme.CLEAR} fullWidth={null}>TEST</AppButton>
         );
         expect(screen.getByText('TEST')).toHaveClass('clear');
     })

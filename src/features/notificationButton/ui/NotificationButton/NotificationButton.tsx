@@ -28,7 +28,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
     }, [isOpenHandler])
     
     const trigger = (
-        <AppButton buttonTheme={AppButtonTheme.CLEAR} onClick={onOpenDrawer}>
+        <AppButton buttonTheme={AppButtonTheme.CLEAR} onClick={onOpenDrawer} fullWidth={null}>
             <Icon Svg={Notification} inverted/>
         </AppButton>
     )
@@ -42,9 +42,9 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
             </BrowserView>
             <MobileView>
                 {trigger}
-                    <Drawer isOpen={isOpen} onClose={onCloseDrawer} className={null} lazy={true}>
-                        <NotificationList className={cls.notifications}/>
-                    </Drawer>
+                <Drawer isOpen={isOpen} onClose={onCloseDrawer} className={null} lazy={true}>
+                    <NotificationList className={cls.notifications}/>
+                </Drawer>
             </MobileView>
            
             
