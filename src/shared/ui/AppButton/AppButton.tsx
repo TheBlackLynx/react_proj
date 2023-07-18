@@ -38,9 +38,6 @@ export const AppButton: FC<AppButtonType> = memo(( props ) => {
         fullWidth,
         ...otherProps
     } = props;
-
-
-    console.log('fullWidth', fullWidth);
     
     const mods: Mods = {
         [cls.square] : square,

@@ -1,19 +1,32 @@
-   import { classNames } from '@/shared/lib/classNames/classNames';
-            import { useTranslation } from 'react-i18next';
-            import cls from './AvatarDropDown.module.scss';
-            import { memo } from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-interface AvatarDropDownProps {
-    className?: string;
-}
+import { ThemeDecorator } from 
+    '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import {AvatarDropDown} from './AvatarDropDown';
+// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+export default {
+    title: 'features/AvatarDropDown/AvatarDropDown',
+    component: AvatarDropDown,
+    // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof AvatarDropDown>;
+const Template: 
+ComponentStory<typeof AvatarDropDown> = (args) => <AvatarDropDown />;
 
-export const AvatarDropDown = memo((props: AvatarDropDownProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
-    
-    return (
-        <div className={classNames(cls.AvatarDropDown, {}, [className])}>
-           
-        </div>
-    );
-});
+export const Light = Template.bind({});
+Light.args = {
+    authData: {
+        id: '1'
+    }
+   
+};
+Light.decorators = [StoreDecorator({})]
+
+
+export const Dark = Template.bind({});
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+Dark.args = {};

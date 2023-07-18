@@ -7,7 +7,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import {NotificationItem} from './NotificationItem';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'pages/NotificationItem',
+    title: 'entities/Notification/NotificationItem',
     component: NotificationItem,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
