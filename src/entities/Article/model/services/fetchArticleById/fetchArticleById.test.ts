@@ -2,7 +2,7 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { fetchArticleById } from './fetchArticleById';
 import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk';
-import { ArticleBlockType } from '../../consts/consts';
+import { ArticleBlockType, ArticleType } from '../../consts/consts';
 
 const data = {
     "id": "1",
