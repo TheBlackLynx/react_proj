@@ -5,19 +5,19 @@ import { Input } from "@/shared/ui/Input/Input";
 import { AppButtonTheme } from "@/shared/ui/AppButton/AppButton";
 import { useSelector} from "react-redux";
 import { memo, useCallback } from "react";
-import { loginActions, loginReducer } from "@/features/AuthByUsername/model/slice/loginSlice";
+import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 
 import { loginByUserName } from
-    "@/features/AuthByUsername/model/services/loginByUserName/loginByUserName";
+    "../../model/services/loginByUserName/loginByUserName";
 // import { AppDispatch } from "app/providers/StoreProvider/config/store";
 import { TextTheme } from "@/shared/ui/Text/Text";
-import { getLoginLogin } from "@/features/AuthByUsername/model/selectors/getLoginLogin/getLoginLogin";
+import { getLoginLogin } from "../../model/selectors/getLoginLogin/getLoginLogin";
 import { getLoginPassword } from 
-    "@/features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword";
+    "../../model/selectors/getLoginPassword/getLoginPassword";
 import { getLoginError } from
-    "@/features/AuthByUsername/model/selectors/getLoginError/getLoginError";
+    "../../model/selectors/getLoginError/getLoginError";
 import { getLoginIsLoading } from 
-    "@/features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading";
+    "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { DynamicModuleLoader, ReducerList } from 
     "@/shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders";
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';

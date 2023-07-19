@@ -11,14 +11,18 @@ import { Currency } from '@/entities/Currency';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly';
-import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { getProfileValidateErrors } 
+    from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { ProfileCard } from '@/entities/Profile';
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { DynamicModuleLoader, ReducerList } 
+    from '@/shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
+import { EditableProfileCardHeader } 
+    from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
-import { ValidateProfileError } from '@/features/editableProfileCard/model/consts/consts';
+import { ValidateProfileError } 
+    from '../../model/consts/consts';
 
 interface EditableProfileCardProps {
     className?: string;

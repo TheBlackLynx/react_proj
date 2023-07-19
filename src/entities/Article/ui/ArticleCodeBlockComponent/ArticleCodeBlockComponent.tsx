@@ -1,7 +1,7 @@
-import { ArticleCodeBlock } from '@/entities/Article/model/types/article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Code } from '@/shared/ui/Code/Code';
+import { ArticleCodeBlock } from '../../model/types/article';
 
 interface ArticleCodeBlockComponentProps {
     className?: string;

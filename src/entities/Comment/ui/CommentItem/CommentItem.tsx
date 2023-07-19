@@ -1,5 +1,3 @@
-import { ArticleDetails } from '@/entities/Article';
-import { CommentType } from '@/entities/Comment/model/types/comment';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -10,6 +8,7 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { TextSize } from '@/shared/ui/Text/Text';
 import cls from './CommentItem.module.scss'
+import { CommentType } from '../../model/types/comment';
 
 interface CommentItemProps {
     className?: string,

@@ -1,9 +1,9 @@
 import { ArticleDetails } from '@/entities/Article';
 import {getCommentsIsLoading }
-    from '@/pages/ArticleDetailsPage/model/selectors/comments';
+    from '../../model/selectors/comments';
 import {  getArticleRecomendations } from '../../model/slice/articleDetailsPageRecomendationsSlice';
 import { getArticleComments }
-    from '@/pages/ArticleDetailsPage/model/slice/atricleDetailsCommentsSlice';
+    from '../../model/slice/atricleDetailsCommentsSlice';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -12,7 +12,7 @@ import { DynamicModuleLoader, ReducerList }
     from '@/shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import cls from './ArticleDetailsPage.module.scss'
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slice';
+import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleReccomendationsList } from '@/features/articleReccomendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';

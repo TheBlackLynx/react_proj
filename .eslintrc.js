@@ -15,7 +15,7 @@ module.exports = {
     },
     "plugins": ["react", "@typescript-eslint", "i18next", "react-hooks", "marica-path-checker-plugin"],
     "rules": {
-       "max-len": [1, 100, 2],
+        "max-len": [1, 100, 2],
         'react-in-jsx-scope': 'off',
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -47,7 +47,7 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'off',
         'max-len': [2, 100],
         "react/jsx-props-no-spreading": "off",
-        "marica-path-checker-plugin/path-checker": 'error'
+        "marica-path-checker-plugin/path-checker": ['error', {alias: '@'}]
     },
     globals: {
         __API__: true,

@@ -1,13 +1,12 @@
 
 import { ArticleView } from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
-import { FC, HTMLAttributeAnchorTarget, memo, MutableRefObject, Ref, useEffect, useRef, useState } from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo, useEffect, useRef, useState } from 'react';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { ARTICLE_LIST_ITEM_INDEX } from '@/shared/const/localstogare';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import cls from './ArticleList.module.scss'
-// import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
+import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
     className?: string;

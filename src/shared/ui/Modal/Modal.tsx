@@ -43,10 +43,10 @@ export const Modal = (props: ModalProps) => {
                     mods,
                     [theme, 'app_modal'])}>
                 <Overlay onClick={closeHandler} className={null} />
-                    <div className={cls.content}
-                        onClick={(e) => contentClickHandler(e)}>
-                        {children}
-                    </div>
+                <div className={cls.content}
+                    onClick={(e) => contentClickHandler(e)}>
+                    {children}
+                </div>
             </div>
         </Portal>
     )

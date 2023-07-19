@@ -18,13 +18,16 @@ const Template:
 ComponentStory<typeof AvatarDropDown> = (args) => <AvatarDropDown />;
 
 export const Light = Template.bind({});
-Light.args = {
-    authData: {
-        id: '1'
+Light.args = {};
+Light.decorators = [StoreDecorator({
+    user: {
+        authData: {
+            id: '1'
+        } 
     }
    
-};
-Light.decorators = [StoreDecorator({})]
+   
+})]
 
 
 export const Dark = Template.bind({});

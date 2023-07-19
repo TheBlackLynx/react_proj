@@ -1,7 +1,8 @@
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { AppButton, AppButtonTheme, AppLink, Avatar, Card, classNames, Icon, Text, TextSize } from '@/shared';
+import { AppButton, AppButtonTheme, AppLink,
+    Avatar, Card, classNames, Icon, Text, TextSize } from '@/shared';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { ARTICLE_LIST_ITEM_INDEX } from '@/shared/const/localstogare';
 import { useHover } from '@/shared/lib/hooks/useHover';
@@ -54,8 +55,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                             <AppButton
                                 buttonTheme={AppButtonTheme.OUTLINE}
                                 onClick={handleButtonClick} 
+                                // eslint-disable-next-line i18next/no-literal-string
                                 fullWidth={null}                            >
-                                t('Читать далее...')
+                                t(`Читать далее...`)
                             </AppButton>
                         </AppLink>
 
@@ -83,8 +85,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         <Text text={article.createdAt} className={cls.date} size={TextSize.S} />
                     </div>
                     <div className={cls.infoWrapper}>
-                        <Text text={article.type.join(',')} className={cls.types} size={TextSize.S} />
-                        <Text text={String(article.views)} className={cls.views} size={TextSize.S} />
+                        <Text 
+                            text={article.type.join(',')} 
+                            className={cls.types} size={TextSize.S} 
+                        />
+                        <Text 
+                            text={String(article.views)} 
+                            className={cls.views} size={TextSize.S} 
+                        />
                         <Icon Svg={EyeIcon} className={cls.icons} />
                     </div>
                     <Text className={cls.title} title={article.title} />

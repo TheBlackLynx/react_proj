@@ -3,7 +3,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "@/app/providers/StoreProvider/config/StateSchema";
 import { Article } from "@/entities/Article";
-import { getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPageLimit, getArticlesPagePage } from "../../selectors/articlesPageSelectors";
+import { 
+    getArticlesPageHasMore, 
+    getArticlesPageIsLoading, 
+    getArticlesPageLimit, 
+    getArticlesPagePage } from "../../selectors/articlesPageSelectors";
 import { articlePageActions } from "../../slice/ArticlePageSlice";
 import { fetchArticlesList } from "../fetchArticlesList/fetchArticlesList";
 

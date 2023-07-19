@@ -32,5 +32,5 @@ export function UseInfiniteScroll({ callback, triggerRef, wrapperRef }: UseInfin
                 }
             }
         }
-    }, [triggerRef, wrapperRef])
+    }, [triggerRef, wrapperRef, callback])
 }

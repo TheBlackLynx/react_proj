@@ -1,6 +1,5 @@
  
-import { Article, ArticleDetailSchema, ArticleType } from "@/entities/Article"
-import { ArticleTextBlockComponent } from "@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent"
+import { ArticleType } from "../consts/consts"
 import { fetchArticleById } from "../services/fetchArticleById/fetchArticleById"
 import { articleDetailsReducer } from "./articleSlice"
 
@@ -25,15 +24,3 @@ const data = {
         },
     ]
 }
-
-// describe('articleSlice', () => {
-
-//     test('test fetchProfileData pending', () => {
-        
-//         const state: DeepPartial<ArticleDetailSchema>  = {isLoading: true}
-//         expect(articleDetailsReducer(state as ArticleDetailSchema, fetchArticleById.fulfilled(data as Article, '', '1'))).toEqual({
-//             isLoading: false,
-//             data
-//         })
-//     })
-// })

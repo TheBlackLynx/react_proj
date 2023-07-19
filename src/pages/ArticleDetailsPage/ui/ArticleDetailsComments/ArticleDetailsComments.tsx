@@ -1,15 +1,15 @@
 import { CommentList } from "@/entities/Comment"
 import { AddNewCommentForm } from "@/features/AddNewComment"
 import { getCommentsIsLoading } from 
-    "@/pages/ArticleDetailsPage/model/selectors/comments"
+    '../../model/selectors/comments';
 import { addCommentForArticle } from
-    "@/pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle"
+    '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from
     "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId"
 import { getArticleRecomendations } from 
-    "@/pages/ArticleDetailsPage/model/slice/articleDetailsPageRecomendationsSlice"
+    '../../model/slice/articleDetailsPageRecomendationsSlice';
 import { getArticleComments } from 
-    "@/pages/ArticleDetailsPage/model/slice/atricleDetailsCommentsSlice"
+    '../../model/slice/atricleDetailsCommentsSlice';
 import { useCallback } from "react"
 import { useSelector } from "react-redux"
 import { TextSize, VStack, Text } from "@/shared"

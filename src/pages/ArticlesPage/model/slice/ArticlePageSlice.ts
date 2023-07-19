@@ -61,11 +61,16 @@ const articlePageSlice = createSlice({
         },
         initState: (state) => {
             // @ts-ignore
-            const view = JSON.parse(localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY)) as ArticleView;
-            state.view = view;
-       
-            
-            state.limit = view === ArticleView.LIST ? 4 : 5;
+            try{
+                const view = 
+                JSON.parse(
+                    localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) ?? '') as ArticleView;
+                state.view = view;
+                state.limit = view === ArticleView.LIST ? 4 : 5;
+            }
+            catch (e) {
+                console.log(e);  
+            }  
         }
     },
     extraReducers: (builder) => {

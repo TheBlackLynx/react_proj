@@ -9,10 +9,14 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { profile } from "console";
 import { getUserAuthData } from "@/entities/User";
 import { HStack } from "@/shared/ui/Stack/HStack/HStack";
-import { getProfileData } from "@/features/editableProfileCard/model/selectors/getProfileData/getProfileData";
-import { getProfileReadOnly } from "@/features/editableProfileCard/model/selectors/getProfileReadOnly/getProfileReadOnly";
-import { profileActions } from "@/features/editableProfileCard/model/slice/profileSlice";
-import { updateProfileData } from "@/features/editableProfileCard/model/services/updateProfileData/updateProfileData";
+import { getProfileData }
+    from "../../model/selectors/getProfileData/getProfileData";
+import { getProfileReadOnly } 
+    from "../../model/selectors/getProfileReadOnly/getProfileReadOnly";
+import { profileActions } 
+    from "../../model/slice/profileSlice";
+import { updateProfileData } 
+    from "../../model/services/updateProfileData/updateProfileData";
 
 interface ProfilePageHeaderProps {
     className?: string

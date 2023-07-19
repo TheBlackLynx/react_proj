@@ -1,8 +1,5 @@
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading }
     from '../../model/selectors/articleDetails';
-import { fetchArticleById } from 
-    '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleSlice';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -18,10 +15,13 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from '../../../../shared/assets/icons/calendar-20-20.svg'
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleImageBlockComponent } 
+    from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { ActicleBlocks } from '../../model/types/article';
-import { ArticleBlockType } from '@/entities/Article/model/consts/consts';
+import { articleDetailsReducer } from '../../model/slice/articleSlice';
+import { ArticleBlockType } from '../../model/consts/consts';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 
 interface ArticleDetailsProps {
     className?: string,

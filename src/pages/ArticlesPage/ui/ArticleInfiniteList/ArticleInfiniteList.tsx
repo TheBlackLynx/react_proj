@@ -1,8 +1,14 @@
 import { ArticleList } from '@/entities/Article/ui/ArticleList/ArticleList';
-import { t } from 'i18next';
-import { getArticlesPageError, getArticlesPageHasMore, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPagePage, getArticlesPageView } from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { fetchNextArticlePage } from '@/pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
-import { getArticles } from '@/pages/ArticlesPage/model/slice/ArticlePageSlice';
+import { 
+    getArticlesPageError, 
+    getArticlesPageHasMore, 
+    getArticlesPageInited, 
+    getArticlesPageIsLoading, 
+    getArticlesPagePage, 
+    getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
+import { fetchNextArticlePage } from 
+    '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { getArticles } from '../../model/slice/ArticlePageSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';

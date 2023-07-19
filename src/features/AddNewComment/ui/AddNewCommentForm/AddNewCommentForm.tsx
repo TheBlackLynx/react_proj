@@ -1,7 +1,7 @@
 import { getAddNewCommentFormError, getAddNewCommentFormText }
-    from '@/features/AddNewComment/model/selectors/addNewCommentFormSelectors';
+    from '../../model/selectors/addNewCommentFormSelectors';
 import { addNewCommentFormActions, addNewCommentFormReducer } 
-    from '@/features/AddNewComment/model/slice/addNewCommentForm';
+    from '../../model/slice/addNewCommentForm';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -29,8 +29,6 @@ const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
     }
 
     const onCommentTextChange = useCallback((value: string) => {
-        console.log('text!!!!', text);
-        
         dispatch(addNewCommentFormActions.setNewComment(value))
     }, [dispatch])
 

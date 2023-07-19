@@ -10,6 +10,8 @@ export const getArticlesPageHasMore = (state: StateSchema) => state.articles?.ha
 export const getArticlesPageInited = (state: StateSchema) => state.articles?._inited;
 
 export const getArticlesPageOrder = (state: StateSchema) => state.articles?.order ?? 'asc';
-export const getArticlesPageSort = (state: StateSchema) => state.articles?.sort ?? ArticleSortField.CREATED;
+export const getArticlesPageSort = 
+(state: StateSchema) => state.articles?.sort ?? ArticleSortField.CREATED;
 export const getArticlesPageSearch = (state: StateSchema) => state.articles?.search ?? '';
-export const getArticlesPageType = (state: StateSchema) => state.articles?.type ?? ArticleType.FRONTEND;
+export const getArticlesPageType = 
+(state: StateSchema) => state.articles?.type ?? ArticleType.FRONTEND;

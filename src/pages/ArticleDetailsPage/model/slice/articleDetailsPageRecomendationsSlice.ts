@@ -6,18 +6,13 @@ import {
 } from '@reduxjs/toolkit'
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Article } from '@/entities/Article';
-import { CommentType } from '@/entities/Comment';
-import { fetchArticlesRecommendations } from '../services/fetchArticlesRecommendations/fetchArticlesRecommendations';
-import { fetchCommentsByArticleId } 
-    from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { ArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchema';
+import { fetchArticlesRecommendations } 
+    from '../services/fetchArticlesRecommendations/fetchArticlesRecommendations';
 import { ArticleDetailsRecomendationsSchema } from '../types/ArticleDetailsRecomendationsSchema';
   
   
 const recomendationsAdapter = createEntityAdapter<Article>({
-    // Assume IDs are stored in a field other than `book.id`
     selectId: (article) => article.id,
-    // Keep the "all IDs" array sorted based on book titles
 })
   
 export const getArticleRecomendations = recomendationsAdapter.getSelectors<StateSchema>(
@@ -52,5 +47,7 @@ const articleDetailsPageRecomendationsSlice = createSlice({
     }
 },
 )
-export const { actions: articleDetailsPageRecomendationsActions } = articleDetailsPageRecomendationsSlice;
-export const { reducer: articleDetailsPageRecomendationsReducer } = articleDetailsPageRecomendationsSlice;
+export const { 
+    actions: articleDetailsPageRecomendationsActions } = articleDetailsPageRecomendationsSlice;
+export const { 
+    reducer: articleDetailsPageRecomendationsReducer } = articleDetailsPageRecomendationsSlice;
