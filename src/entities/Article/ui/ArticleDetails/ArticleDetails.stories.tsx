@@ -4,7 +4,7 @@ import { ArticleDetails } from './ArticleDetails';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/app/providers';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleBlockType } from '../../model/consts/consts';
+import { ArticleBlockType, ArticleType } from '../../model/consts/consts';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
