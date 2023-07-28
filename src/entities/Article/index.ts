@@ -23,3 +23,5 @@ export {
 } from './model/selectors/articleDetails'
 
 export { ArticleBlockType } from './model/consts/consts'
+
+export { articleDetailsReducer } from './model/slice/articleSlice'

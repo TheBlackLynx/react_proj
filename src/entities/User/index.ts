@@ -27,3 +27,7 @@ export {
 export {
     UserRole
 } from './model/consts/consts'
+
+export {
+    getUserRole
+} from './model/selectors/roleSelectors'

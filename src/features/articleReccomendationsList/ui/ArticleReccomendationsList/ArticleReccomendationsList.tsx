@@ -5,9 +5,6 @@ import { TextSize } from '@/shared';
 import { ArticleList, ArticleView } from '@/entities/Article';
 import { Text } from '@/shared';
 import { VStack } from '@/shared';
-import { rtkApi } from '@/shared/api/rtkApi';
-import { getArticleRecomendations }
-    from '@/pages/ArticleDetailsPage/model/slice/articleDetailsPageRecomendationsSlice';
 import { useArticleReccomendationsList } 
     from '../../api/articleReccomendationsApi';
 

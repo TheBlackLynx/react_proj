@@ -4,7 +4,12 @@ module.exports = {
         "es2021": true,
         "jest": true
     },
-    "extends": ['eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'plugin:storybook/recommended'],
+    "extends": [
+        'eslint:recommended', 
+        'plugin:react/recommended', 
+        'plugin:@typescript-eslint/recommended', 
+        'plugin:storybook/recommended'
+    ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
@@ -13,7 +18,13 @@ module.exports = {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["react", "@typescript-eslint", "i18next", "react-hooks", "marica-path-checker-plugin"],
+    "plugins": [
+        "react", 
+        "@typescript-eslint", 
+        "i18next", 
+        "react-hooks", 
+        "marica-path-checker-plugin"
+    ],
     "rules": {
         "max-len": [1, 100, 2],
         'react-in-jsx-scope': 'off',
@@ -47,7 +58,14 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'off',
         'max-len': [2, 100],
         "react/jsx-props-no-spreading": "off",
-        "marica-path-checker-plugin/path-checker": ['error', {alias: '@'}]
+        "marica-path-checker-plugin/path-checker": ['error', {alias: '@'}],
+        "marica-path-checker-plugin/public-api-imports": [
+            'error', 
+            {
+                alias: '@',
+                testFilePattens: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
+            }
+        ]
     },
     globals: {
         __API__: true,

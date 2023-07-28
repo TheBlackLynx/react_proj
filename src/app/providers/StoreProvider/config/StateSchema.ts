@@ -6,8 +6,8 @@ import { UserSchema } from "@/entities/User";
 import { AddNewCommentSchema } from "@/features/AddNewComment";
 import { LoginSchema } from "@/features/AuthByUsername";
 import { ProfileSchema } from "@/features/editableProfileCard";
-import { ScrollSaveSchema } from "@/features/ScrollSave/model/type/ScrollSaveSchema";
-import { ArticleDetailPageSchema } from "@/pages/ArticleDetailsPage/model/types";
+import { ScrollSaveSchema } from "@/features/ScrollSave";
+import { ArticleDetailPageSchema } from "@/pages/ArticleDetailsPage";
 import { ArticlesPageSchema } from "@/pages/ArticlesPage";
 import { rtkApi } from "@/shared/api/rtkApi";
 

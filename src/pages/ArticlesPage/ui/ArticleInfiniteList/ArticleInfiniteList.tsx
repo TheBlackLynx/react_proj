@@ -1,4 +1,4 @@
-import { ArticleList } from '@/entities/Article/ui/ArticleList/ArticleList';
+import { ArticleList } from '@/entities/Article';
 import { 
     getArticlesPageError, 
     getArticlesPageHasMore, 

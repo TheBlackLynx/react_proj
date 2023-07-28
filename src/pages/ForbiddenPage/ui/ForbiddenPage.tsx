@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Page } from '@/widgets/Page/Page';
 import cls from './ForbiddenPage.module.scss'
+import { Page } from '@/widgets';
 
 const ForbiddenPage = memo(() => {
     const {t} = useTranslation('about');
