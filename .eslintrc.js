@@ -63,7 +63,7 @@ module.exports = {
             'error', 
             {
                 alias: '@',
-                testFilePattens: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
+                testFilePattens: ['**/*.test.ts', '**/*.story.ts', '**/StoreDecorator.tsx'],
             }
         ]
     },
