@@ -1,10 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import  AddNewCommentForm from './AddNewCommentForm';
-import { ThemeDecorator } from 
-    '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers';
-import { bindActionCreators } from '@reduxjs/toolkit';
 import { action } from '@storybook/addon-actions'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 

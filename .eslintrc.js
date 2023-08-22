@@ -59,6 +59,17 @@ module.exports = {
         'max-len': [2, 100],
         "react/jsx-props-no-spreading": "off",
         "marica-path-checker-plugin/path-checker": ['error', {alias: '@'}],
+        "marica-path-checker-plugin/layer-import": [
+            'error', {
+                alias: '@',
+                ignoreImportPatterns: [
+                    '**/StoreProvider',
+                    '**/testing',
+                    '**/styles/**',
+                    '**/routeConfig/**'
+                ]
+            }
+        ],
         "marica-path-checker-plugin/public-api-imports": [
             'error', 
             {

@@ -1,3 +1,4 @@
+// eslint-disable-next-line marica-path-checker-plugin/layer-import
 import { UserRole } from "@/entities/User"
 import { RouteProps } from "react-router-dom"
 
