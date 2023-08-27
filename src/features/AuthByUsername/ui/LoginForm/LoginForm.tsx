@@ -1,8 +1,8 @@
 import cls from './LoginForm.module.scss'
 import { AppButton, Text } from "@/shared";
 import { useTranslation } from "react-i18next";
-import { Input } from "@/shared/ui/Input/Input";
-import { AppButtonTheme } from "@/shared/ui/AppButton/AppButton";
+import { Input } from "@/shared/ui/Input";
+import { AppButtonTheme } from "@/shared/ui/AppButton";
 import { useSelector} from "react-redux";
 import { memo, useCallback } from "react";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
@@ -10,7 +10,7 @@ import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import { loginByUserName } from
     "../../model/services/loginByUserName/loginByUserName";
 // import { AppDispatch } from "app/providers/StoreProvider/config/store";
-import { TextTheme } from "@/shared/ui/Text/Text";
+import { TextTheme } from "@/shared/ui/Text";
 import { getLoginLogin } from "../../model/selectors/getLoginLogin/getLoginLogin";
 import { getLoginPassword } from 
     "../../model/selectors/getLoginPassword/getLoginPassword";

@@ -9,7 +9,7 @@ import { AppButton, classNames, HStack, Input, Text } from '@/shared';
 import { DynamicModuleLoader, ReducerList } 
     from '@/shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { AppButtonTheme } from '@/shared/ui/AppButton/AppButton';
+import { AppButtonTheme } from '@/shared/ui/AppButton';
 import cls from './AddNewCommentForm.module.scss'
 
 export interface AddNewCommentFormProps {

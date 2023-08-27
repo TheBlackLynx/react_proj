@@ -4,7 +4,7 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { TextTheme } from '@/shared/ui/Text/Text';
+import { TextTheme } from '@/shared/ui/Text';
 import { Text, VStack } from '@/shared';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';

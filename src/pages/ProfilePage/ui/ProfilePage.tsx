@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { EditableProfileCard } from '@/features/editableProfileCard';
 import { Page } from '@/widgets';
+import { VStack } from '@/shared';
 
 
 

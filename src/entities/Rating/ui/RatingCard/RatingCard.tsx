@@ -1,13 +1,12 @@
 import { memo, useCallback, useState } from 'react';
 import cls from './RatingCard.module.scss';
 import { Card, VStack, classNames, Text, Input, HStack, AppButton, AppButtonTheme } from '@/shared';
-import { StarRating } from '@/shared/ui/StarRating/StarRating';
-import { Modal } from '@/shared/ui/Modal/Modal';
+import { StarRating } from '@/shared/ui/StarRating';
+import { Modal } from '@/shared/ui/Modal';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
-import { ButtonL } from '@/shared/ui/AppButton/AppButton.stories';
-import { AppButtonSize } from '@/shared/ui/AppButton/AppButton';
+import { Drawer } from '@/shared/ui/Drawer';
+import { AppButtonSize } from '@/shared/ui/AppButton';
 
 interface RatingCardProps {
     className: string | null;

@@ -2,7 +2,7 @@ import { getUserAuthData } from "@/entities/User";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { AppLink } from "@/shared";
-import { AppLinkTheme } from "@/shared/ui/AppLink/AppLink";
+import { AppLinkTheme } from "@/shared/ui/AppLink";
 import { SidebarItemType } from "../../model/types/sidebar";
 import cls from './SidebarItem.module.scss'
 interface SidebarItemProps {

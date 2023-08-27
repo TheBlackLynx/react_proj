@@ -7,11 +7,11 @@ import cls from './ArticleDetails.module.scss'
 import { DynamicModuleLoader, ReducerList } from
     '@/shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Spinner } from '@/shared/ui/Spinner/Spinner';
+import { Spinner } from '@/shared/ui/Spinner';
 import { HStack, Icon, Text, VStack } from '@/shared';
-import { Align, TextSize } from '@/shared/ui/Text/Text';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Align, TextSize } from '@/shared/ui/Text';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar';
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from '../../../../shared/assets/icons/calendar-20-20.svg'
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';

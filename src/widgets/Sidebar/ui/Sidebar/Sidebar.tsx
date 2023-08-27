@@ -1,11 +1,10 @@
 import cls from "./Sidebar.module.scss";
-import { AppButton, classNames } from "@/shared";
+import { AppButton, VStack, classNames } from "@/shared";
 import { memo, useMemo, useState } from "react";
-import { AppButtonSize, AppButtonTheme } from "@/shared/ui/AppButton/AppButton";
+import { AppButtonSize, AppButtonTheme } from "@/shared/ui/AppButton";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { useSelector } from "react-redux";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
-import { VStack } from "@/shared/ui/Stack/VStack/VStack";
 import { isUserAdmin, isUserManager } from "@/entities/User";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { LangSwitcher } from "@/features/LangSwitcher";

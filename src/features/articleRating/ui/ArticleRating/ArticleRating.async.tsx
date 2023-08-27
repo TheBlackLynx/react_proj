@@ -1,4 +1,4 @@
-import { Spinner } from '@/shared/ui/Spinner/Spinner';
+import { Spinner } from '@/shared/ui/Spinner';
 import { lazy, FC, Suspense } from 'react';
 import { ArticleRatingProps } from './ArticleRating';
 

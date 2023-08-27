@@ -2,7 +2,7 @@ import { useNotifications } from '../../api/notificationApi';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, VStack } from '@/shared';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 import cls from './NotificationList.module.scss'
 

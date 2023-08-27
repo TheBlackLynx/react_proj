@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AppButton, classNames} from "@/shared";
 import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
-import { AppButtonTheme } from "@/shared/ui/AppButton/AppButton";
+import { AppButtonTheme } from "@/shared/ui/AppButton";
 import cls from './ArticleDetailsPageHeader.module.scss'
 
 interface ArticleDetailsPageHeaderProps {
