@@ -6,7 +6,7 @@ import {
     getArticlesPageView 
 } from '../../model/selectors/articlesPageSelectors'
 
-import { FC, memo, useCallback } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Card, classNames, Input } from "@/shared";

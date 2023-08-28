@@ -7,7 +7,6 @@ import cls from './ArticleDetails.module.scss'
 import { DynamicModuleLoader, ReducerList } from
     '@/shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Spinner } from '@/shared/ui/Spinner';
 import { HStack, Icon, Text, VStack } from '@/shared';
 import { Align, TextSize } from '@/shared/ui/Text';
 import { Skeleton } from '@/shared/ui/Skeleton';

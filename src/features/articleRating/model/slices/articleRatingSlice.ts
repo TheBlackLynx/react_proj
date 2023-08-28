@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { ArticleRatingSchema } from '../types/articleRatingSchema';
     
 const initialState: ArticleRatingSchema = {

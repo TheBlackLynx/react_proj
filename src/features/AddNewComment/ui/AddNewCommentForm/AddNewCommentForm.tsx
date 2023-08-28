@@ -5,7 +5,7 @@ import { addNewCommentFormActions, addNewCommentFormReducer }
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { AppButton, classNames, HStack, Input, Text } from '@/shared';
+import { AppButton, classNames, HStack, Input } from '@/shared';
 import { DynamicModuleLoader, ReducerList } 
     from '@/shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';

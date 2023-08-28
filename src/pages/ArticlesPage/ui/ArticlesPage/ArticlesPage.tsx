@@ -5,7 +5,7 @@ import cls from './ArticlesPage.module.scss';
 import { 
     DynamicModuleLoader, 
     ReducerList } from '@/shared/lib/components/DynamicModuleLoaders/DynamicModuleLoaders';
-import {articlePageReducer, getArticles } from '../../model/slice/ArticlePageSlice';
+import {articlePageReducer } from '../../model/slice/ArticlePageSlice';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { initeArticlesPage } from

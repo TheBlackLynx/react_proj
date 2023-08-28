@@ -1,11 +1,11 @@
 import { t } from "i18next";
-import { AppButton, AppLink, classNames, HStack, Icon } from "@/shared";
+import { AppButton, AppLink, classNames } from "@/shared";
 import cls from "./Navbar.module.scss";
 import { useState, useCallback, memo } from "react";
 import { AppButtonTheme } from "@/shared/ui/AppButton";
 import { LoginModal } from "@/features/AuthByUsername";
-import { useDispatch, useSelector } from "react-redux";
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "@/entities/User";
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "@/entities/User";
 import { Text } from "@/shared";
 import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 import { AppLinkTheme } from "@/shared/ui/AppLink";

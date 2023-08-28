@@ -5,7 +5,6 @@ import { AppButtonSize, AppButtonTheme } from "@/shared/ui/AppButton";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { useSelector } from "react-redux";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
-import { isUserAdmin, isUserManager } from "@/entities/User";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { LangSwitcher } from "@/features/LangSwitcher";
 

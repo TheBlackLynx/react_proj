@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { AvatarDropDownSchema } from '../types/avatarDropDownSchema';
     
 const initialState: AvatarDropDownSchema = {

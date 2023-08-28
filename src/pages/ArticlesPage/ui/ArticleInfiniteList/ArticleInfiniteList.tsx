@@ -1,10 +1,7 @@
 import { ArticleList } from '@/entities/Article';
 import { 
     getArticlesPageError, 
-    getArticlesPageHasMore, 
-    getArticlesPageInited, 
     getArticlesPageIsLoading, 
-    getArticlesPagePage, 
     getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
 import { fetchNextArticlePage } from 
     '../../model/services/fetchNextArticlePage/fetchNextArticlePage';

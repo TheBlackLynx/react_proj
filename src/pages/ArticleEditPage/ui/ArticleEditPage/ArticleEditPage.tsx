@@ -1,9 +1,8 @@
-import { FC, memo } from "react";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { classNames} from "@/shared";
 import { Page } from "@/widgets";
-import cls from './ArticleEditPage.module.scss'
 
 interface ArticleEditPageProps {
     className?: string

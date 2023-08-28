@@ -1,7 +1,5 @@
  
 import { ArticleType } from "../consts/consts"
-import { fetchArticleById } from "../services/fetchArticleById/fetchArticleById"
-import { articleDetailsReducer } from "./articleSlice"
 
 const data = {
     id: "1",

@@ -1,5 +1,5 @@
 import { LOCAL_STORAGE_THEME_KEY } from "@/shared/const/localstogare";
-import { useState, useMemo, FC, PropsWithChildren } from "react";
+import { useState, useMemo, PropsWithChildren } from "react";
 import { ThemeContext } from "@/shared/lib/context/ThemeContext";
 import { Theme } from "@/shared/const/theme";
 

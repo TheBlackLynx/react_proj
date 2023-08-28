@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, ReactNode, useEffect } from 'react';
+import { PropsWithChildren, ReactNode, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 import { ReduxStoreWithManager } from '@/app/providers/StoreProvider';
 // import { AppDispatch } from 'app/providers/StoreProvider/config/store';

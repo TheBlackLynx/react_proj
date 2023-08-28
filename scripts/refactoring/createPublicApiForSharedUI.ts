@@ -1,6 +1,5 @@
 import { Project } from 'ts-morph';
 import path from 'path';
-import { log } from 'console';
 
 
 const project = new Project({});

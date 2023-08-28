@@ -10,7 +10,6 @@ import { NotFoundPage } from '@/pages/NotFoundPage'
 import { ProfilePage } from "@/pages/ProfilePage"
 import { AppRoutes, RoutePath } from "@/shared/const/router"
 import { AppRouteProps } from "@/shared/types/router"
-import { RouteProps } from "react-router-dom"
 
 
 

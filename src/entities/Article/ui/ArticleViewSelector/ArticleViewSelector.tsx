@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Code } from '@/shared/ui/Code';
 import TileIcon from '@/shared/assets/icons/TileIcon.svg';
 import ListIcon from '@/shared/assets/icons/ListIcon.svg';
 import { AppButton, classNames, Icon } from '@/shared';

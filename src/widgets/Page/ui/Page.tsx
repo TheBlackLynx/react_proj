@@ -1,5 +1,5 @@
 import {classNames} from '@/shared';
-import { memo, MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
+import { MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
 import cls from './Page.module.scss'
 import { UseInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';

@@ -1,9 +1,8 @@
-import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
 import { memo, useState } from 'react';
 import { Icon } from '@/shared';
 import StarIcon from '@/shared/assets/icons/star.svg'
-import { log } from 'console';
 
 interface StarRatingProps {
    className: string | null;

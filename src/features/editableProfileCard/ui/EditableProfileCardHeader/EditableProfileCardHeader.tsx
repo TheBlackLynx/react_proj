@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { AppButton, classNames } from "@/shared";
 import { AppButtonTheme } from "@/shared/ui/AppButton";
@@ -6,7 +6,6 @@ import { Text } from "@/shared";
 import { TextSize } from "@/shared/ui/Text";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { profile } from "console";
 import { getUserAuthData } from "@/entities/User";
 import { HStack } from "@/shared/ui/Stack";
 import { getProfileData }

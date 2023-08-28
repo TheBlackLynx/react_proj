@@ -1,8 +1,7 @@
 import './Card.module.scss';
 import cls from './Card.module.scss'
 import { classNames } from '../../lib/classNames/classNames';
-import { CSSProperties, HTMLAttributes, memo, ReactNode, useMemo } from 'react';
-import { TextSize } from '../Text/Text';
+import { HTMLAttributes, memo, ReactNode } from 'react';
 
 export enum CardTheme {
     NORMAL = 'normal',

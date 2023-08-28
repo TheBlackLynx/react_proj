@@ -23,10 +23,10 @@ module.exports = {
         "@typescript-eslint", 
         "i18next", 
         "react-hooks", 
-        "marica-path-checker-plugin"
+        "marica-path-checker-plugin",
+        "unused-imports"
     ],
     "rules": {
-        "max-len": [1, 100, 2],
         'react-in-jsx-scope': 'off',
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -38,7 +38,6 @@ module.exports = {
         'import/prefer-default-export': 'off',
         //'no-unused-vars': 'warn',
         'react/require-default-props': 'off',
-        'react/jsx-props-no-spreading': 'warn',
         'react/function-component-definition': 'off',
         'import/extensions': 'off',
         'react/react-in-jsx-scope': 'off',
@@ -49,9 +48,6 @@ module.exports = {
         "i18next/no-literal-string": [1, {
             'mode': 'jsx-only',
             'ignoreAttribute': ['data-testid', 'to']
-        }],
-        "max-len": ["error", {
-            ignoreComments: true
         }],
         "react/prop-types": 0,
         'typescript-eslint/ban-ts-comment': 'off',
@@ -75,6 +71,17 @@ module.exports = {
             {
                 alias: '@',
                 testFilePattens: ['**/*.test.ts', '**/*.story.ts', '**/StoreDecorator.tsx'],
+            }
+        ],
+        "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+            "warn",
+            { 
+                "vars": "all", 
+                "varsIgnorePattern": "^_", 
+                "args": "after-used", 
+                "argsIgnorePattern": "^_" 
             }
         ]
     },

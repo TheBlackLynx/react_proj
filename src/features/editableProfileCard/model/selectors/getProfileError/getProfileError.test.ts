@@ -1,5 +1,4 @@
 import { StateSchema } from "@/app/providers/StoreProvider"
-import { Country } from "@/entities/Country"
 import { getProfileError } from "./getProfileError"
 
 describe('getProfileCurrency', () => {

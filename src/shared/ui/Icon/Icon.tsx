@@ -1,6 +1,5 @@
 import cls from './Icon.module.scss';
 import { memo } from 'react';
-import { clearScreenDown } from 'readline';
 import { classNames } from '../../lib/classNames/classNames';
 
 interface IconProps extends React.SVGProps<SVGSVGElement>{

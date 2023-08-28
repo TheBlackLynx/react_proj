@@ -3,7 +3,6 @@ import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
-import { BindOptions } from 'dgram';
 import { BuildOptions } from './types/config';
 import CopyPlugin from "copy-webpack-plugin";
 import CircularDependencyPlugin from 'circular-dependency-plugin';

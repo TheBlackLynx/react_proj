@@ -1,7 +1,6 @@
 import cls from './Select.module.scss'
 import { classNames } from '@/shared';
-import { ChangeEvent, CSSProperties, memo, useMemo } from 'react';
-import { TextSize } from '../Text/Text';
+import { ChangeEvent, useMemo } from 'react';
 
 export interface SelectOption<T extends string>{
     value: T,

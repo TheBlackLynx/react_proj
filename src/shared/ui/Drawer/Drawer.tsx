@@ -1,5 +1,5 @@
 import  cls from './Drawer.module.scss';
-import {classNames, Mods} from '../../lib/classNames/classNames';
+import {classNames} from '../../lib/classNames/classNames';
 import { memo, ReactNode, useCallback, useEffect } from 'react';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';

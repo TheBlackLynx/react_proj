@@ -1,8 +1,6 @@
  
-import { formToJSON } from "axios"
 import { Country } from "@/entities/Country"
 import { Currency } from "@/entities/Currency"
-import { truncate } from "fs"
 import { ValidateProfileError } from "../consts/consts"
 import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData"
 import { ProfileSchema } from "../types/editableProfileCardSchema"

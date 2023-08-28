@@ -1,6 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import cls from './AvatarDropDown.module.scss';
 import { memo, useCallback } from 'react';
 import { DropDown } from '@/shared/ui/Popups';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
