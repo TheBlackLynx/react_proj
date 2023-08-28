@@ -8,7 +8,8 @@ module.exports = {
         'eslint:recommended', 
         'plugin:react/recommended', 
         'plugin:@typescript-eslint/recommended', 
-        'plugin:storybook/recommended'
+        'plugin:storybook/recommended',
+        'plugin:import/recommended'
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -24,7 +25,8 @@ module.exports = {
         "i18next", 
         "react-hooks", 
         "marica-path-checker-plugin",
-        "unused-imports"
+        "unused-imports",
+        "import"
     ],
     "rules": {
         'react-in-jsx-scope': 'off',
@@ -83,7 +85,11 @@ module.exports = {
                 "args": "after-used", 
                 "argsIgnorePattern": "^_" 
             }
-        ]
+        ],
+        "import/named": 1,
+        "import/namespace": 2,
+        "import/default": 2,
+        "import/export": 1
     },
     globals: {
         __API__: true,
