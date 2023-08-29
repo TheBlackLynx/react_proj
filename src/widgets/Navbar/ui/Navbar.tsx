@@ -1,12 +1,11 @@
 import { t } from "i18next";
-import { AppButton, AppLink, classNames } from "@/shared";
+import { AppButton, AppLink, classNames , Text } from "@/shared";
 import cls from "./Navbar.module.scss";
 import { useState, useCallback, memo } from "react";
 import { AppButtonTheme } from "@/shared/ui/AppButton";
 import { LoginModal } from "@/features/AuthByUsername";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
-import { Text } from "@/shared";
 import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 import { AppLinkTheme } from "@/shared/ui/AppLink";
 import { TextTheme } from "@/shared/ui/Text";
@@ -19,7 +18,7 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
-   
+  
 
    
     const onCloseModal = useCallback(() => {

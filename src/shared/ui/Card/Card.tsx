@@ -1,5 +1,4 @@
-import './Card.module.scss';
-import cls from './Card.module.scss'
+import cls from './Card.module.scss';
 import { classNames } from '../../lib/classNames/classNames';
 import { HTMLAttributes, memo, ReactNode } from 'react';
 

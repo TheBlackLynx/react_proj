@@ -1,7 +1,6 @@
 import cls from './ProfileCard.module.scss';
 import { memo } from "react";
-import { classNames, HStack, Input, VStack } from '@/shared';
-import { Text } from '@/shared';
+import { classNames, HStack, Input, VStack , Text } from '@/shared';
 import { useTranslation } from 'react-i18next';
 import { Spinner, SpinnerSize } from '@/shared/ui/Spinner';
 import { Align, TextSize, TextTheme } from '@/shared/ui/Text';

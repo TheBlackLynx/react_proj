@@ -1,8 +1,7 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { AppButton, classNames } from "@/shared";
+import { AppButton, classNames , Text } from "@/shared";
 import { AppButtonTheme } from "@/shared/ui/AppButton";
-import { Text } from "@/shared";
 import { TextSize } from "@/shared/ui/Text";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";

@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { AppButton } from "@/shared";
+import { AppButton , classNames } from "@/shared";
 import cls from "./LangSwitcher.module.scss";
-import { classNames } from "@/shared";
 import { AppButtonTheme } from "@/shared/ui/AppButton";
 import { memo } from "react";
 

@@ -1,10 +1,8 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { TextSize } from '@/shared';
+import { TextSize , Text , VStack } from '@/shared';
 import { ArticleList, ArticleView } from '@/entities/Article';
-import { Text } from '@/shared';
-import { VStack } from '@/shared';
 import { useArticleReccomendationsList } 
     from '../../api/articleReccomendationsApi';
 
