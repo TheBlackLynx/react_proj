@@ -5,7 +5,11 @@ interface UseModalProps {
     isOpen: boolean | null;
     animationDelay: number | null;
 }
-
+/**
+ * Переиспользуемый хук для модальных жлементов Drawer/Modal
+ * @param param0 
+ * @returns 
+ */
 export function useModal({
     onClose,
     isOpen,

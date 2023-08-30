@@ -30,11 +30,29 @@ interface AppButtonType extends ButtonHTMLAttributes<HTMLButtonElement>{
 export const AppButton: FC<AppButtonType> = memo(( props ) => {
     const { 
         className,
+        /**
+         * Содержимое кнопки
+         */
         children,
+        /**
+         * Тема кнопки
+         */
         buttonTheme = AppButtonTheme.OUTLINE,
+        /**
+         * Флаг, делающий кнопку квадратной
+         */
         square,
+        /**
+         * Размер кнопки
+         */
         size = AppButtonSize.M,
+        /**
+         * Флаг, отключающий кнопку
+         */
         disabled,
+        /**
+         * Флаг, устанавливающий размер кнопки на всю доступную ширину
+         */
         fullWidth,
         ...otherProps
     } = props;
