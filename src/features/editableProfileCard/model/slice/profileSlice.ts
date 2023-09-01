@@ -38,7 +38,6 @@ export const profileSlice = createSlice({
             state.data = {
                 ...state.form
             }
-            console.log('state.data after save', state.data );
         
         }
     }, extraReducers: (builder) => {

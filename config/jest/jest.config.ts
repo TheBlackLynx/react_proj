@@ -105,7 +105,8 @@ export default {
     ],
     moduleNameMapper: {
         "\\.scss$": "identity-obj-proxy",
-        "\\.svg": path.resolve(__dirname, 'jestEmptyComponent.tsx')
+        "\\.svg": path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        "^@/(.*)$": "<rootDir>/src/$1"
     },
 
     // A map from regular expressions to module names or to arrays

@@ -1,7 +1,10 @@
  
-import { ArticleType } from "../consts/consts"
+import { ArticleBlockType, ArticleType } from "../consts/consts"
+import { fetchArticleById } from "../services/fetchArticleById/fetchArticleById"
+import { Article, ArticleDetailSchema } from "../types/article"
+import { articleDetailsActions, articleDetailsReducer } from "./articleSlice"
 
-const data = {
+const data: Article = {
     id: "1",
     title: "Javascript news",
     subtitle: "Что нового в JS за 2022 год?",
@@ -9,10 +12,11 @@ const data = {
     views: 1022,
     createdAt: "26.02.2022",
     type: [ArticleType.WEB],
+    user: {id: '1', login: 'user'},
     blocks: [
         {
-            id: "1",
-            type: [ArticleType.WEB],
+            id: '1',
+            type: ArticleBlockType.TEXT,
             title: "Заголовок этого блока",
             paragraphs: [
                 "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
@@ -21,4 +25,19 @@ const data = {
             ]
         },
     ]
-}
+};
+
+
+
+describe('ArticleType', () => {
+    test('test fetchArticleById fulfilled', () => {
+        const state: DeepPartial<ArticleDetailSchema>  = {data: data, isLoading: true}
+        expect(articleDetailsReducer(
+            state as ArticleDetailSchema, 
+            fetchArticleById.fulfilled(data, '', ''))).toEqual({
+                isLoading: false,
+                data
+        })
+    })
+  
+})

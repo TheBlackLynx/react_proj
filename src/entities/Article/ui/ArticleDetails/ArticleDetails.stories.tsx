@@ -10,7 +10,7 @@ export default {
     component: ArticleDetails,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
-        backgroundColor: { control: 'color' },
+        backgrounds: { disable: true },
     },
 } as ComponentMeta<typeof ArticleDetails>;
 const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
