@@ -4,6 +4,7 @@ export function buildCssLoaders(isDev: boolean){
     console.log('!!!!isDev', isDev)
     return  {
         test: /\.s[ac]ss$/i,
+        exclude: /node_modules/,
         use: [
             // Creates `style` nodes from JS strings
             
