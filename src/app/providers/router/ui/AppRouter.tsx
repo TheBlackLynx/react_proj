@@ -5,9 +5,10 @@ import { PageLoader } from "@/widgets/PageLoader";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
 import { RequireAuth } from "./RequireAuth";
+import { useUserAuthData } from "@/entities/User/model/selectors/getUserAuthData/getUserAuthData";
 
 const AppRouter = () => {
-    const isAuth = useSelector(getUserAuthData);
+    const isAuth = useUserAuthData();
     
     const renderWithWrapper = useCallback((route: AppRouteProps) => {
         const element = (

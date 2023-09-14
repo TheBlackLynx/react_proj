@@ -6,6 +6,7 @@ import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi'
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton';
+import { useUserAuthData } from '@/entities/User/model/selectors/getUserAuthData/getUserAuthData';
 
 export interface ArticleRatingProps {
     className: string | null;
@@ -15,7 +16,7 @@ export interface ArticleRatingProps {
 const ArticleRating = memo((props: ArticleRatingProps) => {
     const { className, articleId } = props;
     const { t } = useTranslation();
-    const userData = useSelector(getUserAuthData); 
+    const userData = useUserAuthData(); 
     
 
     const { data, isLoading } = useGetArticleRating({

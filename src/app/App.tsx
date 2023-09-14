@@ -7,18 +7,19 @@ import "@/shared/config/i18n/i18n";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, getUserMounted, userActions } from "@/entities/User";
 import { useTheme } from "@/shared/lib/hooks/useTheme";
+import { useUserActions } from "@/entities/User/model/slice/userSlice";
+import { useUserAuthData } from "@/entities/User/model/selectors/getUserAuthData/getUserAuthData";
 
 
 const App = () => {
     const { theme } = useTheme();
-    const dispatch = useDispatch();
+    const {initAuthdata } = useUserActions()
     const userMounted = useSelector(getUserMounted);
-    const authData = useSelector(getUserAuthData)
+    const authData = useUserAuthData()
 
     useEffect(() => {
-        dispatch(userActions.initAuthdata())
-        
-    }, [dispatch])
+       initAuthdata()    
+    }, [])
 
 
     return (
