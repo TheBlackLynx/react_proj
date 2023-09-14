@@ -6,5 +6,5 @@ export const useInitialEffect = (callback: () => void) => {
             callback()
         }
 
-    }, [callback]))
+    }, []))
 }
