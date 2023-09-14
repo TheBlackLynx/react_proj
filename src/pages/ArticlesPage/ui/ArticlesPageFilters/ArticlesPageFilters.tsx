@@ -18,11 +18,11 @@ import { articlePageActions } from "../../model/slice/ArticlePageSlice";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { 
     ArticleSortField, 
-    ArticleSortSelector, 
     ArticleType, 
-    ArticleTypeTabs, 
-    ArticleView, 
-    ArticleViewSelector } from '@/entities/Article';
+    ArticleView, } from '@/entities/Article';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 
 interface ArticlesPageFiltersProps {
     className?: string

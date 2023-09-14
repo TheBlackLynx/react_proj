@@ -13,6 +13,7 @@ import { initeArticlesPage } from
 import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { Page } from '@/widgets';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 
 const ArticlesPage = memo(() => {
@@ -33,10 +34,11 @@ const ArticlesPage = memo(() => {
                 className={classNames(cls.ArticlePage, {}, [])}
                 //  onScrollEnd={onLoadNextPart}
             >
+                <ArticlesPageFilters />
                 <ArticleInfiniteList className={cls.list}/>
             </Page>
 
-            {/* <ArticlesPageFilters /> */}
+            
           
         </DynamicModuleLoader>
     )
