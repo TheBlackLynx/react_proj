@@ -1,12 +1,12 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppLink, classNames, Text, VStack } from '@/shared';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { TextSize } from '@/shared/ui/Text';
 import cls from './CommentItem.module.scss'
 import { CommentType } from '../../model/types/comment';
+import { getRouteProfile } from '@/shared/const/router';
 
 interface CommentItemProps {
     className?: string,
@@ -30,7 +30,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
     }
     return (
         <VStack max gap={"8"} className={classNames(cls.CommentItem, {}, [className])}>
-            <AppLink to={`${RoutePath.profile}${comment?.user.id}`} 
+            <AppLink to={getRouteProfile(comment?.user.id ?? '')} 
                 className={cls.CommentItemHeader}>
                 { comment?.user.avatar &&
                 <Avatar size={30} src={comment?.user.avatar}  />

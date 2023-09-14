@@ -5,9 +5,9 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AppButton, classNames} from "@/shared";
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 import { AppButtonTheme } from "@/shared/ui/AppButton";
 import cls from './ArticleDetailsPageHeader.module.scss'
+import { getRouteArticleEdit, getRouteArticles } from "@/shared/const/router";
 
 interface ArticleDetailsPageHeaderProps {
     className?: string
@@ -21,11 +21,11 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
 
     const canEdit = useSelector(getCanEditArticle);
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
+        navigate(getRouteArticles());
     }, [navigate])
 
     const onEdit = useCallback(() => {
-        navigate(RoutePath.articles + '/' + article?.id + '/edit');
+        navigate(getRouteArticleEdit(article?.id ?? ''));
     }, [article?.id, navigate])
     return (
         <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>

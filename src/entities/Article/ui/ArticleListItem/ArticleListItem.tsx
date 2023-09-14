@@ -3,13 +3,13 @@ import { Article, ArticleTextBlock } from '../../model/types/article';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { AppButton, AppButtonTheme, AppLink,
     Avatar, Card, classNames, Icon, Text, TextSize } from '@/shared';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { ARTICLE_LIST_ITEM_INDEX } from '@/shared/const/localstogare';
 import { useHover } from '@/shared/lib/hooks/useHover';
 
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss'
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string;
@@ -51,7 +51,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     <div className={cls.footer}>
                         <AppLink 
                             target={target}
-                            to={RoutePath.article_details + article.id}>
+                            to={getRouteArticleDetails(article.id)}>
                             <AppButton
                                 buttonTheme={AppButtonTheme.OUTLINE}
                                 onClick={handleButtonClick} 
@@ -77,7 +77,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         // @ts-ignore
             <AppLink  {...bindHover}  
                 target={target}
-                to={RoutePath.article_details + article.id} 
+                to={getRouteArticleDetails(article.id)} 
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card >
                     <div className={cls.imgWrapper}>

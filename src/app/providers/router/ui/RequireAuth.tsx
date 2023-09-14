@@ -1,8 +1,8 @@
 import { getUserAuthData, UserRole , getUserRole } from "@/entities/User";
+import { getRouteForbidden, getRouteMain } from "@/shared/const/router";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 
  interface RequireAuthProps {
     children: JSX.Element 
@@ -29,10 +29,10 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
         // trying to go to when they were redirected. This allows us to send them
         // along to that page after they login, which is a nicer user experience
         // than dropping them off on the home page.
-        return <Navigate to={RoutePath.main} state={{ from: location }} replace />;
+        return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
     }
     if (!hasRequiredRoles){
-        return <Navigate to={RoutePath.forbidden} replace />;
+        return <Navigate to={getRouteForbidden()} replace />;
     }
   
     return children;

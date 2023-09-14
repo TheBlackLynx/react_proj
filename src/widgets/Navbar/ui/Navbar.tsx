@@ -6,11 +6,11 @@ import { AppButtonTheme } from "@/shared/ui/AppButton";
 import { LoginModal } from "@/features/AuthByUsername";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 import { AppLinkTheme } from "@/shared/ui/AppLink";
 import { TextTheme } from "@/shared/ui/Text";
 import { NotificationButton } from "@/features/notificationButton";
 import { AvatarDropDown } from "@/features/avatarDropDown";
+import { getRouteArticleCreate } from "@/shared/const/router";
 
 interface NavbarProps {
   className?: string;
@@ -39,7 +39,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     title='App'
                     theme={TextTheme.INVERTED} />
                 <AppLink 
-                    to={RoutePath.article_create}
+                    to={getRouteArticleCreate()}
                     theme={AppLinkTheme.SECONDARY}
                     className={cls.createBtn}>
                     {t('создать статью')}
