@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import { Card, classNames, Input } from "@/shared";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce";
-import { SortOrder } from "@/shared/types";
+import { SortOrder } from "@/shared/types/sort";
 import cls from './ArticlesPageFilters.module.scss'
 import { articlePageActions } from "../../model/slice/ArticlePageSlice";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";

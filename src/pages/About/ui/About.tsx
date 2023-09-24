@@ -6,7 +6,7 @@ import classes from './About.module.scss';
 const About = memo(() => {
     const {t} = useTranslation('about');
     return (
-        <Page className={classes.about}>
+        <Page data-testid={'AboutPage'} className={classes.about}>
             {t('О сайте')}
         </Page>
     )

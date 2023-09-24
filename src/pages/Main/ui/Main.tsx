@@ -9,7 +9,7 @@ const Main = memo(() => {
     const [inputValue, setInputValue] = useState('');
 
     return (
-        <Page className={classes.main}>
+        <Page data-testid={'Main'} className={classes.main}>
         </Page>
     )
 });
