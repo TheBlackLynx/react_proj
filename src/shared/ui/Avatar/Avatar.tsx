@@ -1,6 +1,11 @@
 import cls from  './Avatar.module.scss';
 import {classNames} from '../../lib/classNames/classNames';
 import { CSSProperties, memo, useMemo } from 'react';
+import { AppImage } from '../AppImage';
+import  DefaultUserAvavtar from '../../assets/icons/defaultUserAvatar.svg'
+import { Skeleton } from '../Skeleton';
+import { Icon } from '../Icon';
+
 
 interface AvatarProps {
    className?: string;
@@ -17,8 +22,19 @@ export const Avatar = memo(( props: AvatarProps ) => {
         height: size
     }), [size])
 
+    const errorFallback = <Icon 
+        width={size}
+        height={size}
+        Svg={DefaultUserAvavtar} />
+
+    const fallback = <Skeleton 
+        width={size}
+        height={size}
+        border={'50%'}/>
     return (
-        <img 
+        <AppImage 
+            fallback={fallback}
+            errorFallBack={errorFallback}
             style={styles}
             className={classNames(cls.Avatar, {}, [className])}
             src={src}
