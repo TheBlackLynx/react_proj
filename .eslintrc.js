@@ -26,7 +26,9 @@ module.exports = {
         "react-hooks", 
         "marica-path-checker-plugin",
         "unused-imports",
-        "import"
+        "import",
+        "prettier",
+
     ],
     "rules": {
         'react-in-jsx-scope': 'off',
@@ -89,7 +91,8 @@ module.exports = {
         "import/named": 1,
         "import/namespace": 2,
         "import/default": 2,
-        "import/export": 1
+        "import/export": 1,
+        "prettier/prettier": "error"
     },
     globals: {
         __API__: true,
