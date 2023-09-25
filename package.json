@@ -27,6 +27,9 @@
     "prepare": "husky install",
     "postinstall": "node ./scripts/refactoring/clear-cache.js"
   },
+  "lint-staged": {
+      "**/*.{ts,tsx}": "eslint"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TheBlackLynx/react_proj.git"
@@ -91,6 +94,7 @@
     "jest": "^27.5.1",
     "jest-html-reporters": "^3.1.4",
     "json-server": "^0.17.1",
+    "lint-staged": "^13.0.3",
     "loki": "^0.30.3",
     "mini-css-extract-plugin": "^2.5.3",
     "react-refresh": "^0.14.0",
