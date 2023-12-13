@@ -34,10 +34,10 @@ export function buildPlugins({paths, isDev, apiUrl, project} : BuildOptions)
                 { from: paths.buildLocales, to: paths.locales},
             ],
         }),
-        new CircularDependencyPlugin({
-            exclude: /node_modules/,
-            failOnError: true,
-        }),
+        // new CircularDependencyPlugin({
+        //     exclude: /node_modules/,
+        //     failOnError: true,
+        // }),
         new ForkTsCheckerWebpackPlugin({
             typescript: {
                 diagnosticOptions: {
