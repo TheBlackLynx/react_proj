@@ -10,7 +10,7 @@ import {
 import { useTheme } from '@/shared/lib/hooks/useTheme';
 
 interface DrawerProps {
-    className: string | null;
+    className?: string | null;
     children: ReactNode;
     isOpen: boolean | null;
     onClose: (() => void) | null;

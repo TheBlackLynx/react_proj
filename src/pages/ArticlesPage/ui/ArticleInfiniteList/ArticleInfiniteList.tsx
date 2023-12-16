@@ -11,7 +11,6 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Text } from '@/shared';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import cls from './ArticleInfiniteList.module.scss';
 
 interface ArticleInfiniteListProps {
     className?: string;
@@ -37,7 +36,6 @@ export const ArticleInfiniteList = (props: ArticleInfiniteListProps) => {
             isLoading={isLoading}
             error={error}
             view={view}
-            className={cls.list}
             onScrollEnd={onLoadNextPart}
         />
     );

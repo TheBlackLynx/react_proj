@@ -1,3 +1,3 @@
 export interface NotificationButtonSchema {
-    s: string;
+    className?: string;
 }

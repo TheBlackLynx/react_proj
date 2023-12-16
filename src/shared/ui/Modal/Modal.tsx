@@ -8,7 +8,7 @@ import { Overlay } from '../Overlay/Overlay';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
 
 interface ModalProps {
-    className: string | null;
+    className?: string | null;
     children: ReactNode | null;
     isOpen: boolean | null;
     onClose: (() => void) | null;

@@ -1,3 +1,3 @@
 export interface AvatarDropDownSchema {
-    s: string;
+    className?: string;
 }

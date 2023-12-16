@@ -1,5 +1,4 @@
 import { memo, useCallback, useState } from 'react';
-import cls from './RatingCard.module.scss';
 import {
     Card,
     VStack,
@@ -75,7 +74,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
     );
 
     return (
-        <Card className={classNames(cls.RatingCard, {}, [className ?? ''])}>
+        <Card className={classNames('', {}, [className ?? ''])}>
             <VStack gap={'8'} align={'center'}>
                 <Text
                     title={starsCount ? t('Thank you for rating') : title ?? ''}
@@ -89,12 +88,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
             </VStack>
 
             <BrowserView>
-                <Modal
-                    isOpen={isModalOpen}
-                    lazy={false}
-                    className={cls.Modal}
-                    onClose={cancelHandle}
-                >
+                <Modal isOpen={isModalOpen} lazy={false} onClose={cancelHandle}>
                     <VStack max gap={'32'}>
                         {modalContent}
                         <HStack max gap={'16'} justify={'end'}>
@@ -116,7 +110,6 @@ export const RatingCard = memo((props: RatingCardProps) => {
                 <Drawer
                     isOpen={isModalOpen}
                     lazy={false}
-                    className={cls.Modal}
                     onClose={cancelHandle}
                 >
                     <VStack gap={'32'}>

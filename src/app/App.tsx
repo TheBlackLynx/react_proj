@@ -4,23 +4,19 @@ import { AppRouter } from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import '@/shared/config/i18n/i18n';
-import { useSelector } from 'react-redux';
-import {
-    getUserMounted,
-    useUserActions,
-    useUserAuthData,
-} from '@/entities/User';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { getUserMounted, userActions } from '@/entities/User';
 
 const App = () => {
     const { theme } = useTheme();
-    const { initAuthdata } = useUserActions();
+    const dispatch = useDispatch();
     const userMounted = useSelector(getUserMounted);
-    const authData = useUserAuthData();
 
     useEffect(() => {
-        initAuthdata();
-    }, [initAuthdata]);
+        dispatch(userActions.initAuthData());
+    }, [dispatch]);
 
     return (
         <>
