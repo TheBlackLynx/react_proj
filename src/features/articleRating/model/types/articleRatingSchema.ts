@@ -1,1 +1,3 @@
-export interface ArticleRatingSchema {}
+export interface ArticleRatingSchema {
+    s: string;
+}

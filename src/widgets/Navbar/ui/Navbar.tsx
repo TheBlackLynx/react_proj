@@ -4,14 +4,12 @@ import cls from './Navbar.module.scss';
 import { useState, useCallback, memo } from 'react';
 import { AppButtonTheme } from '@/shared/ui/AppButton';
 import { LoginModal } from '@/features/AuthByUsername';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from '@/entities/User';
 import { AppLinkTheme } from '@/shared/ui/AppLink';
 import { TextTheme } from '@/shared/ui/Text';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropDown } from '@/features/avatarDropDown';
 import { getRouteArticleCreate } from '@/shared/const/router';
-import { useUserAuthData } from '@/entities/User/model/selectors/getUserAuthData/getUserAuthData';
+import { useUserAuthData } from '@/entities/User';
 
 interface NavbarProps {
     className?: string;

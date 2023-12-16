@@ -4,11 +4,13 @@ import { AppRouter } from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import '@/shared/config/i18n/i18n';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, getUserMounted, userActions } from '@/entities/User';
+import { useSelector } from 'react-redux';
+import {
+    getUserMounted,
+    useUserActions,
+    useUserAuthData,
+} from '@/entities/User';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { useUserActions } from '@/entities/User/model/slice/userSlice';
-import { useUserAuthData } from '@/entities/User/model/selectors/getUserAuthData/getUserAuthData';
 
 const App = () => {
     const { theme } = useTheme();
@@ -18,7 +20,7 @@ const App = () => {
 
     useEffect(() => {
         initAuthdata();
-    }, []);
+    }, [initAuthdata]);
 
     return (
         <>

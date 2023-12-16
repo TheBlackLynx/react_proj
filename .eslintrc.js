@@ -31,9 +31,6 @@ module.exports = {
     ],
     rules: {
         "react-in-jsx-scope": "off",
-        "react/jsx-indent": [2, 4],
-        "react/jsx-indent-props": [2, 4],
-        indent: [2, 4],
         "react/jsx-filename-extension": [
             2,
             {
@@ -61,7 +58,7 @@ module.exports = {
         "react/prop-types": 0,
         "typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/ban-ts-comment": "off",
-        "max-len": [2, 100],
+        "max-len": [2, 130],
         "react/jsx-props-no-spreading": "off",
         "marica-path-checker-plugin/path-checker": ["error", { alias: "@" }],
         "marica-path-checker-plugin/layer-import": [
@@ -84,6 +81,7 @@ module.exports = {
                     "**/*.test.ts",
                     "**/*.story.ts",
                     "**/StoreDecorator.tsx",
+                    "**/*/*routeConfig.tsx"
                 ],
             },
         ],

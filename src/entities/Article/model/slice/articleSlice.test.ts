@@ -1,7 +1,7 @@
 import { ArticleBlockType, ArticleType } from '../consts/consts';
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
 import { Article, ArticleDetailSchema } from '../types/article';
-import { articleDetailsActions, articleDetailsReducer } from './articleSlice';
+import { articleDetailsReducer } from './articleSlice';
 
 const data: Article = {
     id: '1',

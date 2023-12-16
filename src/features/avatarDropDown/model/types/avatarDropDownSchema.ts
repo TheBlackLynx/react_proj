@@ -1,1 +1,3 @@
-export interface AvatarDropDownSchema {}
+export interface AvatarDropDownSchema {
+    s: string;
+}

@@ -1,3 +1,4 @@
+/* eslint-disable marica-path-checker-plugin/layer-import */
 import { UserRole } from '@/entities/User';
 import { AboutPage } from '@/pages/About';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';

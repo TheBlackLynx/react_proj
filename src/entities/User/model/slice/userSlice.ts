@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstogare';
 import { User, UserSchema } from '../types/user';
 import { buildSlice } from '@/shared/lib/store';

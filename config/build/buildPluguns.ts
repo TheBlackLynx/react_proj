@@ -4,9 +4,9 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
-import CopyPlugin from "copy-webpack-plugin";
-import CircularDependencyPlugin from 'circular-dependency-plugin';
 import  ForkTsCheckerWebpackPlugin from'fork-ts-checker-webpack-plugin';
+// eslint-disable-next-line import/default
+import CopyPlugin from 'copy-webpack-plugin';
 
 
 
@@ -59,9 +59,9 @@ export function buildPlugins({paths, isDev, apiUrl, project} : BuildOptions)
     if (isProd) {
         plugins.push(
             new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:8].css',
-            chunkFilename: 'css/[name].[contenthash:8].css'
-        })
+                filename: 'css/[name].[contenthash:8].css',
+                chunkFilename: 'css/[name].[contenthash:8].css'
+            })
         )
         plugins.push(
             new CopyPlugin({

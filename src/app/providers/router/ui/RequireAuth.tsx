@@ -30,8 +30,7 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
         // along to that page after they login, which is a nicer user experience
         // than dropping them off on the home page.
         return (
-            <Navigate to={getRouteMain()} state={{ from: location }}
-replace />
+            <Navigate to={getRouteMain()} state={{ from: location }} replace />
         );
     }
     if (!hasRequiredRoles) {

@@ -3,20 +3,24 @@
 }
 
 .active {
-    background: rgb(green, 0.2);
+    background: rgb(green 0.2);
 }
+
 .optionsBottomLeft {
     top: 100%;
     right: 100%;
 }
+
 .optionsBottomRight {
     top: 100%;
     left: 100%;
 }
+
 .optionsTopLeft {
     bottom: 100%;
     left: 0;
 }
+
 .optionsTopRight {
     bottom: 100%;
     right: 0;
@@ -24,7 +28,6 @@
 
 .trigger {
     border: none;
-    outline: none;
     background: none;
     padding: 0;
     margin: 0;

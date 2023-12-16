@@ -5,10 +5,8 @@ import {
     routeConfig,
 } from '@/shared/config/routeConfig/routeConfig';
 import { PageLoader } from '@/widgets/PageLoader';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from '@/entities/User';
 import { RequireAuth } from './RequireAuth';
-import { useUserAuthData } from '@/entities/User/model/selectors/getUserAuthData/getUserAuthData';
+import { useUserAuthData } from '@/entities/User';
 
 const AppRouter = () => {
     const isAuth = useUserAuthData();

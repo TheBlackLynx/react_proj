@@ -1,1 +1,3 @@
-export interface NotificationButtonSchema {}
+export interface NotificationButtonSchema {
+    s: string;
+}

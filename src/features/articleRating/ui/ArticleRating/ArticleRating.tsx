@@ -6,10 +6,8 @@ import {
     useGetArticleRating,
     useRateArticle,
 } from '../../api/articleRatingApi';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import { useUserAuthData } from '@/entities/User/model/selectors/getUserAuthData/getUserAuthData';
+import { useUserAuthData } from '@/entities/User';
 
 export interface ArticleRatingProps {
     className: string | null;
