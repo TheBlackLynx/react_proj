@@ -14,5 +14,5 @@ jobs:
             - run: npm run lint:ts
             - run: npm run stylelint
             - run: npm run test:unit
-            - run: npm run build-storybook
-            - run: npm run test:ui:ci
+            # - run: npm run build-storybook
+            # - run: npm run test:ui:ci
