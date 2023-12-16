@@ -4,38 +4,37 @@ import { loginByUserName } from './loginByUserName';
 import { userActions } from '@/entities/User';
 import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk';
 
-
-
 describe('login by username tests', () => {
-//с использованием TestAsyncThunk
+    //с использованием TestAsyncThunk
     let dispatch: Dispatch;
     let getState: () => StateSchema;
 
     beforeEach(() => {
         dispatch = jest.fn();
         getState = jest.fn();
-    })
+    });
     test('should return value from server ', async () => {
-        const userValue = {login: '123', id: '1'};
-        
+        const userValue = { login: '123', id: '1' };
+
         const thunk = new TestAsyncThunk(loginByUserName);
-        thunk.api.post.mockReturnValue(Promise.resolve({data: userValue}))
-        const result = await thunk.callThunk({login: '123', password: '123'});
-        expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue))
-        expect(thunk.dispatch).toHaveBeenCalledTimes(3)
+        thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
+        const result = await thunk.callThunk({ login: '123', password: '123' });
+        expect(thunk.dispatch).toHaveBeenCalledWith(
+            userActions.setAuthData(userValue),
+        );
+        expect(thunk.dispatch).toHaveBeenCalledTimes(3);
         expect(thunk.api.post).toHaveBeenCalled();
-        expect(result.meta.requestStatus).toBe('fulfilled')
-    })
+        expect(result.meta.requestStatus).toBe('fulfilled');
+    });
 
     test('should return response with 403 status ', async () => {
-        
         const thunk = new TestAsyncThunk(loginByUserName);
-        thunk.api.post.mockReturnValue(Promise.reject({status: 403}))
-        const result = await thunk.callThunk({login: '123', password: '123'});
-        expect(thunk.dispatch).toHaveBeenCalledTimes(2)
+        thunk.api.post.mockReturnValue(Promise.reject({ status: 403 }));
+        const result = await thunk.callThunk({ login: '123', password: '123' });
+        expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.post).toHaveBeenCalled();
-        expect(result.meta.requestStatus).toBe('rejected')
-    })
+        expect(result.meta.requestStatus).toBe('rejected');
+    });
 
     //обычный вариант
     // let dispatch: Dispatch;
@@ -66,4 +65,4 @@ describe('login by username tests', () => {
     //      expect(mockedAxios.post).toHaveBeenCalled();
     //      expect(result.meta.requestStatus).toBe('rejected')
     //  })
-})
+});

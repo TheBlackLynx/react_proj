@@ -13,21 +13,19 @@ export default {
         backgroundColor: { control: 'color' },
     },
     args: {
-        to: '/'
-    }
+        to: '/',
+    },
 } as ComponentMeta<typeof Modal>;
-const Template:
- ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
+const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
     isOpen: true,
     children: 'text',
-    
 };
 
 export const Secondary = Template.bind({});
-Secondary.decorators=[ThemeDecorator(Theme.DARK)]
+Secondary.decorators = [ThemeDecorator(Theme.DARK)];
 Secondary.args = {
     isOpen: true,
     children: 'text',

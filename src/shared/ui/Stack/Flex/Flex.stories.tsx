@@ -10,10 +10,9 @@ export default {
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
         backgroundColor: { control: 'color' },
-    }
+    },
 } as ComponentMeta<typeof Flex>;
-const Template:
- ComponentStory<typeof Flex> = (args) => <Flex {...args} />;
+const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />;
 
 export const Row = Template.bind({});
 Row.args = {
@@ -24,8 +23,7 @@ Row.args = {
             <div>third</div>
             <div>forth</div>
         </>
-    )
-    
+    ),
 };
 
 export const Column = Template.bind({});
@@ -38,7 +36,7 @@ Column.args = {
             <div>third</div>
             <div>forth</div>
         </>
-    ) 
+    ),
 };
 
 export const Gap4 = Template.bind({});
@@ -51,7 +49,7 @@ Gap4.args = {
             <div>third</div>
             <div>forth</div>
         </>
-    ) 
+    ),
 };
 
 export const Gap8 = Template.bind({});
@@ -64,7 +62,7 @@ Gap8.args = {
             <div>third</div>
             <div>forth</div>
         </>
-    ) 
+    ),
 };
 
 export const Gap16 = Template.bind({});
@@ -77,7 +75,7 @@ Gap16.args = {
             <div>third</div>
             <div>forth</div>
         </>
-    ) 
+    ),
 };
 
 export const Gap32 = Template.bind({});
@@ -90,7 +88,7 @@ Gap32.args = {
             <div>third</div>
             <div>forth</div>
         </>
-    ) 
+    ),
 };
 
 export const ColumnGap16 = Template.bind({});
@@ -104,7 +102,7 @@ ColumnGap16.args = {
             <div>third</div>
             <div>forth</div>
         </>
-    ) 
+    ),
 };
 
 export const ColumnGap32 = Template.bind({});
@@ -118,5 +116,5 @@ ColumnGap32.args = {
             <div>third</div>
             <div>forth</div>
         </>
-    ) 
+    ),
 };

@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CommentList }  from './CommentList';
+import { CommentList } from './CommentList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -11,7 +11,9 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof CommentList>;
-const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
+const Template: ComponentStory<typeof CommentList> = (args) => (
+    <CommentList {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
@@ -29,14 +31,11 @@ Normal.args = {
     ],
 };
 
-Normal.decorators = [StoreDecorator({})]
+Normal.decorators = [StoreDecorator({})];
 
 export const Loading = Template.bind({});
 Loading.args = {
     comments: [],
     isLoading: true,
 };
-Loading.decorators = [StoreDecorator({})]
-
-
-
+Loading.decorators = [StoreDecorator({})];

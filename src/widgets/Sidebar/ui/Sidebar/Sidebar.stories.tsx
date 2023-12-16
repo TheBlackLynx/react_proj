@@ -2,10 +2,8 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Sidebar } from './Sidebar';
-import { ThemeDecorator } from 
-    '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { RouterDecorator } 
-    from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Theme } from '@/shared/const/theme';
 
@@ -18,22 +16,30 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof Sidebar>;
-const Template: 
-ComponentStory<typeof Sidebar> = () => <Sidebar />;
+const Template: ComponentStory<typeof Sidebar> = () => <Sidebar />;
 
 export const Light = Template.bind({});
-Light.decorators = [ StoreDecorator({
-    user: {authData: {}}
-})]
+Light.decorators = [
+    StoreDecorator({
+        user: { authData: {} },
+    }),
+];
 
 export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator(), StoreDecorator({
-    user: {authData: {}}
-})]
+Dark.decorators = [
+    ThemeDecorator(Theme.DARK),
+    RouterDecorator(),
+    StoreDecorator({
+        user: { authData: {} },
+    }),
+];
 Dark.args = {};
 
 export const noAuth = Template.bind({});
-noAuth.decorators = [ RouterDecorator(), StoreDecorator({
-    user: {}
-})]
+noAuth.decorators = [
+    RouterDecorator(),
+    StoreDecorator({
+        user: {},
+    }),
+];
 noAuth.args = {};

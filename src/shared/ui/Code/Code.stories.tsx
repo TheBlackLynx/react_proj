@@ -22,6 +22,5 @@ Primary.args = {
         argTypes: {
             backgroundColor: { control: 'color' },
         },
-    } as ComponentMeta<typeof Code>;`
+    } as ComponentMeta<typeof Code>;`,
 };
-

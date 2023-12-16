@@ -1,9 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from 
-    '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import {NotificationItem} from './NotificationItem';
+import { NotificationItem } from './NotificationItem';
 import { Theme } from '@/shared/const/theme';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -14,14 +13,14 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof NotificationItem>;
-const Template: 
-ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args}/>;
+const Template: ComponentStory<typeof NotificationItem> = (args) => (
+    <NotificationItem {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({})]
-
+Light.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 Dark.args = {};

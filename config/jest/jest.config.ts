@@ -3,11 +3,11 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from "path";
+import path from 'path';
 
 export default {
     clearMocks: true,
-    testEnvironment: "jsdom",
+    testEnvironment: 'jsdom',
     setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
     // All imported modules in your tests should be mocked automatically
     // automock: false,
@@ -19,12 +19,11 @@ export default {
     // cacheDirectory: "/private/var/folders/f7/hf40sc753ndfsd1mzmw37fxh0000gn/T/jest_dx",
 
     // Automatically clear mock calls, instances and results before every test
- 
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
-    // An array of glob patterns indicating a set of 
+    // An array of glob patterns indicating a set of
     //files for which coverage information should be collected
     // collectCoverageFrom: undefined,
 
@@ -32,16 +31,17 @@ export default {
     // coverageDirectory: undefined,
 
     // An array of regexp pattern strings used to skip coverage collection
-    coveragePathIgnorePatterns: [
-        "/node_modules/"
-    ],
+    coveragePathIgnorePatterns: ['/node_modules/'],
     reporters: [
-        "default",
-        ["jest-html-reporters", {
-            publicPath: `<rootDir>/reports/html-report`,
-            filename: "report.html",
-            openReport: true
-        }]
+        'default',
+        [
+            'jest-html-reporters',
+            {
+                publicPath: `<rootDir>/reports/html-report`,
+                filename: 'report.html',
+                openReport: true,
+            },
+        ],
     ],
 
     // Indicates which provider should be used to instrument code for coverage
@@ -67,19 +67,19 @@ export default {
     // Force coverage collection from ignored files using an array of glob patterns
     // forceCoverageMatch: [],
 
-    // A path to a module which exports an async function that 
+    // A path to a module which exports an async function that
     //is triggered once before all test suites
     // globalSetup: undefined,
 
-    // A path to a module which exports an async function that is 
+    // A path to a module which exports an async function that is
     //triggered once after all test suites
     // globalTeardown: undefined,
 
     // A set of global variables that need to be available in all test environments
     globals: {
-        '__IS_DEV__': true,
-        '__API__': '',
-        '__PROJECT__': 'jest'
+        __IS_DEV__: true,
+        __API__: '',
+        __PROJECT__: 'jest',
     },
 
     // The maximum amount of workers used to run your tests.
@@ -90,30 +90,21 @@ export default {
 
     // An array of directory names to be searched recursively up
     // from the requiring module's location
-    moduleDirectories: [
-        "node_modules"
-    ],
+    moduleDirectories: ['node_modules'],
 
     // An array of file extensions your modules use
-    moduleFileExtensions: [
-        "js",
-        "jsx",
-        "ts",
-        "tsx",
-        "json",
-        "node"
-    ],
+    moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
     moduleNameMapper: {
-        "\\.scss$": "identity-obj-proxy",
-        "\\.svg": path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-        "^@/(.*)$": "<rootDir>/src/$1"
+        '\\.scss$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
 
     // A map from regular expressions to module names or to arrays
     // of module names that allow to stub out resources with a single module
     // moduleNameMapper: {},
 
-    // An array of regexp pattern strings, matched against all 
+    // An array of regexp pattern strings, matched against all
     //module paths before considered 'visible' to the module loader
     // modulePathIgnorePatterns: [],
 
@@ -145,7 +136,7 @@ export default {
     // restoreMocks: false,
 
     // The root directory that Jest should scan for tests and modules within
-    rootDir: "../../",
+    rootDir: '../../',
 
     // A list of paths to directories that Jest should use to search for files in
     // roots: [
@@ -155,11 +146,11 @@ export default {
     // Allows you to use a custom runner instead of Jest's default test runner
     // runner: "jest-runner",
 
-    // The paths to modules that run some code to configure or set 
+    // The paths to modules that run some code to configure or set
     //up the testing environment before each test
     // setupFiles: [],
 
-    // A list of paths to modules that run some code to configure 
+    // A list of paths to modules that run some code to configure
     //or set up the testing framework before each test
     // setupFilesAfterEnv: [],
 
@@ -167,12 +158,11 @@ export default {
     // slow and reported as such in the results.
     // slowTestThreshold: 5,
 
-    // A list of paths to snapshot serializer modules Jest 
+    // A list of paths to snapshot serializer modules Jest
     //should use for snapshot testing
     // snapshotSerializers: [],
 
     // The test environment that will be used for testing
- 
 
     // Options that will be passed to the testEnvironment
     // testEnvironmentOptions: {},
@@ -181,13 +171,9 @@ export default {
     // testLocationInResults: false,
 
     // The glob patterns Jest uses to detect test files
-    testMatch: [
-        '<rootDir>src/**/*.test.[jt]s?(x)'
-    ],
-    "modulePaths": [
-        "<rootDir>src",
-    ],
-    
+    testMatch: ['<rootDir>src/**/*.test.[jt]s?(x)'],
+    modulePaths: ['<rootDir>src'],
+
     // An array of regexp pattern strings that are matched
     //against all test paths, matched tests are skipped
     // testPathIgnorePatterns: [
@@ -203,7 +189,7 @@ export default {
     // This option allows use of a custom test runner
     // testRunner: "jest-circus/runner",
 
-    // This option sets the URL for the jsdom environment. It is 
+    // This option sets the URL for the jsdom environment. It is
     //reflected in properties such as location.href
     // testURL: "http://localhost",
 
@@ -213,26 +199,23 @@ export default {
 
     // A map from regular expressions to paths to transformers
     //transform: { '^.+\\.ts?$'},
-    // An array of regexp pattern strings that are matched against 
+    // An array of regexp pattern strings that are matched against
     //all source file paths, matched files will skip transformation
-    transformIgnorePatterns: [
-        "/node_modules/(?!axios)"
-    ],
+    transformIgnorePatterns: ['/node_modules/(?!axios)'],
 
     // collectCoverage: true, //оценка покрытия кода тестами
     // collectCoverageFrom: ['src/**/*.ts', '!**/*.d.ts'],
     // testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/']
 
-
-    // An array of regexp pattern strings that are matched against 
+    // An array of regexp pattern strings that are matched against
     //all modules before the module loader will automatically return a mock for them
     // unmockedModulePathPatterns: undefined,
 
-    // Indicates whether each individual test should be reported 
+    // Indicates whether each individual test should be reported
     //during the run
     // verbose: undefined,
 
-    // An array of regexp patterns that are matched against all 
+    // An array of regexp patterns that are matched against all
     //source file paths before re-running tests in watch mode
     // watchPathIgnorePatterns: [],
 

@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { AppButton } from '../../../AppButton/AppButton';
 
-import { PopoverCustom as  Popover } from './Popover';
+import { PopoverCustom as Popover } from './Popover';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'shared/ui/Popover',
@@ -11,24 +11,27 @@ export default {
         backgroundColor: { control: 'color' },
     },
     decorators: [
-        (Story) => <div style={{padding: '150px'}}><Story /></div>
-    ]
+        (Story) => (
+            <div style={{ padding: '150px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as ComponentMeta<typeof Popover>;
-const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args}
-/>
+const Template: ComponentStory<typeof Popover> = (args) => (
+    <Popover {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
-    trigger: <AppButton fullWidth={null}>Press</AppButton>, 
+    trigger: <AppButton fullWidth={null}>Press</AppButton>,
     direction: 'top left',
-    children: <>
-        wqrwqrqwr</>
+    children: <>wqrwqrqwr</>,
 };
 
 export const topLeft = Template.bind({});
 topLeft.args = {
     direction: 'top left',
-    
 };
 export const bottomLeft = Template.bind({});
 bottomLeft.args = {

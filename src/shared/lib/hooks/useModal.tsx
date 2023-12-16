@@ -1,4 +1,10 @@
-import { MutableRefObject, useCallback, useEffect, useRef, useState } from "react";
+import {
+    MutableRefObject,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 
 interface UseModalProps {
     onClose: (() => void) | null;
@@ -7,40 +13,40 @@ interface UseModalProps {
 }
 /**
  * Переиспользуемый хук для модальных жлементов Drawer/Modal
- * @param param0 
- * @returns 
+ * @param param0
+ * @returns
  */
-export function useModal({
-    onClose,
-    isOpen,
-    animationDelay
-}: UseModalProps) {
+export function useModal({ onClose, isOpen, animationDelay }: UseModalProps) {
     const [isMounted, setIsMounted] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-
     useEffect(() => {
         if (isOpen) {
-            setIsMounted(true)
+            setIsMounted(true);
         }
-    }, [isOpen])
+    }, [isOpen]);
     const closeHandler = useCallback(() => {
-        setIsClosing(true)
+        setIsClosing(true);
         if (onClose) {
-            timeRef.current = setTimeout(() => {
-                onClose()
-                setIsClosing(false)
-            }, animationDelay ? animationDelay : 0)
+            timeRef.current = setTimeout(
+                () => {
+                    onClose();
+                    setIsClosing(false);
+                },
+                animationDelay ? animationDelay : 0,
+            );
         }
-    }, [onClose, animationDelay])
+    }, [onClose, animationDelay]);
 
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            closeHandler();
-        }
-    }, [closeHandler])
-
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                closeHandler();
+            }
+        },
+        [closeHandler],
+    );
 
     useEffect(() => {
         if (isOpen) {
@@ -49,13 +55,12 @@ export function useModal({
         return () => {
             clearTimeout(timeRef.current);
             window.removeEventListener('keydown', onKeyDown);
-        }
-    }, [isOpen, onKeyDown])
+        };
+    }, [isOpen, onKeyDown]);
 
     return {
         isClosing,
         isMounted,
-        closeHandler
-    }
-
+        closeHandler,
+    };
 }

@@ -11,7 +11,9 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof CommentItem>;
-const Template: ComponentStory<typeof CommentItem> = (args) => <CommentItem {...args} />;
+const Template: ComponentStory<typeof CommentItem> = (args) => (
+    <CommentItem {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
@@ -21,7 +23,7 @@ Normal.args = {
         user: { id: '1', login: 'Vasya' },
     },
 };
-Normal.decorators = [StoreDecorator({})]
+Normal.decorators = [StoreDecorator({})];
 
 export const Loading = Template.bind({});
 Loading.args = {
@@ -33,4 +35,4 @@ Loading.args = {
     isLoading: true,
 };
 
-Loading.decorators = [StoreDecorator({})]
+Loading.decorators = [StoreDecorator({})];

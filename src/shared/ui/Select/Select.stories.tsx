@@ -1,4 +1,3 @@
-
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Select } from './Select';
@@ -18,12 +17,10 @@ export const Primary = Template.bind({});
 Primary.args = {
     label: 'Test',
     options: [
-        {value: '321', content: 'одна опция'},
-        {value: '21', content: 'другая опция'}
-    ]
+        { value: '321', content: 'одна опция' },
+        { value: '21', content: 'другая опция' },
+    ],
 };
 
 export const Small = Template.bind({});
-Small.args = {
-};
-
+Small.args = {};

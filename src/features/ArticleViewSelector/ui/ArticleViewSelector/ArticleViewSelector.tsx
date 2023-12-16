@@ -3,26 +3,26 @@ import { useTranslation } from 'react-i18next';
 import TileIcon from '@/shared/assets/icons/TileIcon.svg';
 import ListIcon from '@/shared/assets/icons/ListIcon.svg';
 import { AppButton, classNames, Icon } from '@/shared';
-import cls from './ArticleViewSelector.module.scss'
+import cls from './ArticleViewSelector.module.scss';
 import { AppButtonTheme } from '@/shared/ui/AppButton';
 import { ArticleView } from '@/entities/Article';
 
 interface ArticleViewSelectorProps {
     className?: string;
     view: ArticleView;
-    onViewClick: (view: ArticleView) => void
+    onViewClick: (view: ArticleView) => void;
 }
 
 const viewTypes = [
     {
         view: ArticleView.LIST,
-        icon: ListIcon
+        icon: ListIcon,
     },
     {
         view: ArticleView.TILE,
-        icon: TileIcon
-    }
-]
+        icon: TileIcon,
+    },
+];
 
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
     const { t } = useTranslation('article');
@@ -30,23 +30,22 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
 
     const onButtonClick = (newView: ArticleView) => {
         return () => {
-            onViewClick?.(newView)
-        }
-    }
+            onViewClick?.(newView);
+        };
+    };
     return (
         <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
-            {
-                viewTypes.map(viewType => (
-                    <AppButton
-                        buttonTheme={AppButtonTheme.CLEAR}
-                        onClick={onButtonClick(viewType.view)}
-                        className={viewType.view === view ? cls.selected : ''}
-                        key={viewType.view} fullWidth={null}                    >
-                        <Icon Svg={viewType.icon} />
-                    </AppButton>
-                ))
-            }
-
+            {viewTypes.map((viewType) => (
+                <AppButton
+                    buttonTheme={AppButtonTheme.CLEAR}
+                    onClick={onButtonClick(viewType.view)}
+                    className={viewType.view === view ? cls.selected : ''}
+                    key={viewType.view}
+                    fullWidth={null}
+                >
+                    <Icon Svg={viewType.icon} />
+                </AppButton>
+            ))}
         </div>
-    )
+    );
 });

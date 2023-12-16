@@ -1,11 +1,11 @@
 import { memo } from 'react';
-import {Loader} from '@/shared/ui/Loader';
-import cls from './PageLoader.module.scss'
+import { Loader } from '@/shared/ui/Loader';
+import cls from './PageLoader.module.scss';
 
 export const PageLoader = memo(() => {
     return (
         <div className={cls.pageLoader}>
             <Loader />
         </div>
-    )
-})
+    );
+});

@@ -1,6 +1,6 @@
 import cls from './ProfileCard.module.scss';
-import { memo } from "react";
-import { classNames, HStack, Input, VStack , Text } from '@/shared';
+import { memo } from 'react';
+import { classNames, HStack, Input, VStack, Text } from '@/shared';
 import { useTranslation } from 'react-i18next';
 import { Spinner, SpinnerSize } from '@/shared/ui/Spinner';
 import { Align, TextSize, TextTheme } from '@/shared/ui/Text';
@@ -11,26 +11,26 @@ import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country, CountrySelect } from '@/entities/Country';
 import { ProfileType } from '../../model/types/profile';
 
-
 export interface ProfileCardProps {
-    className?: string,
-    data?: ProfileType,
-    isLoading: boolean,
-    error?: string,
-    readonly?: boolean,
-    onChangeLastname?: (value?: string) => void,
-    onChangeFirstname?: (value?: string) => void,
-    onChangeAge?: (value?: string) => void,
-    onChangeCity?: (value?: string) => void,
-    onChangeUsername?: (value?: string) => void,
-    onChangeAvatar?: (value?: string) => void,
-    onChangeCurrency?: (value?: Currency) => void
-    onChangeCountry?: (value?: Country) => void
+    className?: string;
+    data?: ProfileType;
+    isLoading: boolean;
+    error?: string;
+    readonly?: boolean;
+    onChangeLastname?: (value?: string) => void;
+    onChangeFirstname?: (value?: string) => void;
+    onChangeAge?: (value?: string) => void;
+    onChangeCity?: (value?: string) => void;
+    onChangeUsername?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
+    onChangeCurrency?: (value?: Currency) => void;
+    onChangeCountry?: (value?: Country) => void;
 }
 export const ProfileCard = memo((props: ProfileCardProps) => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
-    const { className,
+    const {
+        className,
         data,
         isLoading,
         error,
@@ -42,26 +42,39 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         onChangeUsername,
         onChangeAvatar,
         onChangeCurrency,
-        onChangeCountry
+        onChangeCountry,
     } = props;
 
     const mods: Mods = {
-        [cls.editing]: !readonly
-    }
+        [cls.editing]: !readonly,
+    };
 
     if (isLoading) {
         return (
-            <HStack justify={'center'} max
-                className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
+            <HStack
+                justify={'center'}
+                max
+                className={classNames(
+                    cls.ProfileCard,
+                    { [cls.loading]: true },
+                    [className],
+                )}
+            >
                 <Spinner size={SpinnerSize.M} />
             </HStack>
-        )
+        );
     }
 
     if (error) {
         return (
-            <HStack justify={'center'} max
-                className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <HStack
+                justify={'center'}
+                max
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
+            >
                 <Text
                     size={TextSize.S}
                     theme={TextTheme.ERROR}
@@ -70,23 +83,29 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                     align={Align.CENTER}
                 />
             </HStack>
-        )
+        );
     }
     return (
-        <VStack gap={'8'} className={classNames(cls.ProfileCard, mods, [className])}>
+        <VStack
+            gap={'8'}
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
             {data?.avatar && (
                 <HStack justify={'center'} max className={cls.AvatarWrapper}>
-                    <Avatar size={200} src={data?.avatar} className={cls.ProfileAvatar} />
+                    <Avatar
+                        size={200}
+                        src={data?.avatar}
+                        className={cls.ProfileAvatar}
+                    />
                 </HStack>
-            )
-            }
+            )}
             <Input
                 value={data?.first}
                 placeholder={t('Ваше имя')}
                 onChange={onChangeFirstname}
                 readonly={readonly}
                 className={cls.ProfileCardInput}
-                data-testid='ProfileCard.firstname'
+                data-testid="ProfileCard.firstname"
             />
             <Input
                 value={data?.last}
@@ -105,7 +124,6 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 className={cls.ProfileCardInput}
                 data-testid={`ProfileCard.age`}
             />
-
 
             <Input
                 value={data?.city}

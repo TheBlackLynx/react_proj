@@ -1,4 +1,4 @@
-import {Project} from 'ts-morph';
+import { Project } from 'ts-morph';
 
 const project = new Project({});
 
@@ -8,20 +8,24 @@ project.addSourceFilesAtPaths('src/**/*.tsx');
 const files = project.getSourceFiles();
 
 const isAbsolute = (value: string) => {
-    const layers = ['app', 'shared', 'entities', 'features', 'widgets', 'pages'];
+    const layers = [
+        'app',
+        'shared',
+        'entities',
+        'features',
+        'widgets',
+        'pages',
+    ];
     return layers.some((layer) => value.startsWith(layer));
-}
-files.forEach(file => {
+};
+files.forEach((file) => {
     const imports = file.getImportDeclarations();
-    imports.forEach(importDeclaration => {
+    imports.forEach((importDeclaration) => {
         const value = importDeclaration.getModuleSpecifierValue();
-        if (isAbsolute(value)){
+        if (isAbsolute(value)) {
             importDeclaration.setModuleSpecifier('@/' + value);
         }
-    })
-
+    });
 });
 
 project.save();
-
-

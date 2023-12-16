@@ -1,8 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import  {NotFoundPage} from './NotFoundPage';
-import { ThemeDecorator } from 
-    '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { NotFoundPage } from './NotFoundPage';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Theme } from '@/shared/const/theme';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -14,14 +13,14 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof NotFoundPage>;
-const Template: 
-ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage {...args} />;
+const Template: ComponentStory<typeof NotFoundPage> = (args) => (
+    <NotFoundPage {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({})]
-
+Light.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 Dark.args = {};

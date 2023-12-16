@@ -1,1 +1,1 @@
-export { addNewCommentFormReducer } from './model/slice/addNewCommentForm'
+export { addNewCommentFormReducer } from './model/slice/addNewCommentForm';

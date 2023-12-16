@@ -12,28 +12,27 @@ export default {
         backgroundColor: { control: 'color' },
     },
     args: {
-        to: '/'
-    }
+        to: '/',
+    },
 } as ComponentMeta<typeof Tabs>;
-const Template:
- ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
+const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
 
 export const TextPrimary = Template.bind({});
 TextPrimary.args = {
     tabs: [
         {
             value: 'tab1',
-            content: 'tab1'
+            content: 'tab1',
         },
         {
             value: 'tab2',
-            content: 'tab2'
+            content: 'tab2',
         },
         {
             value: 'tab3',
-            content: 'tab3'
-        }
+            content: 'tab3',
+        },
     ],
     value: 'tab2',
-    onTabClick: action('onTabClick')
+    onTabClick: action('onTabClick'),
 };

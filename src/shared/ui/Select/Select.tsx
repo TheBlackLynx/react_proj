@@ -1,10 +1,10 @@
-import cls from './Select.module.scss'
+import cls from './Select.module.scss';
 import { classNames } from '@/shared';
 import { ChangeEvent, useMemo } from 'react';
 
-export interface SelectOption<T extends string>{
-    value: T,
-    content: T
+export interface SelectOption<T extends string> {
+    value: T;
+    content: T;
 }
 interface SelectProps<T extends string> {
     className?: string;
@@ -12,20 +12,14 @@ interface SelectProps<T extends string> {
     options?: SelectOption<T>[];
     value?: T;
     onChange?: (value: T) => void;
-    readonly?: boolean
+    readonly?: boolean;
 }
 
 export const Select = <T extends string>(props: SelectProps<T>) => {
-    const {
-        className,
-        label,
-        options,
-        value,
-        readonly,
-        onChange } = props;
+    const { className, label, options, value, readonly, onChange } = props;
 
     const optionList = useMemo(() => {
-        return options?.map(opt => {
+        return options?.map((opt) => {
             return (
                 <option
                     className={cls.option}
@@ -34,27 +28,24 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
                 >
                     {opt.content}
                 </option>
-            )
-        })
-    }, [options])
+            );
+        });
+    }, [options]);
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value as T)
-    }
+        onChange?.(e.target.value as T);
+    };
     return (
-        <div
-            className={classNames(cls.Wrapper, {}, [className])}
-        >
-            {label && (
-                <span className={cls.Label}>{label}</span>
-            )}
+        <div className={classNames(cls.Wrapper, {}, [className])}>
+            {label && <span className={cls.Label}>{label}</span>}
             <select
                 className={cls.Select}
                 value={value}
                 disabled={readonly}
-                onChange={onChangeHandler}>
+                onChange={onChangeHandler}
+            >
                 {optionList}
             </select>
         </div>
-    )
+    );
 };

@@ -10,22 +10,29 @@ export default {
         backgroundColor: { control: 'color' },
     },
     decorators: [
-        (Story) => <div style={{padding: '150px'}}><Story /></div>
-    ]
+        (Story) => (
+            <div style={{ padding: '150px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as ComponentMeta<typeof ListBox>;
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args}
-/>
+const Template: ComponentStory<typeof ListBox> = (args) => (
+    <ListBox {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
     items: [
         {
-            content: 'weqweqwe', value: 'wdweweqwe'
+            content: 'weqweqwe',
+            value: 'wdweweqwe',
         },
         {
-            content: 'weqweqdewwewe', value: 'wdwewwrereqwe'
+            content: 'weqweqdewwewe',
+            value: 'wdwewwrereqwe',
         },
-    ]
+    ],
 };
 
 export const topLeft = Template.bind({});
@@ -34,12 +41,14 @@ topLeft.args = {
     value: '123',
     items: [
         {
-            content: 'weqweqwe', value: 'wdweweqwe'
+            content: 'weqweqwe',
+            value: 'wdweweqwe',
         },
         {
-            content: 'weqweqdewwewe', value: 'wdwewwrereqwe'
+            content: 'weqweqdewwewe',
+            value: 'wdwewwrereqwe',
         },
-    ]
+    ],
 };
 export const bottomLeft = Template.bind({});
 bottomLeft.args = {
@@ -47,12 +56,14 @@ bottomLeft.args = {
     value: '123',
     items: [
         {
-            content: 'weqweqwe', value: 'wdweweqwe'
+            content: 'weqweqwe',
+            value: 'wdweweqwe',
         },
         {
-            content: 'weqweqdewwewe', value: 'wdwewwrereqwe'
+            content: 'weqweqdewwewe',
+            value: 'wdwewwrereqwe',
         },
-    ]
+    ],
 };
 
 export const topRight = Template.bind({});
@@ -61,12 +72,14 @@ topRight.args = {
     value: '123',
     items: [
         {
-            content: 'weqweqwe', value: 'wdweweqwe'
+            content: 'weqweqwe',
+            value: 'wdweweqwe',
         },
         {
-            content: 'weqweqdewwewe', value: 'wdwewwrereqwe'
+            content: 'weqweqdewwewe',
+            value: 'wdwewwrereqwe',
         },
-    ]
+    ],
 };
 export const bottomRight = Template.bind({});
 bottomRight.args = {
@@ -74,10 +87,12 @@ bottomRight.args = {
     value: '123',
     items: [
         {
-            content: 'weqweqwe', value: 'wdweweqwe'
+            content: 'weqweqwe',
+            value: 'wdweweqwe',
         },
         {
-            content: 'weqweqdewwewe', value: 'wdwewwrereqwe'
+            content: 'weqweqdewwewe',
+            value: 'wdwewwrereqwe',
         },
-    ]
+    ],
 };

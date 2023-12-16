@@ -1,30 +1,27 @@
-import { Fragment, ReactNode, useState } from 'react'
-import { Listbox as HListbox} from '@headlessui/react';
+import { Fragment, ReactNode, useState } from 'react';
+import { Listbox as HListbox } from '@headlessui/react';
 import cls from './ListBox.module.scss';
-import popupCls from '../../styles/popup.module.scss'
+import popupCls from '../../styles/popup.module.scss';
 import { AppButton, classNames } from '@/shared';
 import { HStack } from '../../../Stack/HStack/HStack';
 import { DropDownDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../styles/consts';
 
 export interface ListBoxItem {
-    value?: string,
-    content?: ReactNode,
-    disabled?: boolean
+    value?: string;
+    content?: ReactNode;
+    disabled?: boolean;
 }
 
-
-
 interface ListBoxProps {
-    items?: ListBoxItem[],
-    className?: string,
-    value?: string,
-    defaultValue?: string,
-    onChange: <T extends string>(value: T) => void
-    readonly?: boolean
-    direction?: DropDownDirection
-    label?: string
-
+    items?: ListBoxItem[];
+    className?: string;
+    value?: string;
+    defaultValue?: string;
+    onChange: <T extends string>(value: T) => void;
+    readonly?: boolean;
+    direction?: DropDownDirection;
+    label?: string;
 }
 const people = [
     { id: 1, name: 'Durward Reynolds', unavailable: false },
@@ -32,10 +29,9 @@ const people = [
     { id: 3, name: 'Therese Wunsch', unavailable: false },
     { id: 4, name: 'Benedict Kessler', unavailable: true },
     { id: 5, name: 'Katelyn Rohan', unavailable: false },
-]
+];
 
-
-export const  ListBox = ( props : ListBoxProps) => {
+export const ListBox = (props: ListBoxProps) => {
     const {
         value,
         defaultValue,
@@ -44,37 +40,36 @@ export const  ListBox = ( props : ListBoxProps) => {
         className,
         readonly,
         direction = 'bottom right',
-        label
+        label,
+    } = props;
+    const [selectedPerson, setSelectedPerson] = useState(people[0]);
 
-    } = props
-    const [selectedPerson, setSelectedPerson] = useState(people[0])
-
-
-    const optionClasses = [mapDirectionClass[direction]]
+    const optionClasses = [mapDirectionClass[direction]];
     return (
         <HStack gap={'4'}>
-            { label && <span>{label}</span>}
-            <HListbox 
-                as='div'
+            {label && <span>{label}</span>}
+            <HListbox
+                as="div"
                 disabled={readonly}
-                className={classNames(popupCls.popup, {}, [className, popupCls.popup])} 
-                value={value} 
-                onChange={onChange}>
-
-                <HListbox.Button 
-                    as='div'
-                    className={popupCls.trigger} 
-                    // disabled={readonly} 
+                className={classNames(popupCls.popup, {}, [
+                    className,
+                    popupCls.popup,
+                ])}
+                value={value}
+                onChange={onChange}
+            >
+                <HListbox.Button
+                    as="div"
+                    className={popupCls.trigger}
+                    // disabled={readonly}
                 >
-                    <AppButton
-                        disabled={readonly} fullWidth={null}                    >
+                    <AppButton disabled={readonly} fullWidth={null}>
                         {value ?? defaultValue}
-
                     </AppButton>
                 </HListbox.Button>
-           
+
                 <HListbox.Options
-                    className={classNames(cls.options, {}, optionClasses)}   
+                    className={classNames(cls.options, {}, optionClasses)}
                 >
                     {items?.map((item) => (
                         <HListbox.Option
@@ -84,8 +79,11 @@ export const  ListBox = ( props : ListBoxProps) => {
                             as={Fragment}
                         >
                             {({ active, selected }) => (
-                                <li className={classNames(cls.item, {[popupCls.active]: active, 
-                                    [cls.unavailable]: item.disabled}, )} 
+                                <li
+                                    className={classNames(cls.item, {
+                                        [popupCls.active]: active,
+                                        [cls.unavailable]: item.disabled,
+                                    })}
                                 >
                                     {selected && '!!!'}
                                     {item.value}
@@ -96,5 +94,5 @@ export const  ListBox = ( props : ListBoxProps) => {
                 </HListbox.Options>
             </HListbox>
         </HStack>
-    )
-}
+    );
+};

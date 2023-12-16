@@ -5,38 +5,43 @@ import { ArticleType } from '@/entities/Article';
 interface ArticleTypeTabsProps {
     className?: string;
     value: ArticleType;
-    onChangeType: (type: ArticleType) => void
+    onChangeType: (type: ArticleType) => void;
 }
-
 
 export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
     const { className, value, onChangeType } = props;
 
-    const typeTabs = useMemo<TabItem[]>(() => [
-        {
-            value: ArticleType.FRONTEND,
-            content: 'FRONTEND'
-        },
-        {
-            value: ArticleType.IT,
-            content: 'IT'
-        },
-        {
-            value: ArticleType.WEB,
-            content: 'WEB'
-        },
-    ], [])
-      
-    const onChangeTypeHandler = useCallback( (tab: TabItem) => {
-        onChangeType(tab.value as ArticleType)
-    }, [onChangeType])
+    const typeTabs = useMemo<TabItem[]>(
+        () => [
+            {
+                value: ArticleType.FRONTEND,
+                content: 'FRONTEND',
+            },
+            {
+                value: ArticleType.IT,
+                content: 'IT',
+            },
+            {
+                value: ArticleType.WEB,
+                content: 'WEB',
+            },
+        ],
+        [],
+    );
 
-    return ( 
-        <Tabs 
+    const onChangeTypeHandler = useCallback(
+        (tab: TabItem) => {
+            onChangeType(tab.value as ArticleType);
+        },
+        [onChangeType],
+    );
+
+    return (
+        <Tabs
             tabs={typeTabs}
-            value={value} 
-            onTabClick={onChangeTypeHandler} 
-            className={className}/>
-    )
+            value={value}
+            onTabClick={onChangeTypeHandler}
+            className={className}
+        />
+    );
 });
-

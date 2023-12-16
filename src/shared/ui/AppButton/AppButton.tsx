@@ -8,17 +8,16 @@ export enum AppButtonTheme {
     OUTLINE_RED = 'outlineRed',
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'backgroundInverted',
-    CLEAR_INVERTED = 'clearInverted'
-    
+    CLEAR_INVERTED = 'clearInverted',
 }
 
 export enum AppButtonSize {
     M = 'size_m',
     L = 'size_l',
-    XL = 'size_xl'
+    XL = 'size_xl',
 }
 
-interface AppButtonType extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface AppButtonType extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     buttonTheme?: AppButtonTheme;
     square?: boolean;
@@ -27,8 +26,8 @@ interface AppButtonType extends ButtonHTMLAttributes<HTMLButtonElement>{
     fullWidth: boolean | null;
 }
 
-export const AppButton: FC<AppButtonType> = memo(( props ) => {
-    const { 
+export const AppButton: FC<AppButtonType> = memo((props) => {
+    const {
         className,
         /**
          * Содержимое кнопки
@@ -56,22 +55,24 @@ export const AppButton: FC<AppButtonType> = memo(( props ) => {
         fullWidth,
         ...otherProps
     } = props;
-    
+
     const mods: Mods = {
-        [cls.square] : square,
+        [cls.square]: square,
         [cls.disabled]: disabled,
         [cls.fullwidth]: fullWidth,
-    }
+    };
     return (
-        <button 
-            type='button'
-            className={
-                classNames(cls.AppButton, mods,
-                    [className, cls[buttonTheme], cls[size]])} 
+        <button
+            type="button"
+            className={classNames(cls.AppButton, mods, [
+                className,
+                cls[buttonTheme],
+                cls[size],
+            ])}
             disabled={disabled}
             {...otherProps}
         >
             {children}
         </button>
-    )
+    );
 });

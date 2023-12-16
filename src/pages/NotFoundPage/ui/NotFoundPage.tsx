@@ -1,19 +1,22 @@
-import { memo } from "react";
-import { useTranslation } from "react-i18next";
-import { classNames } from "@/shared";
-import { Page } from "@/widgets";
-import cls from './NotFoundPage.module.scss'
+import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared';
+import { Page } from '@/widgets';
+import cls from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {
-    className?: string
+    className?: string;
 }
 
-export const NotFoundPage = memo(( props: NotFoundPageProps) => {
+export const NotFoundPage = memo((props: NotFoundPageProps) => {
     const { t } = useTranslation();
     const { className } = props;
     return (
-        <Page data-testid='NotFoundPage' className={classNames(cls.notFoundPage, {}, [className])}>
-            { t( 'Страница не найдена' )}
+        <Page
+            data-testid="NotFoundPage"
+            className={classNames(cls.notFoundPage, {}, [className])}
+        >
+            {t('Страница не найдена')}
         </Page>
-    )
+    );
 });

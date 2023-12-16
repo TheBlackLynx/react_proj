@@ -1,15 +1,15 @@
-import  './Loader.module.scss';
-import {classNames} from '../../lib/classNames/classNames';
+import './Loader.module.scss';
+import { classNames } from '../../lib/classNames/classNames';
 import { memo } from 'react';
 
 interface LoaderProps {
-   className?: string;
+    className?: string;
 }
 
-export const Loader = memo(( props: LoaderProps ) => {
+export const Loader = memo((props: LoaderProps) => {
     const { className } = props;
     return (
-        <div className={classNames("lds-roller", {}, [className])}>
+        <div className={classNames('lds-roller', {}, [className])}>
             <div />
             <div />
             <div />
@@ -19,5 +19,5 @@ export const Loader = memo(( props: LoaderProps ) => {
             <div />
             <div />
         </div>
-    )
+    );
 });

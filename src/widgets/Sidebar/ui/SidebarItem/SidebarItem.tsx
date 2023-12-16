@@ -1,43 +1,39 @@
-import { getUserAuthData } from "@/entities/User";
-import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
-import { AppLink } from "@/shared";
-import { AppLinkTheme } from "@/shared/ui/AppLink";
-import { SidebarItemType } from "../../model/types/sidebar";
-import cls from './SidebarItem.module.scss'
-import { useUserAuthData } from "@/entities/User/model/selectors/getUserAuthData/getUserAuthData";
+import { getUserAuthData } from '@/entities/User';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { AppLink } from '@/shared';
+import { AppLinkTheme } from '@/shared/ui/AppLink';
+import { SidebarItemType } from '../../model/types/sidebar';
+import cls from './SidebarItem.module.scss';
+import { useUserAuthData } from '@/entities/User/model/selectors/getUserAuthData/getUserAuthData';
 interface SidebarItemProps {
-    item: SidebarItemType,
-    collapsed: boolean
+    item: SidebarItemType;
+    collapsed: boolean;
 }
 export const SidebarItem = (props: SidebarItemProps) => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const { collapsed, item } = props;
     const isAuth = useUserAuthData();
 
-    if (item.authOnly && !isAuth)
-    {
+    if (item.authOnly && !isAuth) {
         return null;
     }
 
     return (
         <div className={cls.item}>
-            {
-                collapsed ?
-                    <AppLink 
-                        to={item.path}  
-                    >
-                        <item.icon className={cls.icon} />
-                    </AppLink>
-                    :
-                    <AppLink 
-                        to={item.path} 
-                        theme={AppLinkTheme.PRIMARY} 
-                        className={cls.linkItem}
-                    >
-                        {item.text}
-                    </AppLink>
-            }
+            {collapsed ? (
+                <AppLink to={item.path}>
+                    <item.icon className={cls.icon} />
+                </AppLink>
+            ) : (
+                <AppLink
+                    to={item.path}
+                    theme={AppLinkTheme.PRIMARY}
+                    className={cls.linkItem}
+                >
+                    {item.text}
+                </AppLink>
+            )}
         </div>
     );
-}
+};

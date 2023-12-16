@@ -1,5 +1,3 @@
 import { Page } from './Page/ui/Page';
 
-export {
-    Page
-}
+export { Page };

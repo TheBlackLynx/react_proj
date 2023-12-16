@@ -1,9 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from 
-    '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import {AvatarDropDown} from './AvatarDropDown';
+import { AvatarDropDown } from './AvatarDropDown';
 import { Theme } from '@/shared/const/theme';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -14,22 +13,22 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof AvatarDropDown>;
-const Template: 
-ComponentStory<typeof AvatarDropDown> = (args) => <AvatarDropDown />;
+const Template: ComponentStory<typeof AvatarDropDown> = (args) => (
+    <AvatarDropDown />
+);
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            id: '1'
-        } 
-    }
-   
-   
-})]
-
+Light.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                id: '1',
+            },
+        },
+    }),
+];
 
 export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 Dark.args = {};

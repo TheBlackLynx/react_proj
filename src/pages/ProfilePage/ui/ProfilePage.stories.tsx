@@ -15,45 +15,50 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof ProfilePage>;
-const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage/>;
-
+const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 export const ReadOnly = Template.bind({});
-ReadOnly.decorators = [StoreDecorator({
-    profile: {  error: 'ERROR' },
-})]
+ReadOnly.decorators = [
+    StoreDecorator({
+        profile: { error: 'ERROR' },
+    }),
+];
 ReadOnly.args = {};
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-    profile: {
-        form: {
-            first: "Marica",
-            last: "Sav",
-            age: 32,
-            currency: Currency.EUR,
-            country: Country.RU,
-            username: "",
-            avatar: "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"   
-        }
-    },
-})]
+Light.decorators = [
+    StoreDecorator({
+        profile: {
+            form: {
+                first: 'Marica',
+                last: 'Sav',
+                age: 32,
+                currency: Currency.EUR,
+                country: Country.RU,
+                username: '',
+                avatar: 'https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif',
+            },
+        },
+    }),
+];
 Light.args = {};
 
 export const Dark = Template.bind({});
-Dark.decorators = [StoreDecorator({
-    profile: {
-        form: {
-            first: "Marica",
-            last: "Sav",
-            age: 32,
-            currency: Currency.EUR,
-            country: Country.RU,
-            username: "",
-            avatar: "https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif"
-    
-        }
-    },
-}), ThemeDecorator(Theme.DARK)]
+Dark.decorators = [
+    StoreDecorator({
+        profile: {
+            form: {
+                first: 'Marica',
+                last: 'Sav',
+                age: 32,
+                currency: Currency.EUR,
+                country: Country.RU,
+                username: '',
+                avatar: 'https://avatarko.ru/img/avatar/27/multfilm_animaciya_26814.gif',
+            },
+        },
+    }),
+    ThemeDecorator(Theme.DARK),
+];
 Dark.args = {};

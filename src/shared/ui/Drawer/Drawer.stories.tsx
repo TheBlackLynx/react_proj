@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Drawer } from './Drawer';
 
-
 export default {
     title: 'shared/ui/Drawer',
     component: Drawer,
@@ -16,7 +15,7 @@ Open.args = {
     className: null,
     children: <div>testtest</div>,
     isOpen: true,
-    onClose: null
+    onClose: null,
 };
 
 export const Close = Template.bind({});
@@ -24,5 +23,5 @@ Close.args = {
     className: null,
     children: <div>testtest</div>,
     isOpen: false,
-    onClose: null
+    onClose: null,
 };

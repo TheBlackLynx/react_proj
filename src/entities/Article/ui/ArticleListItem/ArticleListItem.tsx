@@ -1,6 +1,6 @@
-import { ArticleBlockType, ArticleView } from "../../model/consts/consts";
-import { Article, ArticleTextBlock } from "../../model/types/article";
-import { HTMLAttributeAnchorTarget, memo } from "react";
+import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
+import { Article, ArticleTextBlock } from '../../model/types/article';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import {
     AppButton,
     AppButtonTheme,
@@ -11,24 +11,24 @@ import {
     Icon,
     Text,
     TextSize,
-} from "@/shared";
-import { ARTICLE_LIST_ITEM_INDEX } from "@/shared/const/localstogare";
-import { useHover } from "@/shared/lib/hooks/useHover";
+} from '@/shared';
+import { ARTICLE_LIST_ITEM_INDEX } from '@/shared/const/localstogare';
+import { useHover } from '@/shared/lib/hooks/useHover';
 
-import EyeIcon from "../../../../shared/assets/icons/eye-20-20.svg";
-import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import cls from "./ArticleListItem.module.scss";
-import { getRouteArticleDetails } from "@/shared/const/router";
-import { AppImage } from "@/shared/ui/AppImage";
-import { Skeleton } from "@/shared/ui/Skeleton";
-import { TextTheme } from "@/shared/ui/Text";
+import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import cls from './ArticleListItem.module.scss';
+import { getRouteArticleDetails } from '@/shared/const/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { TextTheme } from '@/shared/ui/Text';
 
 interface ArticleListItemProps {
-  className?: string;
-  article: Article;
-  view?: ArticleView;
-  target?: HTMLAttributeAnchorTarget;
-  index?: number;
+    className?: string;
+    article: Article;
+    view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
+    index?: number;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -44,12 +44,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             (block) => block.type === ArticleBlockType.TEXT,
         ) as ArticleTextBlock;
         return (
-        // @ts-ignore
+            // @ts-ignore
             <div
                 {...bindHover}
                 className={classNames(cls.ArticleListItem, {}, [
                     className,
-                    cls[view ? view : ""],
+                    cls[view ? view : ''],
                 ])}
             >
                 <Card className={cls.Card}>
@@ -59,12 +59,18 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         <Text text={article.createdAt} className={cls.Date} />
                     </div>
                     <Text title={article.title} className={cls.title} />
-                    <Text text={article.type.join(",")} className={cls.types} />
+                    <Text text={article.type.join(',')} className={cls.types} />
                     <AppImage
                         errorFallBack={
-                            <Text theme={TextTheme.ERROR} text="Изображение не найдено" />}
-                        fallback={<Skeleton width={'100%'} height={250} />} 
-                        src={article.img} alt="" className={cls.image} 
+                            <Text
+                                theme={TextTheme.ERROR}
+                                text="Изображение не найдено"
+                            />
+                        }
+                        fallback={<Skeleton width={'100%'} height={250} />}
+                        src={article.img}
+                        alt=""
+                        className={cls.image}
                     />
 
                     {textBlock && (
@@ -75,7 +81,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     )}
 
                     <div className={cls.footer}>
-                        <AppLink target={target} to={getRouteArticleDetails(article.id)}>
+                        <AppLink
+                            target={target}
+                            to={getRouteArticleDetails(article.id)}
+                        >
                             <AppButton
                                 buttonTheme={AppButtonTheme.OUTLINE}
                                 onClick={handleButtonClick}
@@ -98,29 +107,39 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         );
     } else {
         return (
-        // @ts-ignore
+            // @ts-ignore
             <AppLink
                 {...bindHover}
                 target={target}
                 to={getRouteArticleDetails(article.id)}
-                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+                className={classNames(cls.ArticleListItem, {}, [
+                    className,
+                    cls[view],
+                ])}
             >
                 <Card>
                     <div className={cls.imgWrapper}>
                         <AppImage
                             errorFallBack={
-                                <Text theme={TextTheme.ERROR} text="Изображение не найдено" />}
-                            fallback={<Skeleton width={200} height={200}/>}
+                                <Text
+                                    theme={TextTheme.ERROR}
+                                    text="Изображение не найдено"
+                                />
+                            }
+                            fallback={<Skeleton width={200} height={200} />}
                             src={article.img}
-                            alt="" className={cls.image} 
+                            alt=""
+                            className={cls.image}
                         />
                         <Text
                             text={article.createdAt}
                             className={cls.date}
-                            size={TextSize.S} /></div>
+                            size={TextSize.S}
+                        />
+                    </div>
                     <div className={cls.infoWrapper}>
                         <Text
-                            text={article.type.join(",")}
+                            text={article.type.join(',')}
                             className={cls.types}
                             size={TextSize.S}
                         />

@@ -1,8 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from 
-    '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Input } from './Input';
 import { Theme } from '@/shared/const/theme';
 
@@ -17,17 +16,12 @@ export default {
 } as ComponentMeta<typeof Input>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: 
-ComponentStory<typeof Input> = (args) => <Input {...args} />;
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const Primary = Template.bind({});
-Primary.decorators = [ThemeDecorator(Theme.DARK)]
+Primary.decorators = [ThemeDecorator(Theme.DARK)];
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
     placeholder: 'username',
-    value: 'text'
+    value: 'text',
 };
-
-
-
-

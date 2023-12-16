@@ -4,26 +4,29 @@ import { HTMLAttributes, memo, ReactNode } from 'react';
 
 export enum CardTheme {
     NORMAL = 'normal',
-    OUTLINED = 'outlined'
+    OUTLINED = 'outlined',
 }
 
-interface CardProps extends HTMLAttributes<HTMLDivElement>{
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
     children: ReactNode;
     className?: string;
-    theme?: CardTheme
+    theme?: CardTheme;
 }
 
 export const Card = memo((props: CardProps) => {
-    const { className, 
-        children, 
+    const {
+        className,
+        children,
         theme = CardTheme.NORMAL,
-        ...otherProps } = props;
-
+        ...otherProps
+    } = props;
 
     return (
-        <div className={classNames(cls.Card, {}, [className, cls[theme]])}
-            {...otherProps} >
+        <div
+            className={classNames(cls.Card, {}, [className, cls[theme]])}
+            {...otherProps}
+        >
             {children}
         </div>
-    )
+    );
 });

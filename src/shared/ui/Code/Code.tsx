@@ -1,7 +1,7 @@
 import cls from './Code.module.scss';
 import { memo, useCallback } from 'react';
 import { AppButton, classNames, Icon } from '@/shared';
-import CopyIcon from '../../../shared/assets/icons/copy.svg'
+import CopyIcon from '../../../shared/assets/icons/copy.svg';
 import { AppButtonTheme } from '../AppButton/AppButton';
 
 interface CodeProps {
@@ -14,21 +14,20 @@ export const Code = memo((props: CodeProps) => {
 
     const onCopy = useCallback(() => {
         navigator.clipboard.writeText(text);
-    }, [text])
+    }, [text]);
     return (
         <pre>
             <div className={classNames(cls.Code, {}, [className])}>
-                <AppButton 
+                <AppButton
                     className={cls.copyBtn}
                     buttonTheme={AppButtonTheme.CLEAR}
-                    onClick={onCopy} fullWidth={null}>
-                    <Icon Svg={CopyIcon} className={cls.icon}/>
+                    onClick={onCopy}
+                    fullWidth={null}
+                >
+                    <Icon Svg={CopyIcon} className={cls.icon} />
                 </AppButton>
-                <code >
-                    {text}
-                </code>
+                <code>{text}</code>
             </div>
         </pre>
-
-    )
+    );
 });

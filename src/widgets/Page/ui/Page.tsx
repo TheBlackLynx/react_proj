@@ -1,6 +1,6 @@
-import {classNames} from '@/shared';
+import { classNames } from '@/shared';
 import { MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
-import cls from './Page.module.scss'
+import cls from './Page.module.scss';
 import { UseInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getScrollPositionByPath, scrollActions } from '@/features/ScrollSave';
@@ -12,49 +12,53 @@ import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import { TestProps } from '@/shared/types/test';
 
 interface PageProps extends TestProps {
-   className?: string;
-   children: ReactNode;
-   onScrollEnd?: () => void;
+    className?: string;
+    children?: ReactNode;
+    onScrollEnd?: () => void;
 }
-const PAGE_ID = 'page-id'
+const PAGE_ID = 'page-id';
 
-export const Page = ( props: PageProps ) => {
+export const Page = (props: PageProps) => {
     const { className, children, onScrollEnd } = props;
-    const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
-    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
+    const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
-    const {pathname} = useLocation();
-    const scrollPos = useSelector((state: StateSchema) => getScrollPositionByPath(state, pathname))
+    const { pathname } = useLocation();
+    const scrollPos = useSelector((state: StateSchema) =>
+        getScrollPositionByPath(state, pathname),
+    );
 
     UseInfiniteScroll({
         triggerRef,
-        wrapperRef, 
-        callback: onScrollEnd
-    })
+        wrapperRef,
+        callback: onScrollEnd,
+    });
 
     useInitialEffect(() => {
-        wrapperRef.current.scrollTop = scrollPos
-    })
+        wrapperRef.current.scrollTop = scrollPos;
+    });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(scrollActions.setScrollPositiont({
-            path: pathname,
-            position: e.currentTarget.scrollTop
-        }))
+        dispatch(
+            scrollActions.setScrollPositiont({
+                path: pathname,
+                position: e.currentTarget.scrollTop,
+            }),
+        );
         console.log('scroll', e.currentTarget.scrollTop);
-        
-    }, 1000)
+    }, 1000);
     return (
-        <section 
-            ref={wrapperRef} 
+        <section
+            ref={wrapperRef}
             className={classNames(cls.Page, {}, [className])}
             onScroll={onScroll}
             id={PAGE_ID}
             data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
-            { onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
+            {onScrollEnd ? (
+                <div className={cls.trigger} ref={triggerRef} />
+            ) : null}
         </section>
-       
-    )
+    );
 };

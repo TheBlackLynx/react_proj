@@ -1,19 +1,19 @@
-import { StateSchema } from "@/app/providers/StoreProvider"
-import { getProfileFirstName } from "./getProfileFirstName"
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { getProfileFirstName } from './getProfileFirstName';
 
 describe('getProfileCurrency', () => {
     test('should return value ', () => {
-        const state: DeepPartial<StateSchema>  = {
+        const state: DeepPartial<StateSchema> = {
             profile: {
                 data: {
-                    first: 'Marica'
-                }
-            }
-        }
-        expect(getProfileFirstName(state as StateSchema)).toEqual('Marica')
-    })
+                    first: 'Marica',
+                },
+            },
+        };
+        expect(getProfileFirstName(state as StateSchema)).toEqual('Marica');
+    });
     test('value with empty state', () => {
-        const state: DeepPartial<StateSchema>  = {}
-        expect(getProfileFirstName(state as StateSchema)).toEqual('')
-    })
-})
+        const state: DeepPartial<StateSchema> = {};
+        expect(getProfileFirstName(state as StateSchema)).toEqual('');
+    });
+});

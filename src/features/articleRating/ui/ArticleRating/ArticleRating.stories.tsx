@@ -10,22 +10,25 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [withMock]
+    decorators: [withMock],
 } as ComponentMeta<typeof ArticleRating>;
-const Template: 
-ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args}/>;
+const Template: ComponentStory<typeof ArticleRating> = (args) => (
+    <ArticleRating {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {
-    articleId: '1'
+    articleId: '1',
 };
-Light.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            id: '1'
-        }
-    }
-})]
+Light.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                id: '1',
+            },
+        },
+    }),
+];
 
 Light.parameters = {
     mockData: [
@@ -35,11 +38,9 @@ Light.parameters = {
             status: 200,
             response: [
                 {
-                    rate: 4
-                }
-            ]
+                    rate: 4,
+                },
+            ],
         },
-    ]
-}
-
-
+    ],
+};

@@ -2,10 +2,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import cls from './NotificationButton.module.scss';
 import { memo, useCallback, useState } from 'react';
-import { PopoverCustom }  from '@/shared/ui/Popups';
+import { PopoverCustom } from '@/shared/ui/Popups';
 import { AppButton, AppButtonTheme, HStack, Icon } from '@/shared';
 import { NotificationList } from '@/entities/Notification';
-import Notification from '@/shared/assets/icons/Notification.svg'
+import Notification from '@/shared/assets/icons/Notification.svg';
 import { Drawer } from '@/shared/ui/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
 
@@ -16,37 +16,45 @@ interface NotificationButtonProps {
 export const NotificationButton = memo((props: NotificationButtonProps) => {
     const { className } = props;
     const { t } = useTranslation();
-    const [isOpen, isOpenHandler ]  = useState(false);
+    const [isOpen, isOpenHandler] = useState(false);
 
     const onOpenDrawer = useCallback(() => {
-        isOpenHandler(true)
-    }, [isOpenHandler])
+        isOpenHandler(true);
+    }, [isOpenHandler]);
 
     const onCloseDrawer = useCallback(() => {
-        isOpenHandler(false)
-    }, [isOpenHandler])
-    
+        isOpenHandler(false);
+    }, [isOpenHandler]);
+
     const trigger = (
-        <AppButton buttonTheme={AppButtonTheme.CLEAR} onClick={onOpenDrawer} fullWidth={null}>
-            <Icon Svg={Notification} inverted/>
+        <AppButton
+            buttonTheme={AppButtonTheme.CLEAR}
+            onClick={onOpenDrawer}
+            fullWidth={null}
+        >
+            <Icon Svg={Notification} inverted />
         </AppButton>
-    )
+    );
     return (
         <div className={classNames(cls.NotificationButton, {}, [className])}>
             <BrowserView>
-                <HStack gap={"16"}>
+                <HStack gap={'16'}>
                     <PopoverCustom trigger={trigger} className={cls.actions}>
-                        <NotificationList className={cls.notifications}/>
-                    </PopoverCustom> </HStack>
+                        <NotificationList className={cls.notifications} />
+                    </PopoverCustom>{' '}
+                </HStack>
             </BrowserView>
             <MobileView>
                 {trigger}
-                <Drawer isOpen={isOpen} onClose={onCloseDrawer} className={null} lazy={true}>
-                    <NotificationList className={cls.notifications}/>
+                <Drawer
+                    isOpen={isOpen}
+                    onClose={onCloseDrawer}
+                    className={null}
+                    lazy={true}
+                >
+                    <NotificationList className={cls.notifications} />
                 </Drawer>
             </MobileView>
-           
-            
         </div>
     );
 });

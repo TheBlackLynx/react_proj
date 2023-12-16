@@ -1,77 +1,79 @@
-import cls from './Input.module.scss'
-import React, { 
+import cls from './Input.module.scss';
+import React, {
     FC,
-    InputHTMLAttributes, 
-    memo, 
-    useEffect, 
-    useRef, 
-    useState } from "react";
-import { Mods , classNames } from '@/shared/lib/classNames/classNames';
+    InputHTMLAttributes,
+    memo,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 
-type HTMLInputProps = 
-Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly'
+>;
 
 export interface InputProps extends HTMLInputProps {
-    className?: string,
-    type?: string,
-    value?: string | number,
-    onChange?: (value: string) => void,
-    placeholder?: string,
-    autoFocus?: boolean,
-    readonly?: boolean,
-    'data-testid'?: string
+    className?: string;
+    type?: string;
+    value?: string | number;
+    onChange?: (value: string) => void;
+    placeholder?: string;
+    autoFocus?: boolean;
+    readonly?: boolean;
+    'data-testid'?: string;
 }
 
-
-export const Input:FC<InputProps> = memo((props: InputProps) => {
-    const { 
-        className, 
-        value, 
+export const Input: FC<InputProps> = memo((props: InputProps) => {
+    const {
+        className,
+        value,
         type = 'text',
         onChange,
         placeholder,
         autoFocus,
         readonly,
         'data-testid': dataTestId = 'test',
-        ...otherProps } = props;
+        ...otherProps
+    } = props;
 
     const [isfocused, setIsFocused] = useState(false);
-    const [carriagePosition, setCarriagePosition] = useState(0)
+    const [carriagePosition, setCarriagePosition] = useState(0);
     const ref = useRef<HTMLInputElement>(null);
     useEffect(() => {
-        if(autoFocus){
-            setIsFocused(true)
+        if (autoFocus) {
+            setIsFocused(true);
             ref?.current?.focus();
-            
         }
-    }, [autoFocus])
+    }, [autoFocus]);
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange?.(e.target.value)
-        setCarriagePosition(e.target.value.length)
-    }
+        onChange?.(e.target.value);
+        setCarriagePosition(e.target.value.length);
+    };
 
     const onBlur = () => {
-        setIsFocused(false)
-    }
+        setIsFocused(false);
+    };
     const onFocus = () => {
-        setIsFocused(true)
-    }
+        setIsFocused(true);
+    };
     const onSelect = (e: any) => {
-        setCarriagePosition(e?.target?.selectionStart || 0)
-    }
+        setCarriagePosition(e?.target?.selectionStart || 0);
+    };
 
     const mods: Mods = {
-        [cls.readonly]: readonly
-    }
+        [cls.readonly]: readonly,
+    };
 
     const isCarret = isfocused && !readonly;
     return (
         <div className={classNames(cls.InputWrapper, mods, [className])}>
-            { placeholder && <div className={cls.placeholder}>
-                {`${placeholder} >`}
-            </div>}
+            {placeholder && (
+                <div className={cls.placeholder}>{`${placeholder} >`}</div>
+            )}
             <div className={cls.carriageWrapper}>
-                <input 
+                <input
                     ref={ref}
                     type={type}
                     value={value}
@@ -89,6 +91,5 @@ export const Input:FC<InputProps> = memo((props: InputProps) => {
                     className={cls.carriage}/>} */}
             </div>
         </div>
-        
     );
 });
